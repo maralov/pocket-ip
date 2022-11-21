@@ -1,0 +1,18 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  img {
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: block;
+    object-fit: cover;
+  }
+  span {
+    font-size: rem(12);
+    margin-left: 8px;
+    @include media-breakpoint-up(xxl) {
+      font-size: rem(14);
+    }
+  }
+}

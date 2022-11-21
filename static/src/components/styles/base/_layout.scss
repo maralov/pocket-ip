@@ -1,0 +1,22 @@
+.page-section {
+  padding: rem(40) 0;
+
+  @include media-breakpoint-up(xl) {
+    padding: rem(80) 0;
+  }
+
+  @media screen and (min-width: $media-2xl) {
+    padding: rem(120) 0;
+  }
+
+  &--pt-sm {
+    padding-top: rem(32);
+
+    @include media-breakpoint-up(xxl) {
+      padding: rem(90) 0 0 0;
+    }
+  }
+  &--bg-grey{
+    background-color: $grey-200;
+  }
+}

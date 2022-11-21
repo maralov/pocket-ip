@@ -1,0 +1,34 @@
+.box {
+  padding: rem(20);
+  border-radius: rem(16);
+
+  &--sm {
+    padding: rem(12);
+  }
+  &--md {
+    padding: rem(24);
+  }
+  &--lg {
+    padding: rem(32);
+  }
+  &--white {
+    background-color: $white;
+  }
+  &--red {
+    background-color: $red;
+  }
+  &--radius-sm {
+    border-radius: rem(6);
+  }
+  &--radius-lg {
+    border-radius: rem(24);
+  }
+  &--shadow {
+    box-shadow: $box-shadow;
+  }
+}
+
+
+.box-card {
+
+}

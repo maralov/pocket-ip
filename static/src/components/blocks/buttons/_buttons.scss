@@ -1,0 +1,139 @@
+.btn {
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: transparent;
+  white-space: normal;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: rem(14);
+  font-weight: 500;
+  letter-spacing: .75px;
+
+  @media screen and (max-width: 320px) {
+    font-size: rem(12);
+  }
+}
+
+.btn-close {
+  @extend .btn;
+  width: rem(24);
+  height: rem(24);
+  svg {
+    width: rem(14);
+    height: rem(14);
+  }
+}
+
+.btn-close-white {
+  svg {fill: $white;}
+}
+
+.btn-nav-search {
+  width: 100%;
+  border: 1px solid $grey-100;
+  border-radius: rem(6);
+  font-size: rem(14);
+  color: $grey-500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  height: rem(48);
+  padding-left: rem(16);
+  padding-right: 0;
+  overflow: hidden;
+  flex-shrink: 0;
+  &:after {
+    content: "";
+    width: rem(48);
+    height: 100%;
+    background-image: url("../img/icons/ic-search-2.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+    background-color: $primary;
+    border-radius: rem(6);
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: auto;
+    border: none;
+    border-radius: 0;
+    color: $black;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding-left: rem(0);
+    overflow: hidden;
+    flex-shrink: 0;
+    &:after {
+      background-image: url("../img/icons/ic-search-primary.svg");
+      width: rem(20);
+      height: rem(20);
+      background-size: contain;
+      background-color: transparent;
+      border-radius: rem(0);
+      margin-right: rem(12);
+      order: -1;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      font-size: rem(16);
+    }
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  color: $white;
+  border: 2px solid $primary;
+  border-radius: rem(12);
+  padding: rem(12) rem(22);
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: $primary-hover;
+    border-color: $primary-hover;
+  }
+  @include media-breakpoint-up(xxl) {
+    font-size: rem(16);
+  }
+}
+
+
+.btn-primary-outline {
+  background-color: transparent;
+  color: $primary;
+  border: 2px solid $primary;
+  border-radius: rem(12);
+  padding: rem(12) rem(22);
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: $primary;
+    color: $white;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: rem(16);
+  }
+}
+
+.btn-danger {
+  @extend .btn-primary;
+  background-color: $red;
+  border-color: $red;
+  &:hover {
+    background-color: $red-hover;
+    border-color: $red-hover;
+  }
+}
+
+
+.btn-video {
+  color: $red;
+  @include media-breakpoint-up(xxl) {
+    font-size: rem(20);
+  }
+}

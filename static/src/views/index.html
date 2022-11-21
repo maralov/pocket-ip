@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		@@include("../components/blocks/head/head.html")
+    </head>
+    <body>
+        @@include("../components/blocks/header/header.html")
+		<main>
+			@@include("../components/modules/home-page/banner.html")
+			@@include("../components/modules/home-page/how-it-work.html")
+			@@include("../components/modules/home-page/why-us.html")
+			@@include("../components/modules/home-page/services.html")
+			@@include("../components/blocks/cta-block/cta-block.html", { "text": "Ready to step up your social selling game?", "link": "Start 7-day free trial", })
+			@@include("../components/modules/home-page/stats/stats.html")
+			@@include("../components/blocks/cta-block/cta-block.html", { "text": "Call to action", "link": "Try demo now", })
+			@@include("../components/modules/home-page/roadmap/roadmap.html")
+			@@include("../components/modules/home-page/rows-slider.html", {"title": "Rewards"})
+			@@include("../components/modules/home-page/faq.html")
+			@@include("../components/modules/home-page/rows-slider.html", {"title": "Partners"})
+			@@include("../components/modules/home-page/cases.html")
+			@@include("../components/modules/home-page/prices/prices.html")
+			@@include("../components/modules/home-page/subscribe.html")
+			@@include("../components/modules/home-page/rows-slider.html", {"title": "Still not convinced? Compare us with other tools"})
+			@@include("../components/modules/home-page/blog.html")
+			@@include("../components/blocks/cta-block/cta-block.html", { "text": "Ready to step up your social selling game?", "link": "Start 7-day free trial", })
+			<section class="page-section content">
+				<!-- Секция wp_content для вівода  стандарній блоков гутенберг накидай их сюда, а я застилю-->
+			</section>
+		</main>
+		@@include("../components/blocks/footer/footer.html")
+        <script src="js/vendor.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

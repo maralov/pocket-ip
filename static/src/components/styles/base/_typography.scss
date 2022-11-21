@@ -1,0 +1,149 @@
+h1, h2, h3, h4, h5, h6, ul, p {
+  margin: 0;
+  padding: 0;
+}
+
+h1, .h1 {
+  font-size: rem(26);
+  font-weight: 900;
+  line-height: calc(40 / 28);
+  letter-spacing: .75px;
+    @include media-breakpoint-up(lg) {
+      font-size: rem(44);
+      line-height: 1.25;
+    }
+    @include media-breakpoint-up(xxl) {
+      font-size: rem(50);
+      line-height: 1.4;
+    }
+    @media (min-width: $media-2xl) {
+      font-size: rem(64);
+      line-height: calc(80 / 64);
+    }
+}
+
+h2, .h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: calc(32 / 22);
+  letter-spacing: .75px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: rem(40);
+    line-height: 1.25;
+  }
+  @media (min-width: $media-2xl) {
+    font-size: rem(48);
+    line-height: calc(56 / 48);
+  }
+}
+
+.section-h2 {
+  text-align: left;
+  @include media-breakpoint-up(md) {
+    text-align: center;
+  }
+}
+
+h3, .h3 {
+  font-size: rem(20);
+  font-weight: 700;
+  line-height: calc(24 / 20);
+  letter-spacing: .75px;
+  @include media-breakpoint-up(lg) {
+    font-size: rem(28);
+    line-height: 1.25;
+  }
+  @media (min-width: $media-2xl) {
+    font-size: rem(32);
+    line-height: calc(48 / 32);
+  }
+}
+
+p, .paragraph {
+  font-size: rem(14);
+  font-weight: 400;
+  line-height: calc(20 / 14);
+  @include media-breakpoint-up(xl) {
+    font-size: rem(16);
+    line-height: calc(24 / 16);
+  }
+}
+
+.paragraph-sm {
+  font-size: rem(14);
+  font-weight: 400;
+  line-height: calc(20 / 14);
+}
+
+.paragraph-lg {
+  @include media-breakpoint-up(xl) {
+    font-size: rem(20);
+    line-height: calc(32 / 20);
+  }
+}
+
+.paragraph, .paragraph-sm, .paragraph-lg {
+  margin: 0;
+}
+
+.subtitle-1 {
+  font-size: rem(20);
+  font-weight: 700;
+  line-height: calc(24 / 20);
+  @include media-breakpoint-up(xl) {
+    font-size: rem(24);
+    line-height: calc(32 / 20);
+  }
+}
+
+.subtitle-2 {
+  font-size: rem(16);
+  font-weight: 700;
+  line-height: calc(20 / 16);
+}
+
+.content {
+  h1, h2, h3, h4, h5, h6, ul {
+    margin-bottom: rem(20);
+  }
+  p {
+    margin-bottom: rem(16);
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-md-center, {
+  @include media-breakpoint-up(md) {
+    text-align: center;
+  }
+}
+
+.text-xxl-center, {
+  @include media-breakpoint-up(xxl) {
+    text-align: center;
+  }
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-white {
+  color: $white;
+}
+
+.text-muted {
+    color: $gray-500;
+}
+

@@ -1,0 +1,32 @@
+.container-fluid, .container, .container-xxl {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.container-xxl {
+  @include media-breakpoint-up(xxl) {
+    max-width: 1840px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+
+.container-lg {
+  @include media-breakpoint-up(xxl) {
+    max-width: 1360px;
+
+  }
+}
+
+
+.row-cols-5 {
+  .col {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+

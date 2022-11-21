@@ -1,0 +1,157 @@
+
+.slider {
+  .slick-dotted.slick-slider {
+    margin-bottom: 18px;
+    @include media-breakpoint-down(md) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    @include media-breakpoint-up(md) {
+      justify-content: center;
+    }
+
+    .slick-prev, .slick-next {
+      position: relative;
+      top: 0;
+      right: 0;
+      left: 0;
+      transform: none;
+
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+  &__dots-list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin: 0 16px;
+    @include media-breakpoint-down(md) {
+      margin: 0 18px;
+    }
+
+    li {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      padding: 0 8px;
+      @include media-breakpoint-down(md) {
+        padding: 0 6px;
+      }
+    }
+
+    .slick-active {
+      button {
+        opacity: 1;
+      }
+    }
+
+    button {
+      border: none;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      outline: transparent;
+      white-space: normal;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: $primary;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .slick-arrow {
+    width: 40px;
+    height: 40px;
+    background: url('../img/icons/ic-arrow-primary.svg') no-repeat center center / contain;
+    transition: filter 0.3s ease;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .slick-prev {
+    transform: rotate(180deg);
+  }
+}
+
+.slider-card {
+  .slick-track {
+    display: flex !important; //slick
+    padding: 22px 0;
+  }
+
+  .slick-list {
+    @media (max-width: 600px) {
+      overflow: visible;
+    }
+  }
+
+  .slick-slide {
+    margin: 0 16px;
+    outline: transparent;
+    height: inherit !important;
+
+    & > div {
+      height: 100%;
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      margin: 0 10px;
+    }
+  }
+}
+
+.slider-rows {
+
+  .slick-track {
+    padding: 22px 0;
+    @media (max-width: 600px) {
+      margin-left: -10px;
+    }
+  }
+
+  .slick-list {
+    @media (max-width: 600px) {
+      overflow: visible;
+    }
+  }
+
+  .slick-slide {
+    padding: 0 16px;
+    @media (max-width: 768px) {
+      padding: 0 10px;
+    }
+
+    & > div {
+      &:first-child {
+        margin-bottom: 32px;
+        @media (max-width: 768px) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

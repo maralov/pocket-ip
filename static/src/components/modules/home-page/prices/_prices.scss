@@ -1,0 +1,58 @@
+.pricing-switcher {
+  @extend .paragraph;
+  background: $white;
+  box-shadow: $box-shadow;
+  display: inline-flex;
+  align-items: center;
+  border-radius: rem(64);
+  overflow: hidden;
+  letter-spacing: .75px;
+
+  &__month {
+    padding: rem(10) rem(32) rem(10) rem(16);
+  }
+  &__year {
+    padding: rem(10) rem(16);
+    border-radius: rem(64);
+    color: $white;
+    background-color: $primary;
+    display: flex;
+    align-items: center;
+    margin-left: rem(-16);
+  }
+  &__discount {
+    background-color: $white;
+    color: $primary;
+    padding: rem(4) rem(8);
+    margin-left: rem(12);
+    border-radius: rem(32);
+  }
+}
+
+.pricing-list {
+  padding: 16px 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 24px 0;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @extend .paragraph;
+    li {
+      display: flex;
+      &:before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 8px;
+        background:  url("../img/icons/ic-check-circle.svg")  no-repeat center ;
+      }
+      &:not(:last-child) {
+        margin-bottom: rem(12);
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+.form {
+  form {
+    input:-webkit-autofill {
+      box-shadow: inset 0 0 0 50px #fff !important;
+    }
+    input:invalid {
+      box-shadow: none;
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        font-family: 'HelveticaNow', sans-serif;;
+        font-style: normal;
+        font-weight: normal;
+        font-size: rem(16);
+        color: $grey-500;
+        text-overflow: ellipsis;
+        opacity: 1;
+        line-height: calc(20/16);
+        transition: all 0.3s ease;
+      }
+
+      &:focus {
+        &::placeholder {
+          opacity: 0;
+        }
+      }
+    }
+
+    textarea {
+      resize: none;
+      border: none;
+      background-color: transparent;
+      outline: #fff;
+      width: 100%;
+    }
+
+    input:not([type="submit"]), textarea {
+      background-color: #fff;
+      border: 1px solid $grey-100;
+      border-radius: 12px;
+      outline: $white;
+      padding: rem(14) rem(20);
+      box-sizing: border-box;
+      margin: 0;
+      width: 100%;
+      line-height: 1.3;
+      color: $black;
+      &:focus {
+        border-color: $primary;
+      }
+
+      &.wpcf7-not-valid {
+        border-color: $red;
+      }
+    }
+
+    input[type="submit"] {
+      @extend .btn;
+      @extend .btn-primary;
+    }
+  }
+}
+
+.form-search {
+  form {
+    position: relative;
+
+    input:not([type="submit"]){
+      padding-right: 120px;
+    }
+    input[type="submit"] {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+    }
+  }
+}

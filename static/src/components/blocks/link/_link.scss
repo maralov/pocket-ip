@@ -1,0 +1,26 @@
+.link {
+  color: $primary;
+  font-size: rem(14);
+  line-height: calc(20/14);
+
+  @include media-breakpoint-up(lg) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: rem(16);
+  }
+}
+
+.link-icon {
+  display: flex;
+  align-items: center;
+  svg {
+    margin-left: 8px;
+    path {
+      fill: currentColor;
+    }
+  }
+
+}

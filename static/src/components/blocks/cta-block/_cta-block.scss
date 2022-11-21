@@ -1,0 +1,14 @@
+.cta-block {
+  color: $white;
+  background-color: $primary-bg;
+  border-radius: 12px;
+  padding: 20px;
+
+  @include media-breakpoint-up(lg) {
+    padding: 40px;
+    border-radius: 32px;
+  }
+  @media (min-width: $media-2xl) {
+    padding: 64px 80px;
+  }
+}

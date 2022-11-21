@@ -1,0 +1,37 @@
+.info-panel {
+  background-color: $primary-bg;
+  color: $white;
+  font-size: rem(12);
+  text-align: center;
+  padding: rem(8) 0;
+  position: relative;
+  z-index: 99;
+  &__container{
+    position: relative;
+    @include media-breakpoint-up(lg) {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__text {
+    margin: 0 0 rem(4);
+    opacity: 0.55;
+    @include media-breakpoint-up(lg) {
+      margin: 0;
+    }
+  }
+
+  &__close-btn {
+    position: absolute;
+    right: -11px;
+    top: 0;
+    z-index: 1;
+    @include media-breakpoint-up(lg) {
+      top: -2px;
+      right: 0;
+    }
+  }
+}
