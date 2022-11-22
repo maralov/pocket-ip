@@ -109,6 +109,9 @@ p, .paragraph {
   }
   p {
     margin-bottom: rem(16);
+    @media screen and (min-width: $media-2xl) {
+      margin-bottom: rem(30);
+    }
     &:last-child {
       margin-bottom: 0;
     }

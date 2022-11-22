@@ -1,0 +1,28 @@
+.country-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $grey-300;
+  border-radius: 54px;
+  padding: rem(10) rem(12);
+  font-size: rem(12);
+  gap: rem(8);
+  img {
+    width: rem(20);
+    height: rem(20);
+    @include media-breakpoint-up(xl) {
+      width: rem(24);
+      height: rem(24);
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: rem(14);
+  }
+}
+
+a.country-tag {
+  transition: all ease .2s;
+    &:hover {
+      background: darken($grey-300, 10%);
+    }
+}

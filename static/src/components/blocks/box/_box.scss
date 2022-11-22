@@ -1,7 +1,9 @@
 .box {
   padding: rem(20);
   border-radius: rem(16);
-
+  &--bordered {
+    border: 1px solid $grey-100;
+  }
   &--sm {
     padding: rem(12);
   }
@@ -19,6 +21,9 @@
   }
   &--radius-sm {
     border-radius: rem(6);
+  }
+  &--radius-md {
+    border-radius: rem(16);
   }
   &--radius-lg {
     border-radius: rem(24);
