@@ -22,6 +22,16 @@ h1, .h1 {
     }
 }
 
+.h1-xl {
+  font-size: rem(100);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 2px;
+  @media (min-width: $media-2xl) {
+    font-size: rem(120);
+  }
+}
+
 h2, .h2 {
   font-size: 1.45rem;
   font-weight: 700;
