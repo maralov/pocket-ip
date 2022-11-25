@@ -32,6 +32,7 @@ const requireDir = require("require-dir"),
             public: "../public/assets/js/",
             watch: [
                 "./src/components/blocks/**/*.js",
+                "./src/components/modules/**/*.js",
                 "./src/js/**/*.js"
             ]
         },

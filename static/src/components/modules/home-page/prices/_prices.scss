@@ -1,5 +1,27 @@
+.pricing {
+  &[data-price="year"] {
+    .price-month {
+      display: none;
+    }
+
+    .price-year {
+      display: block;
+    }
+  }
+
+  &[data-price="month"] {
+    .price-year {
+      display: none;
+    }
+    .price-month {
+      display: block;
+    }
+  }
+}
+
 .pricing-switcher {
   @extend .paragraph;
+  position: relative;
   background: $white;
   box-shadow: $box-shadow;
   display: inline-flex;
@@ -8,24 +30,71 @@
   overflow: hidden;
   letter-spacing: .75px;
 
+  &:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+    width: 92px;
+    height: 101%;
+    padding: rem(10) rem(16);
+    border-radius: rem(64);
+    background-color: $primary;
+    transition: all .3s ease;
+  }
+
+  &.month-active {
+    &:before {
+      left: 0;
+    }
+  }
+  &.year-active {
+    &:before {
+      left: 37%;
+      width: 162px;
+    }
+  }
+
   &__month {
     padding: rem(10) rem(32) rem(10) rem(16);
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: all .3s ease;
+    &.is-active {
+      color: $white;
+    }
   }
   &__year {
     padding: rem(10) rem(16);
     border-radius: rem(64);
-    color: $white;
-    background-color: $primary;
+    color: $primary;
     display: flex;
     align-items: center;
     margin-left: rem(-16);
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: all .3s ease;
+    &.is-active {
+      color: $white;
+      .pricing-switcher__discount {
+        background-color: $white;
+        color: $primary;
+      }
+    }
   }
   &__discount {
-    background-color: $white;
-    color: $primary;
+    background-color: $primary;
+    color: $white;
     padding: rem(4) rem(8);
     margin-left: rem(12);
     border-radius: rem(32);
+    position: relative;
+    z-index: 1;
+    transition: all .3s ease;
   }
 }
 
