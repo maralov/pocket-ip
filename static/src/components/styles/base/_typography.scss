@@ -114,16 +114,17 @@ p, .paragraph {
 }
 
 .content {
-  h1, h2, h3, h4, h5, h6, ul {
-    margin-bottom: rem(20);
+  h1, h2, h3, h4, h5, h6, ul, ol {
+    margin-bottom: rem(16);
   }
   p {
+    min-height: 1px;
     margin-bottom: rem(16);
-    @media screen and (min-width: $media-2xl) {
+    @include media-breakpoint-up(xl) {
       margin-bottom: rem(30);
     }
-    &:last-child {
-      margin-bottom: 0;
+    @media screen and (min-width: $media-2xl) {
+      margin-bottom: rem(40);
     }
   }
 }

@@ -68,8 +68,9 @@
     //@media (min-width: 1232px) {
     //  margin-left: rem(20);
     //}
-    @media (min-width: $media-2xl) {
+    @include media-breakpoint-up(xxl) {
       margin-left: rem(64);
+      margin-right: auto;
     }
     & > ul  {
       overflow-y: scroll;
