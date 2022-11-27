@@ -1,12 +1,22 @@
 .country-tag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: $grey-300;
   border-radius: 54px;
-  padding: rem(10) rem(12);
-  font-size: rem(12);
-  gap: rem(8);
+
+  &:nth-child(n+5) {
+    display: none;
+
+    &.country-tag--visible {
+      display: inline-flex;
+    }
+  }
+
+  &--visible {
+    display: inline-flex;
+  }
+
   img {
     width: rem(20);
     height: rem(20);
@@ -15,8 +25,30 @@
       height: rem(24);
     }
   }
-  @include media-breakpoint-up(xl) {
-    font-size: rem(14);
+
+  &--sm {
+    padding: rem(10) rem(12);
+    font-size: rem(12);
+    gap: rem(8);
+
+    @include media-breakpoint-up(xl) {
+      font-size: rem(14);
+    }
+  }
+
+  &--lg {
+    padding: rem(12);
+    font-size: rem(12);
+    gap: rem(8);
+
+    @include media-breakpoint-up(xl) {
+      font-size: rem(14);
+    }
+    @include media-breakpoint-up(xxl) {
+      font-size: rem(20);
+      padding: rem(16) rem(24);
+      gap: rem(12);
+    }
   }
 }
 

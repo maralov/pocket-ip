@@ -11,11 +11,34 @@
 @import "footer/footer";
 @import "main-logo/main-logo";
 @import "breadcrums/breadcrums";
-@import "country-tag/country-tag";
+@import "country-tag/index";
 
 
 .award {
   img {
     max-height: 120px;
+  }
+}
+
+.list {
+  padding: rem(4) 0;
+  margin: 0;
+  list-style: none;
+  font-size: rem(20);
+  line-height: calc(32 / 20);
+
+  a {
+    display: block;
+    padding: rem(16) 0;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  &-divider {
+    li:not(:last-child) {
+      border-bottom: 1px solid $grey-100;
+    }
   }
 }

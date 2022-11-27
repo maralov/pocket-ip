@@ -1,0 +1,29 @@
+.country-tag-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $primary;
+  border-radius: 54px;
+  color: $white;
+  padding: rem(12);
+  font-size: rem(12);
+  gap: rem(8);
+
+  span {
+    line-height: 1;
+    @include media-breakpoint-up(xl) {
+      font-size: rem(20);
+    }
+    @include media-breakpoint-up(xxl) {
+      font-size: rem(26);
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: rem(14);
+  }
+  @include media-breakpoint-up(xxl) {
+    font-size: rem(20);
+    padding: rem(16) rem(24);
+  }
+}
