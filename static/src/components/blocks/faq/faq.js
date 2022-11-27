@@ -1,7 +1,7 @@
 import {Collapse} from "bootstrap";
 
-
-new Collapse("#faq-according", {
-    toggle: false
-});
-
+if (document.querySelector("#faq-according")) {
+    new Collapse("#faq-according", {
+        toggle: false
+    });
+}

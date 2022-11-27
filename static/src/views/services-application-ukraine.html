@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@@include("../components/blocks/head/head.html")
+</head>
+<body>
+@@include("../components/blocks/header/header.html")
+<main>
+	<section class="pt-3 pt-xl-3 mt-2 mt-lg-3 mb-80">
+		<div class="container-lg">
+			<div class="row mb-80">
+			<div class="col-12 col-lg-8">
+				<div class="breadcrumps">
+					<a href="/" class="breadcrumps__item">Main page</a>
+					<span class="breadcrumps__separator">/</span>
+					<a href="/" class="breadcrumps__item">Trademark application</a>
+					<span class="breadcrumps__separator">/</span>
+					<span class="breadcrumps__item">Trademark application Ukraine</span>
+				</div>
+				<h1 class="h1 my-3">Trademark application Ukraine</h1>
+				<div class="mb-80">
+					<article class="col-12 content">
+						<p>
+							Businesses present in the markets of several countries, and their lawyers are faced with the
+							problem of the difficulty of accounting for their intellectual property rights objects.
+						</p>
+						<p>
+							The principle of extraterritoriality does not apply to object of industrial property
+							(trademarks, patents) – the rights to them are valid only in the country where they have
+							passed the official registration procedure. Therefore, any company that has several TM or
+							patents in its portfolio and operates in several countries is faced with the problem of
+							managing its assets – even one TM is thus transformed into dozens or hundreds of different
+							objects that are regulated by various national laws and exist in the business space of
+							different countries.
+						</p>
+						<p>
+							Because of this, it is not uncommon for companies to “lose” their trademarks – information
+							about registration documents are lost, accurate information about the owner, and the
+							deadlines for renewing the rights to a trademark are missed.
+						</p>
+						<p>
+							The Pocket IP docketing system allows easily enter information about TM and patents by
+							uploading data from national and international registration systems to a personal account,
+							keep records of all objects in a single convenient format, automatically update information
+							about the IP objects, taking into account the data of possible license agreements, enable
+							the alerting function in case of attempts to unlawfully register similar TM, quickly give
+							instructions to lawyers in other countries.
+						</p>
+					</article>
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-4">
+				<div class="subtitle-1 mb-2">Other countries</div>
+				<div class="d-flex flex-wrap gap-1">
+					@@include("../components/blocks/country-tag/country-tag.html", {"code": "ua", "name": "Ukraine", "isLink": true, "size": "sm"})
+					@@include("../components/blocks/country-tag/country-tag.html", {"code": "ca", "name": "Canada", "isLink": true, "size": "sm"})
+					@@include("../components/blocks/country-tag/country-tag.html", {"code": "ge", "name": "Germany", "isLink": true, "size": "sm"})
+					@@include("../components/blocks/country-tag/country-tag.html", {"code": "fr", "name": "France", "isLink": true, "size": "sm"})
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="mb-80">
+			@@include("../components/blocks/cta-block/cta-block.html", { "text": "Call to action", "link": "Try demo now", })
+		</div>
+		<div class="container-lg">
+			<div class="mb-80">
+			<div class="form form-row">
+				<form>
+					<div class="form-title">Contact with us</div>
+					<input type="text" placeholder="Name"/>
+					<input type="text" placeholder="Email"/>
+					<textarea placeholder="Message"></textarea>
+					<input type="submit" value="Send">
+				</form>
+			</div>
+		</div>
+		</div>
+	</section>
+
+
+</main>
+@@include("../components/blocks/footer/footer.html")
+<script src="js/vendor.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
