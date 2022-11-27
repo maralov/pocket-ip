@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@@include("../components/blocks/head/head.html")
+</head>
+<body>
+@@include("../components/blocks/header/header.html")
+<main>
+	<section class="container-lg pt-3 pt-xl-3 mt-2 mt-lg-3 mb-80">
+		<div class="row mb-80">
+			<div class="col-12 col-lg-9 pe-lg-4">
+				<div class="breadcrumps">
+					<a href="/" class="breadcrumps__item">Main page</a>
+					<!-- /.breadcrumps__item -->
+					<span class="breadcrumps__separator">/</span>
+					<!-- /.breadcrumps__separator -->
+					<span class="breadcrumps__item">Trademark applicationm</span>
+					<!-- /.breadcrumps__item -->
+				</div>
+				<!-- /.breadcrumps -->
+				<h1 class="h1 my-3">Trademark application</h1>
+
+				<div class="mb-80">
+					<article class="col-12 content">
+						<p>
+							Businesses present in the markets of several countries, and their lawyers are faced with the
+							problem of the difficulty of accounting for their intellectual property rights objects.
+						</p>
+						<p>
+							The principle of extraterritoriality does not apply to object of industrial property
+							(trademarks, patents) – the rights to them are valid only in the country where they have
+							passed the official registration procedure. Therefore, any company that has several TM or
+							patents in its portfolio and operates in several countries is faced with the problem of
+							managing its assets – even one TM is thus transformed into dozens or hundreds of different
+							objects that are regulated by various national laws and exist in the business space of
+							different countries.
+						</p>
+						<p>
+							Because of this, it is not uncommon for companies to “lose” their trademarks – information
+							about registration documents are lost, accurate information about the owner, and the
+							deadlines for renewing the rights to a trademark are missed.
+						</p>
+						<p>
+							The Pocket IP docketing system allows easily enter information about TM and patents by
+							uploading data from national and international registration systems to a personal account,
+							keep records of all objects in a single convenient format, automatically update information
+							about the IP objects, taking into account the data of possible license agreements, enable
+							the alerting function in case of attempts to unlawfully register similar TM, quickly give
+							instructions to lawyers in other countries.
+						</p>
+
+					</article>
+				</div>
+
+				@@include("../components/blocks/country-tag/country-tag-block.html")
+			</div>
+
+			<div class="d-none d-lg-block col-12 col-lg-3 ps-5">
+				<div class="subtitle-1">Other solutions</div>
+				<ul class="list list-divider">
+					<li><a href="#">Trademark search</a></li>
+					<li><a href="#">Trademark renewal</a></li>
+					<li><a href="#">Online application system</a></li>
+					<li><a href="#">Trademark assignment</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="mb-80">
+			@@include("../components/blocks/cta-block/cta-block.html", { "text": "Call to action", "link": "Try demo now", })
+		</div>
+	</section>
+
+
+</main>
+@@include("../components/blocks/footer/footer.html")
+<script src="js/vendor.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
