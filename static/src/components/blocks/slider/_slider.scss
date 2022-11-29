@@ -1,5 +1,11 @@
 
 .slider {
+  @media (max-width: 600px) {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0 20px;
+    overflow: hidden;
+  }
   .slick-dotted.slick-slider {
     margin-bottom: 18px;
     @include media-breakpoint-down(md) {
