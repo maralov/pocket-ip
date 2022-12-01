@@ -137,11 +137,13 @@
         }
 
         &.sub-menu-is-open {
-          &:after {
-            transform: rotate(90deg) translateY(4px);
-          }
-          .sub-menu {
-            display: block;
+          @media (max-width: 1110px) {
+            &:after {
+              transform: rotate(90deg) translateY(4px);
+            }
+            .sub-menu {
+              display: block;
+            }
           }
         }
       } //.menu-item-has-children

@@ -83,10 +83,13 @@ jQuery(function ($) {
         }
     }
 
-    $headerItemWithChildren.on("click",   function () {
-        $(this).parent().toggleClass("sub-menu-is-open");
-        $(this).parent().siblings(".menu-item-has-children").removeClass("sub-menu-is-open");
-    });
+    if ($(window).width() < 1110) {
+        $headerItemWithChildren.on("click", function () {
+
+            $(this).parent().toggleClass("sub-menu-is-open");
+            $(this).parent().siblings(".menu-item-has-children").removeClass("sub-menu-is-open");
+        });
+    }
 
     $menuButton.on("click", function () {
         const $img = $(this).find("img");
