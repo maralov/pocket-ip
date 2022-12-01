@@ -96,8 +96,22 @@
       flex-shrink: 0;
     }
   }
+}
 
+.form-column {
+  input[type="submit"] {
+    width: 100%;
+  }
 
+  textarea {
+    height: 120px;
+  }
+
+  form {
+    input:not([type="submit"]), textarea {
+        margin-bottom: 16px;
+    }
+  }
 
 }
 
