@@ -120,6 +120,17 @@ p, .paragraph {
       margin-bottom: rem(24);
     }
   }
+  ul, ol {
+    padding-left: 8px;
+    margin-left: 0;
+    list-style-position: inside;
+  }
+  ul {
+    list-style-type: square;
+  }
+  img.size-full{
+    width: 100%;
+  }
   p, img {
     min-height: 1px;
     margin-bottom: rem(16);
@@ -135,6 +146,33 @@ p, .paragraph {
   }
   img {
     border-radius: 24px;
+  }
+  table {
+    border-radius: 16px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #E0E0E0;
+    font-size: 14px;
+    @include media-breakpoint-up(xl) {
+      font-size: 16px;
+    }
+    tbody {
+      td {
+        padding: 12px 16px;
+        border: 1px solid #E0E0E0;
+      }
+      th {
+        color: #999999;
+      }
+      tr:first-child{
+        td, th {
+          color: #999999;
+          font-size: 12px;
+          @include media-breakpoint-up(xl) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
   }
 }
 
