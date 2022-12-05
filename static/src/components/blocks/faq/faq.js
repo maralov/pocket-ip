@@ -1,7 +1,16 @@
-import {Collapse} from "bootstrap";
+import jQuery from "jquery";
 
-if (document.querySelector("#faq-according")) {
-    new Collapse("#faq-according", {
-        toggle: false
+jQuery(function ($) {
+    const $faqContainerRef = $("#faq-according");
+    $faqContainerRef.on("click", function (e){
+        const $target = $(e.target);
+
+        if (!$target.hasClass("accordion-button")) return;
+
+        const targetId = $target.data().bsTarget;
+        const ariaExpanded = $target.attr("aria-expanded");
+        ariaExpanded === "false" ? $target.attr("aria-expanded", "true") : $target.attr("aria-expanded", "false");
+        $target.toggleClass("collapsed");
+        $(targetId).toggleClass("show");
     });
-}
+});
