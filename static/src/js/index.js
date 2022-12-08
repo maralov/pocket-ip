@@ -1,4 +1,5 @@
 import "%components%/header/header";
+import "%components%/header/lang-switcher";
 import "%components%/slider/slider";
 import "%components%/faq/faq";
 import "%components%/faq/faq";

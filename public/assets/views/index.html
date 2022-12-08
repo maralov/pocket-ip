@@ -196,11 +196,19 @@
 							free</a>
 					</div>
 				</div>
-					<!-- polylang need to dev more-->
 				<div class="lang-switcher d-flex align-items-center me-3 me-xl-4">
 					<img src="../img/icons/ic-lang.svg"  alt="lang-switcher">
 					<div class="ms-2 ps-1">
-						EN
+						<div class="lang-switcher-current">
+							en
+							<!-- replace this text to <?php echo pll_current_language() ?>-->
+						</div>
+						<ul class="lang-switcher-list"></ul>
+						<select name="lang_choice_1" id="lang_choice_1" class="pll-switcher-select">
+							<option value="https://www.kykilab.com/uk/" lang="uk" >uk</option>
+							<option value="https://www.kykilab.com/ru/" lang="ru-RU">ru</option>
+							<option value="https://www.kykilab.com/" lang="en-US" selected="selected" >en</option>
+						</select>
 					</div>
 				</div>
 				<button type="button" class="btn btn-nav-search d-none d-lg-inline-flex">Search</button>
