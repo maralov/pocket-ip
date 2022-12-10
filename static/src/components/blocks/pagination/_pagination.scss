@@ -1,0 +1,53 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: rem(20);
+  .page-numbers {
+    width: rem(64);
+    height: rem(64);
+    padding: rem(16);
+    border: 1px solid $grey-100;
+    border-radius: rem(12);
+    font-weight: 500;
+    font-size: rem(20);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s;
+    &:hover {
+      background-color: $primary;
+      border-color: $primary;
+      color: $white
+    }
+  }
+
+  .current {
+    background-color: $primary;
+    border-color: $primary;
+    color: $white
+  }
+
+  .page-numbers.next {
+    border-color: $primary;
+    font-size: 0;
+    background: $primary url("../img/icons/ic-arrow-white.svg") no-repeat center / 24px;
+
+    &:hover {
+      border-color: darken($primary, 20);
+      background-color: darken($primary, 20);
+    }
+  }
+
+  .page-numbers.prev {
+    transform: rotate(180deg);
+    border-color: $primary;
+    font-size: 0;
+    background: $primary url("../img/icons/ic-arrow-white.svg") no-repeat center / 24px;
+
+    &:hover {
+      border-color: darken($primary, 20);
+      background-color: darken($primary, 20);
+    }
+  }
+
+}
