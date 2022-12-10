@@ -24,7 +24,7 @@ body {
   letter-spacing: .25px;
   overflow-y: auto;
   overflow-x: hidden;
-
+  position: relative;
   &:before {
     content: '';
     position: absolute;
@@ -36,16 +36,20 @@ body {
     background: rgba(33, 33, 33, 0.5);
     backdrop-filter: blur(8px);
     z-index: 99;
+    @media (min-width: 1110px) {
+      z-index: 101;
+    }
   }
 
-  &.no-scroll {
-    position: relative;
-    overflow: hidden;
-
+  &.backdrop {
     &:before {
       opacity: 1;
       visibility: visible;
     }
+  }
+
+  &.no-scroll {
+    overflow: hidden;
   }
 
   header{
@@ -97,4 +101,13 @@ body {
 .icon-lg {
   width: 40px;
   height: 40px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+iframe {
+  max-width: 100%;
+  border: none;
 }

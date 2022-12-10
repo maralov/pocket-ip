@@ -87,7 +87,24 @@
 			</section>
 		</main>
 		@@include("../components/blocks/footer/footer.html")
+
+		<!--	ренерить єту модалку только если в баннер у .btn-video передана сілка в data-video	-->
+		<div class="modal js-modal-video">
+			<div class="position-relative">
+				<button type="button" class="btn modal__btn-close js-modal-btn-close">
+					<img src=" img/icons/ic-close-modal.svg" alt="menu">
+				</button>
+
+				<iframe width="700"
+						height="400"
+						src=""
+						allowfullscreen>
+				</iframe>
+			</div>
+		</div>
+
         <script src="js/vendor.js"></script>
         <script src="js/main.js"></script>
+
     </body>
 </html>

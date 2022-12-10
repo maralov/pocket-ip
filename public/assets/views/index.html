@@ -242,7 +242,8 @@
 				</p>
 				<div class="d-flex">
 					<a href="#" class="btn btn-danger me-3">Enter the account</a>
-					<a href="#" class="btn btn-video ms-1">
+					<!--	отображаем кнопку Watch demo если юзер заполнил сілку на видео data-video	-->
+					<a href="#" class="btn btn-video ms-1 js-btn-video" data-video="https://www.youtube.com/embed/TF4kgs70rnI">
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<circle cx="12" cy="12" r="12" fill="#D80202"/>
 							<path d="M9.59998 16.5V7.5L15.6 12L9.59998 16.5Z" fill="white"/>
@@ -1523,7 +1524,24 @@
 	</div>
 </footer>
 
+
+		<!--	ренерить єту модалку только если в баннер у .btn-video передана сілка в data-video	-->
+		<div class="modal js-modal-video">
+			<div class="position-relative">
+				<button type="button" class="btn modal__btn-close js-modal-btn-close">
+					<img src=" img/icons/ic-close-modal.svg" alt="menu">
+				</button>
+
+				<iframe width="700"
+						height="400"
+						src=""
+						allowfullscreen>
+				</iframe>
+			</div>
+		</div>
+
         <script src="js/vendor.min.js"></script>
         <script src="js/main.min.js"></script>
+
     </body>
 </html>

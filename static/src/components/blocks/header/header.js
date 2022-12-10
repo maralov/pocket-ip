@@ -1,5 +1,4 @@
 import jQuery from "jquery";
-
 jQuery(function ($) {
     const $header = $(".js-header");
     const $headerPanel = $(".js-info-panel");
@@ -9,8 +8,10 @@ jQuery(function ($) {
     const $window = $(window);
 
     $docEl.on("click", (e) => {
-        if (!$(e.target).hasClass("no-scroll")) return;
-        toggleHeaderActiveClass();
+        if ($(e.target).hasClass("no-scroll")){
+            toggleHeaderActiveClass();
+            toggleMenuBtn();
+        }
     });
 
     let prevScroll = $window.scrollTop() || $docEl.scrollTop();
@@ -20,8 +21,6 @@ jQuery(function ($) {
 
     function toggleHeader (direction, curScroll) {
         if (direction === 2 && curScroll > $headerPanel.height() + $header.height()) {
-            //replace 52 with the height of your header in px
-
             $header.removeClass("show");
             prevDirection = direction;
         } else if (direction === 1) {
@@ -60,7 +59,7 @@ jQuery(function ($) {
 
     function toggleHeaderActiveClass() {
         $header.toggleClass("open-nav");
-        $("body").toggleClass("no-scroll");
+        $("body").toggleClass("no-scroll backdrop");
     }
 
     function setMobileMenuHeight() {
@@ -91,20 +90,22 @@ jQuery(function ($) {
         });
     }
 
-    $menuButton.on("click", function () {
-        const $img = $(this).find("img");
+    function toggleMenuBtn() {
+        const $img = $menuButton.find("img");
         $img.toggleClass("is-active");
-        setMobileMenuHeight();
-
         if ($img.hasClass("is-active")) {
             const imgSrc = $img.attr("src").replace("ic-menu", "ic-close-primary");
             $img.attr("src", imgSrc);
-            toggleHeaderActiveClass();
         } else {
             const imgSrc = $img.attr("src").replace("ic-close-primary", "ic-menu");
             $img.attr("src", imgSrc);
-            toggleHeaderActiveClass();
         }
+    }
+
+    $menuButton.on("click", function () {
+        setMobileMenuHeight();
+        toggleHeaderActiveClass();
+        toggleMenuBtn();
     });
 
     $($headerPanel).click(closeInfoPanel);
