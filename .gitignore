@@ -16,9 +16,9 @@ node_modules
 dist
 package-lock.json
 
-.idea/deployment.xml
-.idea/misc.xml
-.idea/php.xml
-.idea/vcs.xml
-.idea/webServers.xml
+deployment.xml
+misc.xml
+php.xml
+vcs.xml
+webServers.xml
 
