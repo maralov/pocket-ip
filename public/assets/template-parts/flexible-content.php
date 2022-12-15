@@ -1,23 +1,23 @@
-    
-    <?php  
-        $queried_object = get_queried_object(); 
+
+    <?php
+        $queried_object = get_queried_object();
         $taxonomy = $queried_object->taxonomy;
-        $term_id = $queried_object->term_id;  
+        $term_id = $queried_object->term_id;
         $term =  $taxonomy . '_' . $term_id;
     ?>
-    
+
     <?php if(is_tax()) : ?>
         <?php if( have_rows('custom_blocks', $term) ): while ( have_rows('custom_blocks', $term) ) : the_row(); ?>
 
             <?php if( get_row_layout() == 'banner_block' ): ?>
                 <section class="page-section page-section--pt-sm pb-0">
-                    <div class="container-xxl">	
-                        <div class="row">							
+                    <div class="container-xxl">
+                        <div class="row">
                             <div class="col-12 col-md-6 mb-4">
                                 <?php if(get_sub_field('banner_block_title')): ?>
-                                    <h1 class="h1 mb-3 pb-1"> 
+                                    <h1 class="h1 mb-3 pb-1">
                                         <?php the_sub_field('banner_block_title'); ?>
-                                    </h1>    
+                                    </h1>
                                 <?php endif; ?>
                                 <?php if(get_sub_field('banner_block_description')) : ?>
                                     <p class="pb-1 paragraph paragraph-lg mb-3">
@@ -25,18 +25,18 @@
                                     </p>
                                 <?php endif; ?>
                                 <div class="d-flex">
-                                    <?php 
+                                    <?php
                                         $enter_link = get_sub_field('banner_block_button_enter');
-                                        if( $enter_link ): 
+                                        if( $enter_link ):
                                             $enter_link_url = $enter_link['url'];
                                             $enter_link_title = $enter_link['title'];
                                             $enter_link_target = $enter_link['target'] ? $enter_link['target'] : '_self';
                                             ?>
                                             <a class="btn btn-danger me-3" href="<?php echo esc_url( $enter_link_url ); ?>" target="<?php echo esc_attr( $enter_link_target ); ?>"><?php echo esc_html( $enter_link_title ); ?></a>
                                     <?php endif; ?>
-                                    <?php 
+                                    <?php
                                         $login_link = get_sub_field('banner_block_button_watch');
-                                        if( $login_link ): 
+                                        if( $login_link ):
                                             $login_link_url = $login_link['url'];
                                             $login_link_title = $login_link['title'];
                                             $login_link_target = $login_link['target'] ? $login_link['target'] : '_self';
@@ -52,16 +52,16 @@
                                     <?php endif; ?>
                                 </div>
                                 <?php if( have_rows('banner_block_item') ): ?>
-                                    <div class="row d-none d-lg-flex mt-5 pt-xxl-2">
+                                    <div class="row d-none d-lg-flex mt-5 pt-xxl-2 advantages">
                                         <?php while ( have_rows('banner_block_item') ): the_row();?>
                                         <div class="col-auto">
-                                            <?php 
+                                            <?php
                                                 $image = get_sub_field('banner_block_item_image');
                                                 if( !empty( $image ) ): ?>
                                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="72" height="80" />
                                             <?php endif; ?>
                                         </div>
-                                        <?php endwhile; ?>									
+                                        <?php endwhile; ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -74,9 +74,9 @@
                                         <?php if(!empty($image_banner_big)) : ?>
                                             srcset="<?php echo esc_url($image_banner['url']); ?> 1x, <?php echo esc_url($image_banner_big['url']); ?> 2x"
                                         <?php endif; ?>
-                                        width="840" height="600" alt="<?php echo esc_attr($image_banner['alt']); ?>">										
-                                    </div>    
-                                <?php endif; ?>						
+                                        width="840" height="600" alt="<?php echo esc_attr($image_banner['alt']); ?>">
+                                    </div>
+                                <?php endif; ?>
                         </div>
                     </div>
                 </section>
@@ -93,7 +93,7 @@
                             </div>
                         <?php endif; ?>
                         <?php if( have_rows('software_block_items') ): ?>
-                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xxl-5 justify-content-center">								
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xxl-5 justify-content-center">
                                 <?php
                                 $counter = 1;
                                 while ( have_rows('software_block_items') ): the_row(); ?>
@@ -111,7 +111,7 @@
                                                 <p class="paragraph-sm"><?php the_sub_field('software_block_items_description');?></p>
                                             <?php endif; ?>
                                         </div>
-                                    </div>									
+                                    </div>
                                 <?php $counter++; endwhile; ?>
                             </div>
                         <?php endif; ?>
@@ -128,13 +128,13 @@
                                     <h2 class="h2 section-h2"><?php the_sub_field('why-us_block_title'); ?></h2>
                                 </div>
                             <?php endif; ?>
-                            <?php 
+                            <?php
                                 $solutions_types = get_sub_field('why-us_block_category');
                                 if( $solutions_types ): $num = 0; ?>
                                     <?php foreach( $solutions_types as $solution_type ): $num++; ?>
                                         <div class="col d-flex flex-column mb-4 <?php if($num<=3): ?>mb-xl-5<?php elseif($num==4): ?>mb-md-0<?php endif; ?> ">
                                             <div class="d-flex mb-2">
-                                                <?php 
+                                                <?php
                                                 $image = get_field('category_icon', $solution_type);
                                                 if( !empty( $image ) ): ?>
                                                     <div class="me-3">
@@ -146,7 +146,7 @@
                                             <p class="m-0"><?php echo esc_html( $solution_type->description ); ?></p>
                                         </div>
                                     <?php endforeach; ?>
-                            <?php endif; ?>                       
+                            <?php endif; ?>
                         </div>
                     </div>
                 </section>
@@ -159,13 +159,13 @@
                             <h2 class="h2 section-h2 mb-4 mb-xl-5"><?php the_sub_field('services_block_title'); ?></h2>
                         <?php endif; ?>
                         <div class="row row-cols-1 row-cols-md-2">
-                            <?php 
+                            <?php
                                 $services_types = get_sub_field('services_block_category');
-                                if( $services_types ): $num = 0; ?>									
+                                if( $services_types ): $num = 0; ?>
                                     <?php foreach( $services_types as $service_type ): $num++; ?>
                                         <div class="col d-flex flex-column mb-4 <?php if($num==1 || $num==2): ?>mb-xl-5<?php elseif($num==3): ?>mb-md-0<?php endif; ?>  ">
                                             <div class="d-flex mb-2">
-                                                <?php 
+                                                <?php
                                                     $image = get_field('category_icon', $service_type);
                                                     if( !empty( $image ) ): ?>
                                                         <div class="me-3">
@@ -183,7 +183,7 @@
                 </section>
             <?php endif;?>
 
-            <?php if( get_row_layout() == 'action_block' ): ?>								
+            <?php if( get_row_layout() == 'action_block' ): ?>
                 <div class="container-lg">
                     <div class="cta-block">
                         <div class="row justify-content-between align-items-center">
@@ -192,9 +192,9 @@
                                     <p class="m-0 h2"><?php the_sub_field('action_block_text'); ?></p>
                                 </div>
                             <?php endif; ?>
-                            <?php 
+                            <?php
                                 $action_link = get_sub_field('action_block_button');
-                                if( $action_link ): 
+                                if( $action_link ):
                                     $action_link_url = $action_link['url'];
                                     $action_link_title = $action_link['title'];
                                     $action_link_target = $action_link['target'] ? $action_link['target'] : '_self';
@@ -224,7 +224,7 @@
                                 <?php if(get_sub_field('rs_image_block_title')): ?>
                                     <h2 class="h2 section-h2 mb-4 pb-xl-2"><?php the_sub_field('rs_image_block_title'); ?></h2>
                                 <?php endif;?>
-                                <?php if( have_rows('rs_image_block_content') ): while ( have_rows('rs_image_block_content') ): the_row(); ?>	
+                                <?php if( have_rows('rs_image_block_content') ): while ( have_rows('rs_image_block_content') ): the_row(); ?>
                                 <?php if(get_sub_field('rs_image_block_content_subtitle')): ?>
                                     <div class="h3 mb-3"><?php the_sub_field('rs_image_block_content_subtitle'); ?></div>
                                 <?php endif;?>
@@ -233,12 +233,12 @@
                                         <?php the_sub_field('rs_image_block_content_description'); ?>
                                     </div>
                                 <?php endif;?>
-                                <?php endwhile; endif; ?>									
+                                <?php endwhile; endif; ?>
                                 </div>
                             </div>
                         </div>
                         <div class="row row-cols-2 row-cols-lg-4 mt-xxl-n5">
-                        
+
                         <?php if( have_rows('rs_image_block_item') ): while ( have_rows('rs_image_block_item') ): the_row(); ?>
                             <div class="col mb-3">
                                 <div class="box box--white box--shadow d-flex align-items-center justify-content-center">
@@ -254,7 +254,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php endwhile; endif; ?>								
+                        <?php endwhile; endif; ?>
                         </div>
                     </div>
                 </section>
@@ -272,7 +272,7 @@
                         </div>
                         <div class="slider slider-card">
                             <div class="slider__wrapper">
-                            <?php if( have_rows('reviews_block_items') ): while ( have_rows('reviews_block_items') ): the_row(); ?>					
+                            <?php if( have_rows('reviews_block_items') ): while ( have_rows('reviews_block_items') ): the_row(); ?>
                                 <div class="box box--white box--shadow content h-100 mb-1">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <div class="d-flex">
@@ -337,7 +337,7 @@
                                 <?php endif;?>
                             </div>
                             <div class="roadmap__wrapper">
-                            <?php if( have_rows('roadmap_block_content') ): while ( have_rows('roadmap_block_content') ): the_row(); ?>					
+                            <?php if( have_rows('roadmap_block_content') ): while ( have_rows('roadmap_block_content') ): the_row(); ?>
                                 <div class="roadmap__card">
                                     <?php if(get_sub_field('roadmap_block_content_title')): ?>
                                     <div class="roadmap__title d-none d-md-block"><?php the_sub_field('roadmap_block_content_title'); ?></div>
@@ -348,17 +348,17 @@
                                             <div class="roadmap__title d-block d-md-none"><?php the_sub_field('roadmap_block_content_title'); ?></div>
                                             <?php endif;?>
                                             <?php if(get_sub_field('roadmap_block_content_subtitle')): ?>
-                                            <div class="roadmap__step-title"><?php the_sub_field('roadmap_block_content_subtitle'); ?></div>  
+                                            <div class="roadmap__step-title"><?php the_sub_field('roadmap_block_content_subtitle'); ?></div>
                                             <?php endif;?>
                                             <?php if(get_sub_field('roadmap_block_content_description')): ?>
-                                            <div class="roadmap__step-text"> 
+                                            <div class="roadmap__step-text">
                                                 <?php the_sub_field('roadmap_block_content_description'); ?>
                                             </div>
                                             <?php endif;?>
                                         </div>
                                     </div>
                                 </div>
-                            <?php endwhile; endif; ?>								
+                            <?php endwhile; endif; ?>
                             </div>
                         </div>
                     </div>
@@ -380,14 +380,14 @@
                             <?php
                             if(have_rows('rewards_block_items')):
                                 while ( have_rows('rewards_block_items') ) : the_row();
-                                                                
+
                                     $rewards_image = get_sub_field('rewards_block_items_image'); ?>
                                     <?php if(!empty($rewards_image)): ?>
                                     <div class="box py-4 box--white box--shadow d-flex align-items-center justify-content-center">
                                         <img src="<?php echo $rewards_image['url']; ?>" alt="<?php echo $rewards_image['url']; ?>">
                                     </div>
                                     <?php endif;?>
-                            <?php endwhile; endif; ?>							
+                            <?php endwhile; endif; ?>
                             </div>
                             <div class="slider__controls">
                                 <div class="slider__dots"></div>
@@ -405,13 +405,13 @@
                         <?php endif;?>
                         <div class="row justify-content-center">
                             <div class="col col-md-10 col-xl-8">
-                                <div class="accordion" id="faq-according">							
-                                <?php 
-                                $FAQs = get_sub_field('faq_block_content');  
-                                if ($FAQs) : ?> 
-                                    <?php 
+                                <div class="accordion" id="faq-according">
+                                <?php
+                                $FAQs = get_sub_field('faq_block_content');
+                                if ($FAQs) : ?>
+                                    <?php
                                     $num = 0;
-                                    foreach ($FAQs as $post) : 
+                                    foreach ($FAQs as $post) :
                                         setup_postdata($post);
                                         ?>
 
@@ -420,7 +420,7 @@
                                                 data-bs-target="#collapse-<?=$num?>" aria-expanded="true" aria-controls="collapse-<?=$num?>">
                                                 <?php the_title(); ?>
                                             </button>
-                                            <div id="collapse-<?=$num?>" class="accordion-collapse collapse 
+                                            <div id="collapse-<?=$num?>" class="accordion-collapse collapse
                                                 <?php if($num==0):?>show<?php endif;?> "
                                                 aria-labelledby="headingOne" data-bs-parent="#faq-according">
                                                 <div class="accordion-body paragraph">
@@ -428,7 +428,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                <?php $num++; endforeach; wp_reset_postdata(); endif; ?>															
+                                <?php $num++; endforeach; wp_reset_postdata(); endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -448,50 +448,17 @@
                         </div>
                         <div class="slider slider-rows">
                             <div class="slider__wrapper">
-                                <?php 
-                                $partners = get_sub_field('partners_block_content');  
+                                <?php
+                                $partners = get_sub_field('partners_block_content');
                                 if ($partners) :
-                                    foreach ($partners as $post): 
-                                        $thumbnail_id = get_post_thumbnail_id( $post->ID ); 								
-                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); 							
+                                    foreach ($partners as $post):
+                                        $thumbnail_id = get_post_thumbnail_id( $post->ID );
+                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
                                         $thumbnail = get_the_post_thumbnail($post->ID, 'full', array( 'alt' => $alt ) );
-                                        setup_postdata($post); ?>   
+                                        setup_postdata($post); ?>
                                             <div class="box py-4 box--white box--shadow d-flex align-items-center justify-content-center">
                                                 <?php echo $thumbnail; ?>
-                                            </div>	
-                                <?php endforeach; wp_reset_postdata(); endif; ?>						
-                            </div>
-                            <div class="slider__controls">
-                                <div class="slider__dots"></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            <?php endif;?>
-            
-            <?php if( get_row_layout() == 'cases_block' ): ?>
-                <section class="page-section page-section--bg-grey">
-                    <div class="container-lg">
-                        <?php if(get_sub_field('cases_block_title')): ?>
-                        <h2 class="h2 section-h2"><?php the_sub_field('cases_block_title'); ?></h2>
-                        <?php endif;?>
-                        <div class="slider slider-card">
-                            <div class="slider__wrapper">
-                            <?php 
-                                $cases = get_sub_field('cases_block_posts');  
-                                if ($cases) :
-                                    foreach ($cases as $post):
-                                        $thumbnail_id = get_post_thumbnail_id( $post->ID ); 								
-                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); 							
-                                        $thumbnail = get_the_post_thumbnail($post->ID, 'full', array( 'alt' => $alt ) );
-                                        setup_postdata($post);	?>
-                                            <div class="box box--white box--shadow content h-100">
-                                                <div class="mb-3">
-                                                    <?php echo $thumbnail; ?>
-                                                </div>
-                                                <div class="subtitle-1 mb-2"><?php the_title(); ?></div>
-                                                <?php the_content(); ?>
-                                            </div> 							
+                                            </div>
                                 <?php endforeach; wp_reset_postdata(); endif; ?>
                             </div>
                             <div class="slider__controls">
@@ -501,7 +468,40 @@
                     </div>
                 </section>
             <?php endif;?>
-            
+
+            <?php if( get_row_layout() == 'cases_block' ): ?>
+                <section class="page-section page-section--bg-grey">
+                    <div class="container-lg">
+                        <?php if(get_sub_field('cases_block_title')): ?>
+                        <h2 class="h2 section-h2"><?php the_sub_field('cases_block_title'); ?></h2>
+                        <?php endif;?>
+                        <div class="slider slider-card">
+                            <div class="slider__wrapper">
+                            <?php
+                                $cases = get_sub_field('cases_block_posts');
+                                if ($cases) :
+                                    foreach ($cases as $post):
+                                        $thumbnail_id = get_post_thumbnail_id( $post->ID );
+                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                                        $thumbnail = get_the_post_thumbnail($post->ID, 'full', array( 'alt' => $alt ) );
+                                        setup_postdata($post);	?>
+                                            <div class="box box--white box--shadow content h-100">
+                                                <div class="mb-3">
+                                                    <?php echo $thumbnail; ?>
+                                                </div>
+                                                <div class="subtitle-1 mb-2"><?php the_title(); ?></div>
+                                                <?php the_content(); ?>
+                                            </div>
+                                <?php endforeach; wp_reset_postdata(); endif; ?>
+                            </div>
+                            <div class="slider__controls">
+                                <div class="slider__dots"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <?php endif;?>
+
             <?php if( get_row_layout() == 'price_block' ): ?>
                 <section class="page-section ">
                     <div class="container-lg">
@@ -510,9 +510,9 @@
                         <?php endif;?>
                         <?php if(get_sub_field('price_block_subtitle')): ?>
                         <div class="paragraph text-md-center mb-3 mb-lg-4">
-                            <?php the_sub_field('price_block_subtitle'); ?> 
+                            <?php the_sub_field('price_block_subtitle'); ?>
                         </div>
-                        <?php endif;?>						
+                        <?php endif;?>
                         <div class="pricing mb-4" data-price="year">
                             <div class="row justify-content-md-center mb-4 mb-lg-5">
                                 <div class="col-auto">
@@ -522,10 +522,10 @@
                                         <?php endif;?>
                                         <?php if(get_sub_field('price_block_year_tab')): ?>
                                         <div class="pricing-switcher__year js-pricing-year is-active">
-                                            <?php the_sub_field('price_block_year_tab');?> 
+                                            <?php the_sub_field('price_block_year_tab');?>
                                             <?php if(get_sub_field('price_block_sale')): ?>
                                             <div class="pricing-switcher__discount">
-                                                <?php the_sub_field('price_block_discount'); ?> 
+                                                <?php the_sub_field('price_block_discount'); ?>
                                             </div>
                                             <?php endif; ?>
                                         </div>
@@ -535,15 +535,15 @@
                             </div>
                             <?php if( have_rows('price_block_item') ): ?>
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
-                            
+
                             <?php while ( have_rows('price_block_item') ) : the_row(); $item_num=1; var_dump($item_num); ?>
                                 <div class="col <?php if($item_num<=2):?> mb-4 mb-lg-0 <?php endif;?>"><!-- проверить -->
                                     <div class="box box--shadow h-100 d-flex flex-column">
                                         <?php if(get_sub_field('price_block_item_name')): ?>
                                         <div class="h3 mb-1"><?php the_sub_field('price_block_item_name');?></div>
                                         <?php endif;?>
-                                        <div class="price-month">                                        
-                                            <div>  
+                                        <div class="price-month">
+                                            <div>
                                                 <?php if(get_sub_field('price_block_item_cost_monthly')): ?>
                                                 <span class="h2 text-primary text-bold me-1"><?php the_sub_field('price_block_item_cost_monthly');?></span>
                                                 <?php endif;?>
@@ -571,15 +571,15 @@
                                             <ul>
                                             <?php while ( have_rows('price_block_item_list') ) : the_row(); ?>
                                                 <?php if(get_sub_field('price_block_item_list_line')): ?>
-                                                <li><?php the_sub_field('price_block_item_list_line');?></li>	
-                                                <?php endif;?>											
+                                                <li><?php the_sub_field('price_block_item_list_line');?></li>
+                                                <?php endif;?>
                                             <?php endwhile; ?>
                                             </ul>
                                         <?php endif; ?>
                                         </div>
-                                        <?php 
+                                        <?php
                                         $free_link = get_sub_field('price_block_item_button');
-                                        if( $free_link ): 
+                                        if( $free_link ):
                                             $free_link_url = $free_link['url'];
                                             $free_link_title = $free_link['title'];
                                             $free_link_target = $free_link['target'] ? $free_link['target'] : '_self';
@@ -589,10 +589,10 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                            <?php $item_num++; endwhile; ?>								
+                            <?php $item_num++; endwhile; ?>
                             </div>
                             <?php endif; ?>
-                        </div> 
+                        </div>
                     </div>
                 </section>
             <?php endif;?>
@@ -608,7 +608,7 @@
                                 <?php endif;?>
                                 <?php if(get_sub_field('subscribe_block_description')): ?>
                                     <p class="paragraph mb-3 mb-xxl-4">
-                                    <?php the_sub_field('subscribe_block_description'); ?>	
+                                    <?php the_sub_field('subscribe_block_description'); ?>
                                     </p>
                                 <?php endif;?>
                                     <div class="form form-search">
@@ -624,7 +624,7 @@
                 </section>
             <?php endif;?>
 
-            
+
             <!-- <section class="page-section ">
                 <div class="container-lg">
                     <div class="row justify-content-center">
@@ -683,7 +683,7 @@
                             <?php if(get_sub_field('blog_slider_block_title')): ?>
                             <div class="col-auto">
                                 <h2 class="h2 section-h2"><?php the_sub_field('blog_slider_block_title'); ?></h2>
-                            </div>    
+                            </div>
                             <?php endif;?>
                             <div class="col-auto d-block d-lg-none">
                                 <a href="<?php echo site_url('/blog/'); ?>" class="link link-icon">
@@ -700,31 +700,31 @@
                         <div class="slider slider-card">
                             <div class="slider__wrapper">
 
-                            <?php 								
-                                $myposts = get_posts( array(	
+                            <?php
+                                $myposts = get_posts( array(
                                     'posts_per_page' => 3,
                                     'orderby' => 'date',
                                     'order' => 'DESC',
-                                    'taxonomy' => 'posts',									
+                                    'taxonomy' => 'posts',
                                 ) );
-        
 
-                                if(have_posts($myposts)):									
-                                    foreach( $myposts as $post ): setup_postdata( $post );								
-                                        
-                                        $author_id = get_post_field( 'post_author', $post->ID );									
-                                        $author_avatar = get_field('user_photo', 'user_'. $author_id );	
+
+                                if(have_posts($myposts)):
+                                    foreach( $myposts as $post ): setup_postdata( $post );
+
+                                        $author_id = get_post_field( 'post_author', $post->ID );
+                                        $author_avatar = get_field('user_photo', 'user_'. $author_id );
 
                                         $title = get_the_title($post->ID);
-                                        $link = get_the_permalink($post->ID);		
-                                        $date = get_the_date("d.m.Y, H:i",$post->ID); 
-                                        $image_post_tag = get_the_post_thumbnail($post->ID, 'full', array('class' => 'card-img','alt' => 'Heading news' ));																				
-                                ?>								
+                                        $link = get_the_permalink($post->ID);
+                                        $date = get_the_date("d.m.Y, H:i",$post->ID);
+                                        $image_post_tag = get_the_post_thumbnail($post->ID, 'full', array('class' => 'card-img','alt' => 'Heading news' ));
+                                ?>
                                 <div class="card card-bordered h-100  d-flex flex-column"> <!-- card-bordered h-100  d-flex flex-column добавил эти классы -->
                                     <?php if( !empty($image_post_tag) ): echo $image_post_tag; endif; ?>
                                     <div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1"> <!-- d-flex flex-column flex-grow-1 добавил тут -->
                                         <div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
-                                            <div class="avatar">												
+                                            <div class="avatar">
                                                 <?php if( !empty( $author_avatar ) ): ?>
                                                     <img src="<?php echo esc_url($author_avatar['url']); ?>" alt="<?php echo esc_attr($author_avatar['alt']); ?>">
                                                 <?php endif; ?>
@@ -738,7 +738,7 @@
                                         <div class="mt-auto"> <!-- тут див -->
                                             <p class="paragraph mb-2 pb-xxl-1">
                                                 <?php the_excerpt_max_charlength(140); ?>
-                                            </p>										
+                                            </p>
                                             <a href="<?php echo esc_url($link); ?>" class="link link-icon">
                                                 <span><?php pll_e('Read blog'); ?></span>
                                                 <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
@@ -758,7 +758,7 @@
                             </div>
                         </div>
                         <div class="row justify-content-center d-none d-lg-flex mt-3">
-                            <div class="col-auto">		
+                            <div class="col-auto">
                                 <a href="<?php echo site_url('/blog/'); ?>" class="btn btn-primary"><?php pll_e('Read blog'); ?></a>
                             </div>
                         </div>
@@ -810,9 +810,9 @@
                                         <div class="h3"><?php the_sub_field('team_block_item_name'); ?></div>
                                         <p><?php the_sub_field('team_block_item_position'); ?></p>
                                         <?php if( have_rows('team_block_item_social') ): while ( have_rows('team_block_item_social') ) : the_row(); ?>
-                                            <?php 
+                                            <?php
                                                 $social_link = get_sub_field('team_block_item_social_link');
-                                                if( $social_link ): 
+                                                if( $social_link ):
                                                     $social_link_url = $social_link['url'];
                                                     $social_link_title = $social_link['title'];
                                                     $social_link_target = $social_link['target'] ? $social_link['target'] : '_self';
@@ -868,20 +868,20 @@
 
 
 
-        
+
 
         <?php  wp_reset_query(); endwhile; endif;?>
     <?php else: ?>
         <?php if( have_rows('custom_blocks') ): while ( have_rows('custom_blocks') ) : the_row(); ?>
             <?php if( get_row_layout() == 'banner_block' ): ?>
                 <section class="page-section page-section--pt-sm pb-0">
-                    <div class="container-xxl">	
-                        <div class="row">							
+                    <div class="container-xxl">
+                        <div class="row">
                             <div class="col-12 col-md-6 mb-4">
                                 <?php if(get_sub_field('banner_block_title')): ?>
-                                    <h1 class="h1 mb-3 pb-1"> 
+                                    <h1 class="h1 mb-3 pb-1">
                                         <?php the_sub_field('banner_block_title'); ?>
-                                    </h1>    
+                                    </h1>
                                 <?php endif; ?>
                                 <?php if(get_sub_field('banner_block_description')) : ?>
                                     <p class="pb-1 paragraph paragraph-lg mb-3">
@@ -889,18 +889,18 @@
                                     </p>
                                 <?php endif; ?>
                                 <div class="d-flex">
-                                    <?php 
+                                    <?php
                                         $enter_link = get_sub_field('banner_block_button_enter');
-                                        if( $enter_link ): 
+                                        if( $enter_link ):
                                             $enter_link_url = $enter_link['url'];
                                             $enter_link_title = $enter_link['title'];
                                             $enter_link_target = $enter_link['target'] ? $enter_link['target'] : '_self';
                                             ?>
                                             <a class="btn btn-danger me-3" href="<?php echo esc_url( $enter_link_url ); ?>" target="<?php echo esc_attr( $enter_link_target ); ?>"><?php echo esc_html( $enter_link_title ); ?></a>
                                     <?php endif; ?>
-                                    <?php 
+                                    <?php
                                         $login_link = get_sub_field('banner_block_button_watch');
-                                        if( $login_link ): 
+                                        if( $login_link ):
                                             $login_link_url = $login_link['url'];
                                             $login_link_title = $login_link['title'];
                                             $login_link_target = $login_link['target'] ? $login_link['target'] : '_self';
@@ -919,13 +919,13 @@
                                     <div class="row d-none d-lg-flex mt-5 pt-xxl-2">
                                         <?php while ( have_rows('banner_block_item') ): the_row();?>
                                         <div class="col-auto">
-                                            <?php 
+                                            <?php
                                                 $image = get_sub_field('banner_block_item_image');
                                                 if( !empty( $image ) ): ?>
                                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" width="72" height="80" />
                                             <?php endif; ?>
                                         </div>
-                                        <?php endwhile; ?>									
+                                        <?php endwhile; ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -938,9 +938,9 @@
                                         <?php if(!empty($image_banner_big)) : ?>
                                             srcset="<?php echo esc_url($image_banner['url']); ?> 1x, <?php echo esc_url($image_banner_big['url']); ?> 2x"
                                         <?php endif; ?>
-                                        width="840" height="600" alt="<?php echo esc_attr($image_banner['alt']); ?>">										
-                                    </div>    
-                                <?php endif; ?>						
+                                        width="840" height="600" alt="<?php echo esc_attr($image_banner['alt']); ?>">
+                                    </div>
+                                <?php endif; ?>
                         </div>
                     </div>
                 </section>
@@ -957,7 +957,7 @@
                             </div>
                         <?php endif; ?>
                         <?php if( have_rows('software_block_items') ): ?>
-                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xxl-5 justify-content-center">								
+                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xxl-5 justify-content-center">
                                 <?php
                                 $counter = 1;
                                 while ( have_rows('software_block_items') ): the_row(); ?>
@@ -975,7 +975,7 @@
                                                 <p class="paragraph-sm"><?php the_sub_field('software_block_items_description');?></p>
                                             <?php endif; ?>
                                         </div>
-                                    </div>									
+                                    </div>
                                 <?php $counter++; endwhile; ?>
                             </div>
                         <?php endif; ?>
@@ -992,13 +992,13 @@
                                     <h2 class="h2 section-h2"><?php the_sub_field('why-us_block_title'); ?></h2>
                                 </div>
                             <?php endif; ?>
-                            <?php 
+                            <?php
                                 $solutions_types = get_sub_field('why-us_block_category');
                                 if( $solutions_types ): $num = 0; ?>
                                     <?php foreach( $solutions_types as $solution_type ): $num++; ?>
                                         <div class="col d-flex flex-column mb-4 <?php if($num<=3): ?>mb-xl-5<?php elseif($num==4): ?>mb-md-0<?php endif; ?> ">
                                             <div class="d-flex mb-2">
-                                                <?php 
+                                                <?php
                                                 $image = get_field('category_icon', $solution_type);
                                                 if( !empty( $image ) ): ?>
                                                     <div class="me-3">
@@ -1010,7 +1010,7 @@
                                             <p class="m-0"><?php echo esc_html( $solution_type->description ); ?></p>
                                         </div>
                                     <?php endforeach; ?>
-                            <?php endif; ?>                       
+                            <?php endif; ?>
                         </div>
                     </div>
                 </section>
@@ -1023,13 +1023,13 @@
                             <h2 class="h2 section-h2 mb-4 mb-xl-5"><?php the_sub_field('services_block_title'); ?></h2>
                         <?php endif; ?>
                         <div class="row row-cols-1 row-cols-md-2">
-                            <?php 
+                            <?php
                                 $services_types = get_sub_field('services_block_category');
-                                if( $services_types ): $num = 0; ?>									
+                                if( $services_types ): $num = 0; ?>
                                     <?php foreach( $services_types as $service_type ): $num++; ?>
                                         <div class="col d-flex flex-column mb-4 <?php if($num==1 || $num==2): ?>mb-xl-5<?php elseif($num==3): ?>mb-md-0<?php endif; ?>  ">
                                             <div class="d-flex mb-2">
-                                                <?php 
+                                                <?php
                                                     $image = get_field('category_icon', $service_type);
                                                     if( !empty( $image ) ): ?>
                                                         <div class="me-3">
@@ -1047,7 +1047,7 @@
                 </section>
             <?php endif;?>
 
-            <?php if( get_row_layout() == 'action_block' ): ?>								
+            <?php if( get_row_layout() == 'action_block' ): ?>
                 <div class="container-lg">
                     <div class="cta-block">
                         <div class="row justify-content-between align-items-center">
@@ -1056,9 +1056,9 @@
                                     <p class="m-0 h2"><?php the_sub_field('action_block_text'); ?></p>
                                 </div>
                             <?php endif; ?>
-                            <?php 
+                            <?php
                                 $action_link = get_sub_field('action_block_button');
-                                if( $action_link ): 
+                                if( $action_link ):
                                     $action_link_url = $action_link['url'];
                                     $action_link_title = $action_link['title'];
                                     $action_link_target = $action_link['target'] ? $action_link['target'] : '_self';
@@ -1088,7 +1088,7 @@
                                 <?php if(get_sub_field('rs_image_block_title')): ?>
                                     <h2 class="h2 section-h2 mb-4 pb-xl-2"><?php the_sub_field('rs_image_block_title'); ?></h2>
                                 <?php endif;?>
-                                <?php if( have_rows('rs_image_block_content') ): while ( have_rows('rs_image_block_content') ): the_row(); ?>	
+                                <?php if( have_rows('rs_image_block_content') ): while ( have_rows('rs_image_block_content') ): the_row(); ?>
                                 <?php if(get_sub_field('rs_image_block_content_subtitle')): ?>
                                     <div class="h3 mb-3"><?php the_sub_field('rs_image_block_content_subtitle'); ?></div>
                                 <?php endif;?>
@@ -1097,12 +1097,12 @@
                                         <?php the_sub_field('rs_image_block_content_description'); ?>
                                     </div>
                                 <?php endif;?>
-                                <?php endwhile; endif; ?>									
+                                <?php endwhile; endif; ?>
                                 </div>
                             </div>
                         </div>
                         <div class="row row-cols-2 row-cols-lg-4 mt-xxl-n5">
-                        
+
                         <?php if( have_rows('rs_image_block_item') ): while ( have_rows('rs_image_block_item') ): the_row(); ?>
                             <div class="col mb-3">
                                 <div class="box box--white box--shadow d-flex align-items-center justify-content-center">
@@ -1118,7 +1118,7 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php endwhile; endif; ?>								
+                        <?php endwhile; endif; ?>
                         </div>
                     </div>
                 </section>
@@ -1136,12 +1136,12 @@
                         </div>
                         <div class="slider slider-card">
                             <div class="slider__wrapper">
-                                <?php if( have_rows('reviews_block_items') ): while ( have_rows('reviews_block_items') ): the_row(); ?>					
+                                <?php if( have_rows('reviews_block_items') ): while ( have_rows('reviews_block_items') ): the_row(); ?>
                                     <div class="box box--white box--shadow h-100 mb-1">
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                             <div class="d-flex">
                                                 <div class="avatar avatar-lg">
-                                                    <?php 
+                                                    <?php
                                                         $image = get_sub_field('reviews_block_items_avatar');
                                                         if( !empty( $image ) ): ?>
                                                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
@@ -1158,7 +1158,7 @@
                                             </div>
                                             <?php if(get_sub_field('reviews_block_items_url')): ?>
                                                 <a href="<?php the_sub_field('reviews_block_items_url'); ?>">
-                                                    <?php 
+                                                    <?php
                                                         $image = get_sub_field('reviews_block_items_icon');
                                                         if( !empty( $image ) ): ?>
                                                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
@@ -1192,7 +1192,7 @@
                                 <?php endif;?>
                             </div>
                             <div class="roadmap__wrapper">
-                            <?php if( have_rows('roadmap_block_content') ): while ( have_rows('roadmap_block_content') ): the_row(); ?>					
+                            <?php if( have_rows('roadmap_block_content') ): while ( have_rows('roadmap_block_content') ): the_row(); ?>
                                 <div class="roadmap__card">
                                     <?php if(get_sub_field('roadmap_block_content_title')): ?>
                                     <div class="roadmap__title d-none d-md-block"><?php the_sub_field('roadmap_block_content_title'); ?></div>
@@ -1203,17 +1203,17 @@
                                             <div class="roadmap__title d-block d-md-none"><?php the_sub_field('roadmap_block_content_title'); ?></div>
                                             <?php endif;?>
                                             <?php if(get_sub_field('roadmap_block_content_subtitle')): ?>
-                                            <div class="roadmap__step-title"><?php the_sub_field('roadmap_block_content_subtitle'); ?></div>  
+                                            <div class="roadmap__step-title"><?php the_sub_field('roadmap_block_content_subtitle'); ?></div>
                                             <?php endif;?>
                                             <?php if(get_sub_field('roadmap_block_content_description')): ?>
-                                            <div class="roadmap__step-text"> 
+                                            <div class="roadmap__step-text">
                                                 <?php the_sub_field('roadmap_block_content_description'); ?>
                                             </div>
                                             <?php endif;?>
                                         </div>
                                     </div>
                                 </div>
-                            <?php endwhile; endif; ?>								
+                            <?php endwhile; endif; ?>
                             </div>
                         </div>
                     </div>
@@ -1235,14 +1235,14 @@
                             <?php
                             if(have_rows('rewards_block_items')):
                                 while ( have_rows('rewards_block_items') ) : the_row();
-                                                                
+
                                     $rewards_image = get_sub_field('rewards_block_items_image'); ?>
                                     <?php if(!empty($rewards_image)): ?>
                                     <div class="box py-4 box--white box--shadow d-flex align-items-center justify-content-center">
                                         <img src="<?php echo $rewards_image['url']; ?>" alt="<?php echo $rewards_image['url']; ?>">
                                     </div>
                                     <?php endif;?>
-                            <?php endwhile; endif; ?>							
+                            <?php endwhile; endif; ?>
                             </div>
                             <div class="slider__controls">
                                 <div class="slider__dots"></div>
@@ -1260,13 +1260,13 @@
                         <?php endif;?>
                         <div class="row justify-content-center">
                             <div class="col col-md-10 col-xl-8">
-                                <div class="accordion" id="faq-according">							
-                                <?php 
-                                $FAQs = get_sub_field('faq_block_content');  
-                                if ($FAQs) : ?> 
-                                    <?php 
+                                <div class="accordion" id="faq-according">
+                                <?php
+                                $FAQs = get_sub_field('faq_block_content');
+                                if ($FAQs) : ?>
+                                    <?php
                                     $num = 0;
-                                    foreach ($FAQs as $post) : 
+                                    foreach ($FAQs as $post) :
                                         setup_postdata($post);
                                         ?>
 
@@ -1275,7 +1275,7 @@
                                                 data-bs-target="#collapse-<?=$num?>" aria-expanded="true" aria-controls="collapse-<?=$num?>">
                                                 <?php the_title(); ?>
                                             </button>
-                                            <div id="collapse-<?=$num?>" class="accordion-collapse collapse 
+                                            <div id="collapse-<?=$num?>" class="accordion-collapse collapse
                                                 <?php if($num==0):?>show<?php endif;?> "
                                                 aria-labelledby="headingOne" data-bs-parent="#faq-according">
                                                 <div class="accordion-body paragraph">
@@ -1283,7 +1283,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                <?php $num++; endforeach; wp_reset_postdata(); endif; ?>															
+                                <?php $num++; endforeach; wp_reset_postdata(); endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -1303,18 +1303,18 @@
                         </div>
                         <div class="slider slider-rows">
                             <div class="slider__wrapper">
-                                <?php 
-                                $partners = get_sub_field('partners_block_content');  
+                                <?php
+                                $partners = get_sub_field('partners_block_content');
                                 if ($partners) :
-                                    foreach ($partners as $post): 
-                                        $thumbnail_id = get_post_thumbnail_id( $post->ID ); 								
-                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); 							
+                                    foreach ($partners as $post):
+                                        $thumbnail_id = get_post_thumbnail_id( $post->ID );
+                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
                                         $thumbnail = get_the_post_thumbnail($post->ID, 'full', array( 'alt' => $alt ) );
-                                        setup_postdata($post); ?>   
+                                        setup_postdata($post); ?>
                                             <div class="box py-4 box--white box--shadow d-flex align-items-center justify-content-center">
                                                 <?php echo $thumbnail; ?>
-                                            </div>	
-                                <?php endforeach; wp_reset_postdata(); endif; ?>						
+                                            </div>
+                                <?php endforeach; wp_reset_postdata(); endif; ?>
                             </div>
                             <div class="slider__controls">
                                 <div class="slider__dots"></div>
@@ -1332,12 +1332,12 @@
                         <?php endif;?>
                         <div class="slider slider-card">
                             <div class="slider__wrapper">
-                            <?php 
-                                $cases = get_sub_field('cases_block_posts');  
+                            <?php
+                                $cases = get_sub_field('cases_block_posts');
                                 if ($cases) :
                                     foreach ($cases as $post):
-                                        $thumbnail_id = get_post_thumbnail_id( $post->ID ); 								
-                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true); 							
+                                        $thumbnail_id = get_post_thumbnail_id( $post->ID );
+                                        $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
                                         $thumbnail = get_the_post_thumbnail($post->ID, 'full', array( 'alt' => $alt ) );
                                         setup_postdata($post);	?>
                                             <div class="box box--white box--shadow content h-100">
@@ -1346,7 +1346,7 @@
                                                 </div>
                                                 <div class="subtitle-1 mb-2"><?php the_title(); ?></div>
                                                 <?php the_content(); ?>
-                                            </div> 							
+                                            </div>
                                 <?php endforeach; wp_reset_postdata(); endif; ?>
                             </div>
                             <div class="slider__controls">
@@ -1365,9 +1365,9 @@
                         <?php endif;?>
                         <?php if(get_sub_field('price_block_subtitle')): ?>
                         <div class="paragraph text-md-center mb-3 mb-lg-4">
-                            <?php the_sub_field('price_block_subtitle'); ?> 
+                            <?php the_sub_field('price_block_subtitle'); ?>
                         </div>
-                        <?php endif;?>						
+                        <?php endif;?>
                         <div class="pricing mb-4" data-price="year">
                             <div class="row justify-content-md-center mb-4 mb-lg-5">
                                 <div class="col-auto">
@@ -1377,10 +1377,10 @@
                                         <?php endif;?>
                                         <?php if(get_sub_field('price_block_year_tab')): ?>
                                         <div class="pricing-switcher__year js-pricing-year is-active">
-                                            <?php the_sub_field('price_block_year_tab');?> 
+                                            <?php the_sub_field('price_block_year_tab');?>
                                             <?php if(get_sub_field('price_block_sale')): ?>
                                             <div class="pricing-switcher__discount">
-                                                <?php the_sub_field('price_block_discount'); ?> 
+                                                <?php the_sub_field('price_block_discount'); ?>
                                             </div>
                                             <?php endif; ?>
                                         </div>
@@ -1390,15 +1390,15 @@
                             </div>
                             <?php if( have_rows('price_block_item') ): ?>
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center ">
-                                
+
                             <?php while ( have_rows('price_block_item') ) : the_row(); $number=1; ?>
                                 <div class="col <?php if($number<=2):?> mb-4 mb-lg-0 <?php endif;?>"><!-- проверить -->
                                     <div class="box box--shadow h-100 d-flex flex-column">
                                         <?php if(get_sub_field('price_block_item_name')): ?>
                                         <div class="h3 mb-1"><?php the_sub_field('price_block_item_name');?></div>
                                         <?php endif;?>
-                                        <div class="price-month">                                        
-                                            <div>  
+                                        <div class="price-month">
+                                            <div>
                                                 <?php if(get_sub_field('price_block_item_cost_monthly')): ?>
                                                 <span class="h2 text-primary text-bold me-1"><?php the_sub_field('price_block_item_cost_monthly');?></span>
                                                 <?php endif;?>
@@ -1426,15 +1426,15 @@
                                             <ul>
                                             <?php while ( have_rows('price_block_item_list') ) : the_row(); ?>
                                                 <?php if(get_sub_field('price_block_item_list_line')): ?>
-                                                <li><?php the_sub_field('price_block_item_list_line');?></li>	
-                                                <?php endif;?>											
+                                                <li><?php the_sub_field('price_block_item_list_line');?></li>
+                                                <?php endif;?>
                                             <?php endwhile; ?>
                                             </ul>
                                         <?php endif; ?>
                                         </div>
-                                        <?php 
+                                        <?php
                                         $free_link = get_sub_field('price_block_item_button');
-                                        if( $free_link ): 
+                                        if( $free_link ):
                                             $free_link_url = $free_link['url'];
                                             $free_link_title = $free_link['title'];
                                             $free_link_target = $free_link['target'] ? $free_link['target'] : '_self';
@@ -1444,10 +1444,10 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                            <?php $number ++; endwhile; ?>								
+                            <?php $number ++; endwhile; ?>
                             </div>
                             <?php endif; ?>
-                        </div> 
+                        </div>
                     </div>
                 </section>
             <?php endif;?>
@@ -1463,7 +1463,7 @@
                                 <?php endif;?>
                                 <?php if(get_sub_field('subscribe_block_description')): ?>
                                     <p class="paragraph mb-3 mb-xxl-4">
-                                    <?php the_sub_field('subscribe_block_description'); ?>	
+                                    <?php the_sub_field('subscribe_block_description'); ?>
                                     </p>
                                 <?php endif;?>
                                     <div class="form form-search">
@@ -1486,7 +1486,7 @@
                             <?php if(get_sub_field('blog_slider_block_title')): ?>
                             <div class="col-auto">
                                 <h2 class="h2 section-h2"><?php the_sub_field('blog_slider_block_title'); ?></h2>
-                            </div>    
+                            </div>
                             <?php endif;?>
                             <div class="col-auto d-block d-lg-none">
                                 <a href="<?php echo site_url('/blog/'); ?>" class="link link-icon">
@@ -1503,31 +1503,31 @@
                         <div class="slider slider-card">
                             <div class="slider__wrapper">
 
-                            <?php 								
-                                $myposts = get_posts( array(	
+                            <?php
+                                $myposts = get_posts( array(
                                     'posts_per_page' => 3,
                                     'orderby' => 'date',
                                     'order' => 'DESC',
-                                    'taxonomy' => 'posts',									
+                                    'taxonomy' => 'posts',
                                 ) );
 
 
-                                if(have_posts($myposts)):									
-                                    foreach( $myposts as $post ): setup_postdata( $post );								
-                                        
-                                        $author_id = get_post_field( 'post_author', $post->ID );									
-                                        $author_avatar = get_field('user_photo', 'user_'. $author_id );	
+                                if(have_posts($myposts)):
+                                    foreach( $myposts as $post ): setup_postdata( $post );
+
+                                        $author_id = get_post_field( 'post_author', $post->ID );
+                                        $author_avatar = get_field('user_photo', 'user_'. $author_id );
 
                                         $title = get_the_title($post->ID);
-                                        $link = get_the_permalink($post->ID);		
-                                        $date = get_the_date("d.m.Y, H:i",$post->ID); 
-                                        $image_post_tag = get_the_post_thumbnail($post->ID, 'full', array('class' => 'card-img','alt' => 'Heading news' ));																				
-                                ?>								
+                                        $link = get_the_permalink($post->ID);
+                                        $date = get_the_date("d.m.Y, H:i",$post->ID);
+                                        $image_post_tag = get_the_post_thumbnail($post->ID, 'full', array('class' => 'card-img','alt' => 'Heading news' ));
+                                ?>
                                 <div class="card card-bordered h-100  d-flex flex-column"> <!-- card-bordered h-100  d-flex flex-column добавил эти классы -->
                                     <?php if( !empty($image_post_tag) ): echo $image_post_tag; endif; ?>
                                     <div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1"> <!-- d-flex flex-column flex-grow-1 добавил тут -->
                                         <div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
-                                            <div class="avatar">												
+                                            <div class="avatar">
                                                 <?php if( !empty( $author_avatar ) ): ?>
                                                     <img src="<?php echo esc_url($author_avatar['url']); ?>" alt="<?php echo esc_attr($author_avatar['alt']); ?>">
                                                 <?php endif; ?>
@@ -1541,7 +1541,7 @@
                                         <div class="mt-auto"> <!-- тут див -->
                                             <p class="paragraph mb-2 pb-xxl-1">
                                                 <?php the_excerpt_max_charlength(140); ?>
-                                            </p>										
+                                            </p>
                                             <a href="<?php echo esc_url($link); ?>" class="link link-icon">
                                                 <span><?php pll_e('Read blog'); ?></span>
                                                 <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
@@ -1561,7 +1561,7 @@
                             </div>
                         </div>
                         <div class="row justify-content-center d-none d-lg-flex mt-3">
-                            <div class="col-auto">		
+                            <div class="col-auto">
                                 <a href="<?php echo site_url('/blog/'); ?>" class="btn btn-primary"><?php pll_e('Read blog'); ?></a>
                             </div>
                         </div>
@@ -1600,9 +1600,9 @@
                                         <div class="h3"><?php the_sub_field('team_block_item_name'); ?></div>
                                         <p><?php the_sub_field('team_block_item_position'); ?></p>
                                         <?php if( have_rows('team_block_item_social') ): while ( have_rows('team_block_item_social') ) : the_row(); ?>
-                                            <?php 
+                                            <?php
                                                 $social_link = get_sub_field('team_block_item_social_link');
-                                                if( $social_link ): 
+                                                if( $social_link ):
                                                     $social_link_url = $social_link['url'];
                                                     $social_link_title = $social_link['title'];
                                                     $social_link_target = $social_link['target'] ? $social_link['target'] : '_self';
