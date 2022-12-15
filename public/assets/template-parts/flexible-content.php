@@ -138,7 +138,7 @@
                                                 $image = get_field('category_icon', $solution_type);
                                                 if( !empty( $image ) ): ?>
                                                     <div class="me-3">
-                                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                        <img src="<?php echo esc_url($image['url']); ?>" width="40" alt="<?php echo esc_attr($image['alt']); ?>" />
                                                     </div>
                                                 <?php endif; ?>
                                                 <a href="<?php echo esc_url( get_term_link( $solution_type ) ); ?>" class="h3"><?php echo esc_html( $solution_type->name ); ?></a>
@@ -1002,7 +1002,7 @@
                                                 $image = get_field('category_icon', $solution_type);
                                                 if( !empty( $image ) ): ?>
                                                     <div class="me-3">
-                                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                        <img src="<?php echo esc_url($image['url']); ?>" width="40" alt="<?php echo esc_attr($image['alt']); ?>" />
                                                     </div>
                                                 <?php endif; ?>
                                                 <a href="<?php echo esc_url( get_term_link( $solution_type ) ); ?>" class="h3"><?php echo esc_html( $solution_type->name ); ?></a>
