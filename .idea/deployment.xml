@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="my mir09" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="my mir09">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/wp-content/themes/pocketip" local="$PROJECT_DIR$/public/assets" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
