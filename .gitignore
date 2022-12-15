@@ -4,6 +4,7 @@
 .Spotlight-V100
 .Trashes
 .idea
+.idea/
 .vscode
 .github
 .env
