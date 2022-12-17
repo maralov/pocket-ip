@@ -1,7 +1,11 @@
 <?php
+    const REWRITE_POST_TYPES = [
+        'services' => 'service_type',
+        'solutions' => 'solution_type'
+    ];
+
     add_action( 'init', 'register_post_types' );
 	function register_post_types(){
-
 		register_post_type('services', array(
 			'label'               => 'Services',
 			'labels'              => array(
@@ -30,7 +34,6 @@
 			'map_meta_cap'        => true,
 			'hierarchical'        => false,
 			'has_archive'         => false,
-			// 'rewrite'             => array( 'slug'=>'%service_type%', 'with_front'=>false, 'pages'=>true, 'feeds'=>false, 'feed'=>false ),
 			'query_var'           => true,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' )
 		) );
@@ -38,9 +41,9 @@
 		register_taxonomy('service_type', array('services'), array(
 			'label'                 => 'Services types',
 			'labels'                => array(
-				'name'              => 'Services types', 'taxonomy general name',
-				'singular_name'     => 'Service type', 'taxonomy singular name',
-				'search_items'      =>  'Search service types',
+				'name'              => 'Services types',
+				'singular_name'     => 'Service type',
+				'search_items'      => 'Search service types',
 				'all_items'         => 'All service types',
 				'parent_item'       => 'Parent service type',
 				'parent_item_colon' => 'Parent service type:',
@@ -55,7 +58,7 @@
 			'show_in_nav_menus'     => true,
 			'show_ui'               => true,
 			'show_tagcloud'         => true,
-			'show_in_rest'        => true,
+			'show_in_rest'          => true,
 			'hierarchical'          => true,
 			'show_admin_column'     => true,
 		) );
@@ -114,7 +117,6 @@
 			'map_meta_cap'        => true,
 			'hierarchical'        => false,
 			'has_archive'         => false,
-			// 'rewrite'             => array( 'slug'=>'%solution_type%', 'with_front'=>false, 'pages'=>true, 'feeds'=>false, 'feed'=>false ),
 			'query_var'           => true,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' )
 		) );
@@ -312,113 +314,56 @@
 			'query_var'           	=> true,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' )
 		) );
-
 	}
 
-	
-	// function rudr_change_term_request($query_vars){
+	add_filter('post_type_link', 'cpt_permalinks', 1, 2);
+	function cpt_permalinks($permalink, $post) {
+        foreach (REWRITE_POST_TYPES as $type => $tax) {
+            if (str_contains($permalink, $type)) {
+                $terms = get_the_terms($post, $tax);
 
-	// 	$tax_names = array('service_type','solution_type'); // specify you taxonomy name here, it can be also 'category' or 'post_tag'
-	  
-	// 	if( isset($query_vars['attachment']) ? $query_vars['attachment'] : null) :
-	  
-	// 	  $include_children = true;
-	// 	  $name = $query_vars['attachment'];
-	  
-	// 	else:
-	  
-	// 	  if( isset($query_vars['name']) ? $query_vars['name'] : null) {
-	// 		$include_children = false;
-	// 		$name = $query_vars['name'];
-	// 	  }
-	  
-	// 	endif;
-	  
-	// 	if (isset($name)):
-	  
-	// 	  foreach ($tax_names as $tax_name) {
-	  
-	// 		$term = get_term_by('slug', $name, $tax_name);
-	  
-	// 		if ($term && !is_wp_error($term)):
-	  
-	// 		if( $include_children ) {
-	  
-	// 		  unset($query_vars['attachment']);
-	// 		  $parent = $term->parent;
-	  
-	// 		  while( $parent ) {
-	  
-	// 			$parent_term = get_term( $parent, $tax_name);
-	// 			$name = $parent_term->slug . '/' . $name;
-	// 			$parent = $parent_term->parent;
-	  
-	// 		  }
-	  
-	// 		} else {
-	  
-	// 		  unset($query_vars['name']);
-	  
-	// 		}
-	  
-	// 		$query_vars[$tax_name] = $name;
-	  
-	// 		endif;
-	  
-	// 	  }
-	  
-	// 	endif;
-	  
-	// 	return $query_vars;
-	  
-	// }
-	  
-	// add_filter('request', 'rudr_change_term_request', 1, 1 );
-	
-	// function rudr_term_permalink( $url, $term, $taxonomy ){
-	
-	// 	$taxonomy_slugs = array('service_type','solution_type');
-		
-	// 	foreach ($taxonomy_slugs as $taxonomy_slug) {
-		
-	// 		if ( stripos($url, $taxonomy_slug) === TRUE || $taxonomy == $taxonomy_slug ) {
-		
-	// 			$url = str_replace('/' . $taxonomy_slug, '', $url);
-		
-	// 		}
-	// 	}
-		
-	// 	return $url;
-	// }
-	
-	// add_filter( 'term_link', 'rudr_term_permalink', 10, 3 );
+                if (!empty($terms)) {
+                    $permalink = str_replace($type, $terms[0]->slug, $permalink);
+                }
+            }
+        }
 
-	// add_filter('post_type_link', 'services_permalink', 1, 2);
-	// function services_permalink( $permalink, $post ){
-	// 	if( strpos($permalink, '%service_type%') === false )
-	// 		return $permalink;
+		return $permalink;
+	}
 
-	// 	$terms = get_the_terms($post, 'service_type');
+    add_filter('request', 'change_term_request', 1, 1);
+    function change_term_request($query_vars) {
+        if (!empty($query_vars['attachment']) && empty($query_vars['post_type'])) {
+            $slug = $query_vars['attachment'];
 
-	// 	if( ! is_wp_error($terms) && !empty($terms) && is_object($terms[0]) )
-	// 		$term_slug = array_pop($terms)->slug;
-	// 	else
-	// 		$term_slug = 'no-service_type';
+            $posts = get_posts([
+                'name'        => $slug,
+                'post_type'   => get_post_types(),
+                'post_status' => 'publish',
+                'numberposts' => 1
+            ]);
 
-	// 	return str_replace('%service_type%', $term_slug, $permalink );
-	// }
+            if (!empty($posts)) {
+                $post = $posts[0];
 
-	// add_filter('post_type_link', 'solutions_permalink', 1, 2);
-	// function solutions_permalink( $permalink, $post ){
-	// 	if( strpos($permalink, '%solution_type%') === false )
-	// 		return $permalink;
+                if (!empty(REWRITE_POST_TYPES[$post->post_type])) {
+                    $query_vars[$post->post_type] = $slug;
+                    $query_vars['post_type'] = $post->post_type;
+                    $query_vars['name'] = $slug;
+                }
+            }
+        }
 
-	// 	$terms = get_the_terms($post, 'solution_type');
+        return $query_vars;
+    }
 
-	// 	if( ! is_wp_error($terms) && !empty($terms) && is_object($terms[0]) )
-	// 		$term_slug = array_pop($terms)->slug;
-	// 	else
-	// 		$term_slug = 'no-solution_type';
+    add_filter('term_link', 'cpt_term_link', 10, 3);
+    function cpt_term_link( $url, $term, $taxonomy ) {
+        foreach (REWRITE_POST_TYPES as $tax) {
+            if ($taxonomy === $tax) {
+                $url = str_replace('/' . $tax, '', $url);
+            }
+        }
 
-	// 	return str_replace('%solution_type%', $term_slug, $permalink );
-	// }
+        return $url;
+    }
