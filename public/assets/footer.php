@@ -133,11 +133,6 @@
 									</div>
 							<?php endif; ?>							
 						<?php endwhile; endif; ?>
-						<!--
-						<div class="d-block d-lg-none mt-3 mt-lg-0">
-							<img src="<?php //echo POCKET_IMG_DIR; ?>/five.png" SRCSET="<?php //echo POCKET_IMG_DIR; ?>/five.png, <?php //echo POCKET_IMG_DIR; ?>/five@2x.png 2x" alt="">
-						</div>
-						-->
 					</div>
 				</div>
 			</div>

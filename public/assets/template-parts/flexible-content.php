@@ -169,7 +169,7 @@
                                                     $image = get_field('category_icon', $service_type);
                                                     if( !empty( $image ) ): ?>
                                                         <div class="me-3">
-                                                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                            <img src="<?php echo esc_url($image['url']); ?>" width="40" alt="<?php echo esc_attr($image['alt']); ?>" />
                                                         </div>
                                                 <?php endif; ?>
                                                 <a href="<?php echo esc_url( get_term_link( $service_type ) ); ?>" class="h3"><?php echo esc_html( $service_type->name ); ?></a>
@@ -1033,7 +1033,7 @@
                                                     $image = get_field('category_icon', $service_type);
                                                     if( !empty( $image ) ): ?>
                                                         <div class="me-3">
-                                                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                                            <img src="<?php echo esc_url($image['url']); ?>" width="40" alt="<?php echo esc_attr($image['alt']); ?>" />
                                                         </div>
                                                 <?php endif; ?>
                                                 <a href="<?php echo esc_url( get_term_link( $service_type ) ); ?>" class="h3"><?php echo esc_html( $service_type->name ); ?></a>
