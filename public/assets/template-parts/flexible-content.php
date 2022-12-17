@@ -41,7 +41,7 @@
                                             $login_link_title = $login_link['title'];
                                             $login_link_target = $login_link['target'] ? $login_link['target'] : '_self';
                                             ?>
-                                            <a class="btn btn-video ms-1" href="<?php echo esc_url( $login_link_url ); ?>" target="<?php echo esc_attr( $login_link_target ); ?>">
+                                            <a class="btn btn-video ms-1 js-btn-video" data-video="<?php echo esc_url( $login_link_url ); ?>" href="#"?>">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <circle cx="12" cy="12" r="12" fill="#D80202" />
