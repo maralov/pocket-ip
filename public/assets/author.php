@@ -55,11 +55,19 @@
 						<h1 class="h2 my-3"><?php pll_e('Last publications'); ?></h1>
 						<div class="row row-cols-1 row-cols-md-2 gy-4">
 							<!-- ON mobile display only 2 cols -->
-                            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); $i = 0; ?>
+                            <?php
+                                $args = array(
+                                    'post_type' => array('news', 'post') ,
+                                    'author' => get_queried_object_id(),
+                                    'showposts' => -1
+                                );
+                                $custom_posts = new WP_Query( $args );
+                            ?>
+                            <?php if ( $custom_posts->have_posts() ): while ( $custom_posts->have_posts() ) : $custom_posts->the_post();  $i = 0; ?>
                                 <div class="col <?php if($i == 2) : echo 'd-none d-md-block'; endif; ?>">
-                                    <div class="card card-bordered">
+                                    <div class="card card-bordered h-100  d-flex flex-column">
                                         <?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
-                                        <div class="p-3 p-xxl-4">
+                                        <div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
                                             <div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
                                                 <div class="avatar">
                                                 <?php 

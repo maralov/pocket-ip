@@ -16,17 +16,18 @@
 						</div>
 					</div>
 
-					<?php   
-						$cir_cat   = $wp_query->get_queried_object();
-						$cat_slug  = $cir_cat->slug;
-
-						$terms_county = get_terms(array(
-							'hide_empty'  => 1,
-							'orderby'     => 'name',
-							'order'       => 'ASC',
-							'taxonomy'    => 'solution_country',
-						));
-						?>
+					<?php
+                        $cir_cats = get_the_terms( get_the_ID(), 'solution_type' );
+                        if ( !empty( $cir_cats ) ) :
+                            $cir_cat = array_shift( $cir_cats );
+                            $cat_slug  = $cir_cat->slug;
+                            $terms_county = get_terms(array(
+                                'hide_empty'  => 1,
+                                'orderby'     => 'name',
+                                'order'       => 'ASC',
+                                'taxonomy'    => 'solution_country',
+                            ));
+                        ?>
 						<?php if($cir_cat->count != 0) : ?>
 							<div class="col-12 col-lg-4">
 								<div class="subtitle-1 mb-2"><?php pll_e('Other countries'); ?></div>
@@ -41,6 +42,7 @@
 											'post_type' => 'solutions',
 											'posts_per_page' => -1,
 											'order' => 'DESC',
+                                            'post__not_in' => array(get_the_ID()),
 											'tax_query' => [
 												'relation' => 'AND',
 												[
@@ -71,6 +73,7 @@
 								</div>
 							</div>
 						<?php endif; ?>
+                    <?php endif; ?>
 				</div>
 				<div class="mb-80">
 					<?php get_template_part('template-parts/flexible-content'); ?>

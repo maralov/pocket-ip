@@ -19,11 +19,11 @@
 					if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						<div class="col-12 col-md-6 col-lg-4">
 							<div class="px-xl-1">
-								<div class="card">
+								<div class="card card-bordered h-100  d-flex flex-column">
 									<a href="<?php the_permalink(); ?>">
 										<?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
 									</a>
-									<div class="p-3 p-xxl-4">
+									<div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
 										<div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
 											<div class="avatar">
 												<?php 
@@ -37,17 +37,19 @@
 											</div>
 											<div class="card-date"><?php echo get_the_date("d.m.Y, H:i"); ?></div>
 										</div>
-										<h5 class="h3 mb-2 pb-xxl-1"><?php the_title(); ?></h5>
-										<p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(150); ?></p>
-										<a href="<?php the_permalink(); ?>" class="link link-icon">
-											<span><?php pll_e('Read more'); ?></span>
-											<svg width="7" height="12" viewBox="0 0 7 12" fill="none"
-												xmlns="http://www.w3.org/2000/svg">
-												<path
-													d="M0.37165 0.235013C0.684775 -0.0783368 1.18961 -0.0783368 1.50273 0.235012L6.81308 5.54916C7.06231 5.79856 7.06231 6.20144 6.81308 6.45084L1.50274 11.765C1.18961 12.0783 0.684776 12.0783 0.371651 11.765C0.0585251 11.4516 0.0585251 10.9464 0.371651 10.6331L4.99824 5.9968L0.36526 1.36051C0.0585257 1.05356 0.0585242 0.541967 0.37165 0.235013Z"
-													fill="#504EF3" />
-											</svg>
-										</a>
+										<h5 class="h3 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 50, '...'); ?></h5>
+                                        <div class="mt-auto">
+                                            <p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(150); ?></p>
+                                            <a href="<?php the_permalink(); ?>" class="link link-icon">
+                                                <span><?php pll_e('Read more'); ?></span>
+                                                <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M0.37165 0.235013C0.684775 -0.0783368 1.18961 -0.0783368 1.50273 0.235012L6.81308 5.54916C7.06231 5.79856 7.06231 6.20144 6.81308 6.45084L1.50274 11.765C1.18961 12.0783 0.684776 12.0783 0.371651 11.765C0.0585251 11.4516 0.0585251 10.9464 0.371651 10.6331L4.99824 5.9968L0.36526 1.36051C0.0585257 1.05356 0.0585242 0.541967 0.37165 0.235013Z"
+                                                        fill="#504EF3" />
+                                                </svg>
+                                            </a>
+                                        </div>
 									</div>
 								</div>
 							</div>
@@ -56,17 +58,19 @@
 			</div>
 			<div class="row justify-content-center  mt-4 pt-xxl-3">
 				<div class="col-auto">
-					<?php
-						$args = array(
-                            'show_all'     => false,
-                            'mid_size'     => 3,
-                            'prev_next'    => true,
-                            'prev_text'    => __(''),
-                            'next_text'    => __(''),
-                        );
-						the_posts_pagination($args);
-
-					endif; ?>
+                    <nav class="pagination" role="navigation">
+                        <?php
+                            echo paginate_links(
+                                $args = array(
+                                    'show_all'     => false,
+                                    'mid_size'     => 3,
+                                    'prev_next'    => true,
+                                    'prev_text'    => __('<-'),
+                                    'next_text'    => __('->')
+                                )
+                            );
+                        endif; ?>
+                    </nav>
 				</div>
 			</div>
 		</div>

@@ -31,11 +31,11 @@
                     if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
 						<div class="col-12 col-md-6 col-lg-4">
 							<div class="px-xl-1">
-								<div class="card">
+								<div class="card card-bordered h-100  d-flex flex-column">
 									<a href="<?php the_permalink(); ?>">
 										<?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
 									</a>
-									<div class="p-3 p-xxl-4">
+									<div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
 										<div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
 											<div class="avatar">
 												<?php 

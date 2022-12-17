@@ -138,20 +138,28 @@
 			</div>
 		</div>
 	</footer>
-<!--	ренерить єту модалку только если в баннер у .btn-video передана сілка в data-video	-->
-    <div class="modal js-modal-video">
-        <div class="position-relative">
-            <button type="button" class="btn modal__btn-close js-modal-btn-close">
-                <img src=" <?php echo POCKET_IMG_DIR /icons/ic-close-modal.svg ?>" alt="close-modal">
-            </button>
+    <!--	ренерить єту модалку только если в баннер у .btn-video передана сілка в data-video	-->
+    <?php if( have_rows('custom_blocks') ): while ( have_rows('custom_blocks') ) : the_row(); ?>
+        <?php if( get_row_layout() == 'banner_block' ): ?>
+            <?php
+            $login_link = get_sub_field('banner_block_button_watch');
+            if( $login_link ): ?>
+                <div class="modal js-modal-video">
+                    <div class="position-relative">
+                        <button type="button" class="btn modal__btn-close js-modal-btn-close">
+                            <img src=" <?php echo POCKET_IMG_DIR?>/icons/ic-close-modal.svg" alt="close-modal">
+                        </button>
 
-            <iframe width="700"
-                    height="400"
-                    src=""
-                    allowfullscreen>
-            </iframe>
-        </div>
-    </div>
+                        <iframe width="700"
+                                height="400"
+                                src=""
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endwhile; endif; ?>
 
 	<?php wp_footer(); ?>
 </body>
