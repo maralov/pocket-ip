@@ -592,10 +592,7 @@
                             </p>
                         <?php endif;?>
                         <div class="form form-search">
-                            <form>
-                                <input type="text" placeholder="Your email" />
-                                <input type="submit" value="Subscribe">
-                            </form>
+                            <?php echo do_shortcode('[contact-form-7 id="557" title="Subscribe"]'); ?>
                         </div>
                     </div>
                 </div>

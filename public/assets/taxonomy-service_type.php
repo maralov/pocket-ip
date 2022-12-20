@@ -17,13 +17,16 @@
             </div>
 
             <?php
-            $current_taxonomy_term = get_queried_object_id();
+            $queried_object = get_queried_object();
+            $taxonomy = $queried_object->taxonomy;
+            $term_id = $queried_object->term_id;
+            $customTerm =  $taxonomy . '_' . $term_id;
             $terms = get_terms(array(
                 'hide_empty'  => 0,
                 'orderby'     => 'name',
                 'order'       => 'ASC',
                 'taxonomy'    => 'service_type',
-                'exclude'	=> $current_taxonomy_term
+                'exclude'	=> $term_id
             ));
             $terms = wp_list_filter($terms);
             ?>
@@ -37,7 +40,7 @@
             </div>
         </div>
 
-        <div class="mb-80">
+        <div <?php if(have_rows('custom_blocks', $customTerm)) : ?> class="mb-80" <?php endif; ?>>
             <?php get_template_part('template-parts/flexible-content'); ?>
         </div>
 	</section>
