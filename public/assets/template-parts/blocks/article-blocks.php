@@ -184,7 +184,7 @@
     ));
     ?>
     <?php if($cir_cat->count != 0) : ?>
-        <section>
+        <div class="mb-80">
             <h3 class="h3 mb-3"><?php pll_e('The service is available for countries:'); ?></h3>
             <div class="d-flex flex-wrap gap-1 gap-xl-2 js-country-tags">
                 <?php
@@ -225,7 +225,7 @@
                 <?php endwhile; endif; ?>
                 <?php endforeach; ?>
             </div>
-        </section>
+        </div>
     <?php endif; ?>
 <?php endif; ?>
 
@@ -242,7 +242,7 @@
     ));
     ?>
     <?php if($cir_cat->count != 0) : ?>
-        <section>
+        <div class="mb-80">
             <h3 class="h3 mb-3"><?php pll_e('The solution is available for countries:'); ?></h3>
             <div class="d-flex flex-wrap gap-1 gap-xl-2 js-country-tags">
                 <?php
@@ -283,6 +283,6 @@
                 <?php endwhile; endif; ?>
                 <?php endforeach; ?>
             </div>
-        </section>
+        </div>
     <?php endif; ?>
 <?php endif; ?>

@@ -4,7 +4,8 @@
 		register_nav_menus( [
 			'header_menu' => 'Header menu',
 			'footer_menu' => 'Footer menu',
-			'line_menu' => 'Footer single line menu'
+			'line_menu' => 'Footer single line menu',
+			'sitemap_menu' => 'Sitemap menu'
 		] );
 	} );
 
@@ -60,3 +61,5 @@
 	
 		return $menu;   
 	}
+
+    add_filter('wpcf7_autop_or_not', '__return_false');

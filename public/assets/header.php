@@ -73,7 +73,8 @@
 										<ul class="sub-menu">
 
 											<?php foreach ($menu['children'] as $children):
-												$icon = get_field('category_icon', $children["term"] . '_' . $children["term_id"]);  
+												$icon = get_field('category_icon', $children["term"] . '_' . $children["term_id"]);
+	                                            $iconMenu = get_field('menu_icon', $children['ID']);
 											?>
 															
 											<li>
@@ -81,12 +82,15 @@
 												<?php if($children["type"] == "taxonomy") : ?>
 													<?php if( !empty( $icon ) ): ?>
 														<img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>" />
-													<?php endif; ?>
-													
-												<?php elseif($children["type"] == "custom" || $children["type"] == "post_type" || $children["type"] == "post_type_archive") : ?>
+													<?php endif; ?>													
+												<?php elseif($children["type"] == "custom" || $children["type"] == "post_type" ) : ?>
 													<?php if(!empty(get_the_post_thumbnail( $children["term_id"] ))) : ?>
 														<?php echo get_the_post_thumbnail($children["term_id"], 'full' ); ?>
 													<?php endif; ?>
+                                                <?php elseif($children["type"] == "post_type_archive") : ?>
+                                                    <?php if( !empty( $iconMenu ) ): ?>
+                                                        <img src="<?php echo esc_url($iconMenu['url']); ?>" alt="<?php echo esc_attr($iconMenu['alt']); ?>" />
+                                                    <?php endif; ?>
 												<?php endif; ?>
 													<span><?php echo $children['title']; ?></span>
 													<p><?php echo $children['description']; ?></p>

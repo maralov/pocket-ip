@@ -173,7 +173,7 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'action_block' ): ?>
-    <div class="container-lg">
+    <div <?php if(is_front_page()) : ?> class="container-lg" <?php endif; ?>>
         <div class="cta-block">
             <div class="row justify-content-between align-items-center">
                 <?php if(get_sub_field('action_block_text')) : ?>
