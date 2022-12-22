@@ -96,6 +96,14 @@
 }
 
 .form-row {
+  margin-top: rem(40);
+
+  @include media-breakpoint-up(xl) {
+    margin-top: rem(60);
+  }
+  @media (min-width: $media-2xl) {
+    margin-top: rem(80);
+  }
   form {
     display: flex;
     align-items: center;
