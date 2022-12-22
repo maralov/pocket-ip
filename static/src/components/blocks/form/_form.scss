@@ -62,14 +62,33 @@
       }
     }
 
-    .form-submit {
-
-    }
     input[type="submit"], button[type="submit"] {
       @extend .btn;
       @extend .btn-primary;
     }
 
+    button[type="submit"] {
+      &:before {
+        content: '';
+        display: none;
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        background-image: url('../img/icons/ic-loading.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 16px;
+        animation: spin 2s linear infinite;
+      }
+    }
+
+    &.submitting {
+      button[type="submit"] {
+        &:before {
+          display: block;
+        }
+      }
+    }
     .wpcf7-response-output {
       margin: 0;
       width: 100%;
@@ -92,6 +111,11 @@
           left: 9999px;
         }
     }
+  }
+
+  .wpcf7-not-valid-tip {
+    color: $red;
+    font-size: rem(12);
   }
 }
 
@@ -163,6 +187,17 @@
     }
   }
 
+  .wpcf7-not-valid-tip {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: -8px;
+    margin-bottom: 8px;
+  }
+
+  .wpcf7-response-output {
+    margin-top: 16px!important;
+  }
 }
 
 .form-search {
@@ -181,5 +216,13 @@
       top: 0;
       height: 55px;
     }
+  }
+}
+
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
