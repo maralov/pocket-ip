@@ -7,7 +7,7 @@
 					<?php
 						if ( function_exists('yoast_breadcrumb') ) {
 							yoast_breadcrumb( '<div class="breadcrumbs" id="breadcrumbs">','</div>' );
-						} 
+						}
 					?>
 				</div>
 				<div class="col-12 ">
@@ -18,7 +18,7 @@
 				<?php
 					if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 						<div class="col-12 col-md-6 col-lg-4">
-							<div class="px-xl-1">
+							<div class="px-xl-1 h-100">
 								<div class="card card-bordered h-100  d-flex flex-column">
 									<a href="<?php the_permalink(); ?>">
 										<?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
@@ -26,8 +26,8 @@
 									<div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
 										<div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
 											<div class="avatar">
-												<?php 
-													$author_id = get_post_field( 'post_author', $post->ID );									
+												<?php
+													$author_id = get_post_field( 'post_author', $post->ID );
 													$author_avatar = get_field('user_photo', 'user_'. $author_id );
 												?>
 												<?php if( !empty( $author_avatar ) ): ?>
@@ -63,7 +63,7 @@
                             echo paginate_links(
                                 $args = array(
                                     'show_all'     => false,
-                                    'mid_size'     => 3,
+                                    'mid_size'     => 12,
                                     'prev_next'    => true,
                                     'prev_text'    => __('<-'),
                                     'next_text'    => __('->')

@@ -7,7 +7,7 @@
 					<?php
 						if ( function_exists('yoast_breadcrumb') ) {
 							yoast_breadcrumb( '<div class="breadcrumbs" id="breadcrumbs">','</div>' );
-						} 
+						}
 					?>
 				</div>
 				<?php if(get_field('news_title', 'option')) : ?>
@@ -19,18 +19,18 @@
 			<div class="row gy-4">
 				<?php
                     $args = array(
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 12,
                         'post_type' => 'news',
                         'orderby' => 'date',
                         'order' => 'DESC',
-                        'paged' => get_query_var('paged') ?? 1 
+                        'paged' => get_query_var('paged') ?? 1
                     );
 
                     $loop = new WP_Query( $args );
 
                     if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
 						<div class="col-12 col-md-6 col-lg-4">
-							<div class="px-xl-1">
+							<div class="px-xl-1 h-100">
 								<div class="card card-bordered h-100  d-flex flex-column">
 									<a href="<?php the_permalink(); ?>">
 										<?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
@@ -38,8 +38,8 @@
 									<div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
 										<div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
 											<div class="avatar">
-												<?php 
-													$author_id = get_post_field( 'post_author', $post->ID );									
+												<?php
+													$author_id = get_post_field( 'post_author', $post->ID );
 													$author_avatar = get_field('user_photo', 'user_'. $author_id );
 												?>
 												<?php if( !empty( $author_avatar ) ): ?>
@@ -49,9 +49,9 @@
 											</div>
 											<div class="card-date"><?php echo get_the_date("d.m.Y, H:i"); ?></div>
 										</div>
-										<h5 class="h3 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 50, '...'); ?></h5>
+										<h5 class="h3 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 45, '...'); ?></h5>
 										<p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(150); ?></p>
-										<a href="<?php the_permalink(); ?>" class="link link-icon">
+										<a href="<?php the_permalink(); ?>" class="link link-icon mt-auto">
 											<span><?php pll_e('Read more'); ?></span>
 											<svg width="7" height="12" viewBox="0 0 7 12" fill="none"
 												xmlns="http://www.w3.org/2000/svg">

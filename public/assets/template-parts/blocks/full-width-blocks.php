@@ -578,7 +578,7 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'subscribe_block' ): ?>
-    <section>
+    <div>
         <div class="container-lg">
             <div class="cta-block text-center p-md-4 p-lg-5">
                 <div class="row justify-content-center py-xl-4">
