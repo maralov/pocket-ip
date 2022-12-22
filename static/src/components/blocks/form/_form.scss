@@ -166,9 +166,12 @@
 }
 
 .form-search {
-  form {
-    position: relative;
 
+  &__container{
+    position: relative;
+  }
+
+  form {
     input:not([type="submit"]){
       padding-right: 120px;
     }
