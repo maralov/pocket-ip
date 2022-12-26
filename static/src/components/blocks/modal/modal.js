@@ -4,23 +4,31 @@ jQuery(function ($) {
         $("body").removeClass("no-scroll backdrop");
         $(".modal").hide().find("iframe").attr("src", "");
     }
-    function openModal(e) {
-        const modalVideo = $(".js-modal-video");
-        $("body").addClass("no-scroll backdrop");
-        modalVideo.css("display", "flex").hide().fadeIn();
+    function openModal({event, type}) {
+        const modalVideo = $(`.js-modal-${type}`);
 
-        if(e.currentTarget && $(e.currentTarget).hasClass("js-btn-video")) {
-            const videoSrc = $(e.currentTarget).data("video");
+
+        if(event && event.currentTarget && $(event.currentTarget).hasClass("js-btn-video")) {
+            const videoSrc = $(event.currentTarget).data("video");
             modalVideo.find("iframe").attr("src", `${videoSrc}?rel=0&autoplay=1&mute=1`);
         }
+
+        $("body").addClass("no-scroll backdrop");
+        modalVideo.css("display", "flex").hide().fadeIn();
     }
 
     $(".js-btn-video").on("click", function (e) {
         e.preventDefault();
-        openModal(e);
+        openModal({event:e, type:"video"});
     });
 
     $(".modal").on("click", closeModal);
+
+    const wpcf7Elm = document.querySelector(".wpcf7");
+
+    wpcf7Elm?.addEventListener("wpcf7submit", function () {
+        openModal({type: "submit"});
+    }, false);
 
 });
 

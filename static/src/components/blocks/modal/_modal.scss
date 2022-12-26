@@ -17,3 +17,10 @@
     left: 100%;
   }
 }
+
+.modal-submit {
+  &__content {
+    width: 100%;
+    max-width: 550px;
+  }
+}
