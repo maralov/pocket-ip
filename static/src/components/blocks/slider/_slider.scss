@@ -152,6 +152,10 @@
     }
 
     & > div {
+      .box {
+        height: 128px;
+        overflow: hidden;
+      }
       &:first-child {
         margin-bottom: 32px;
         @media (max-width: 768px) {

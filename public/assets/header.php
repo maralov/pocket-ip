@@ -17,21 +17,21 @@
 </head>
 
 <body>
-	<div class="info-panel js-info-panel">
+<?php if(get_field('info_panel_txt', 'option')) : ?>
+	<div class="info-panel js-info-panel d-none">
 		<div class="container-fluid">
 			<div class="info-panel__container">
-				<?php if(get_field('info_panel_txt', 'option')) : ?>
-					<p class="info-panel__text"><?php the_field('info_panel_txt', 'option'); ?>
-						<span class="d-none d-lg-inline-block pe-1"> - </span>
-					</p>
-				<?php endif; ?>
-				<?php 
+                <p class="info-panel__text"><?php the_field('info_panel_txt', 'option'); ?>
+
+                </p>
+				<?php
 					$info_link = get_field('info_panel_btn', 'option');
-					if( $info_link ): 
+					if( $info_link ):
 						$info_link_url = $info_link['url'];
 						$info_link_title = $info_link['title'];
 						$info_link_target = $info_link['target'] ? $info_link['target'] : '_self';
 						?>
+						<span class="d-none d-lg-inline-block pe-1"> - </span>
 						<a class="info-panel__link" href="<?php echo esc_url( $info_link_url ); ?>" target="<?php echo esc_attr( $info_link_target ); ?>"><?php echo esc_html( $info_link_title ); ?></a>
 				<?php endif; ?>
 				<button type="button" aria-label="close"
@@ -44,6 +44,7 @@
 			</div>
 		</div>
 	</div>
+	<?php endif; ?>
 	<header class="header js-header">
 		<div class="container-xxl">
 			<div class="header__container">
@@ -62,12 +63,12 @@
 					<ul>
 					<?php
 						$menu_name = 'Header menu ' . pll_current_language( 'name' );
-                    	$menus = wp_get_menu_array($menu_name);					
-							
-						
-						if ($menus) : 
+                    	$menus = wp_get_menu_array($menu_name);
+
+
+						if ($menus) :
 							foreach ($menus as $menu) : ?>
-								<?php if ($menu['children']): ?>								
+								<?php if ($menu['children']): ?>
 									<li class="menu-item-has-children">
 										<a><?php echo $menu['title']; ?></a>
 										<ul class="sub-menu">
@@ -76,13 +77,13 @@
 												$icon = get_field('category_icon', $children["term"] . '_' . $children["term_id"]);
 	                                            $iconMenu = get_field('menu_icon', $children['ID']);
 											?>
-															
+
 											<li>
 												<a href="<?php echo $children['url']; ?>">
 												<?php if($children["type"] == "taxonomy") : ?>
 													<?php if( !empty( $icon ) ): ?>
 														<img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>" />
-													<?php endif; ?>													
+													<?php endif; ?>
 												<?php elseif($children["type"] == "custom" || $children["type"] == "post_type" ) : ?>
 													<?php if(!empty(get_the_post_thumbnail( $children["term_id"] ))) : ?>
 														<?php echo get_the_post_thumbnail($children["term_id"], 'full' ); ?>
@@ -96,14 +97,14 @@
 													<p><?php echo $children['description']; ?></p>
 												</a>
 											</li>
-										<?php endforeach; ?>										
+										<?php endforeach; ?>
 										</ul>
 									</li>
 								<?php else: ?>
 									<li>
 										<a href="<?php echo $menu['url']; ?>"><?php echo $menu['title']; ?></a>
 									</li>
-						<?php endif; endforeach; endif; ?>												
+						<?php endif; endforeach; endif; ?>
 					</ul>
 					<div class="d-flex justify-content-center d-lg-none mt-auto">
 						<div class="px-2">
@@ -116,9 +117,9 @@
 				</nav>
 				<div class="d-flex">
 					<div class="d-none d-lg-flex me-2 me-xl-4 order-lg-first">
-						<?php 
+						<?php
 							$book_link = get_field('main_btn_book', 'option');
-							if( $book_link ): 
+							if( $book_link ):
 								$book_link_url = $book_link['url'];
 								$book_link_title = $book_link['title'];
 								$book_link_target = $book_link['target'] ? $book_link['target'] : '_self';
@@ -127,9 +128,9 @@
 									<a class="btn btn-primary" href="<?php echo esc_url( $book_link_url ); ?>" target="<?php echo esc_attr( $book_link_target ); ?>"><?php echo esc_html( $book_link_title ); ?></a>
 								</div>
 						<?php endif; ?>
-						<?php 
+						<?php
 							$try_link = get_field('main_btn_try', 'option');
-							if( $try_link ): 
+							if( $try_link ):
 								$try_link_url = $try_link['url'];
 								$try_link_title = $try_link['title'];
 								$try_link_target = $try_link['target'] ? $try_link['target'] : '_self';
@@ -152,9 +153,9 @@
 					</div>
 					<?php echo do_shortcode('[searchwp_modal_search_form engine="my_searchwp_engine" template="My Custom Template" text="Search" type="button" class="btn btn-nav-search d-none d-lg-inline-flex"]'); ?>
 					<!-- <button type="button" class="btn btn-nav-search d-none d-lg-inline-flex">Search</button> -->
-					<?php 
+					<?php
 						$login_link = get_field('main_btn_login', 'option');
-						if( $login_link ): 
+						if( $login_link ):
 							$login_link_url = $login_link['url'];
 							$login_link_title = $login_link['title'];
 							$login_link_target = $login_link['target'] ? $login_link['target'] : '_self';

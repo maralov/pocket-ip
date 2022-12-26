@@ -2,10 +2,18 @@ import jQuery from "jquery";
 jQuery(function ($) {
     const $header = $(".js-header");
     const $headerPanel = $(".js-info-panel");
+    const headerPanelCurrentText = $headerPanel.find(".info-panel__text").text().toLowerCase();
+    const headerPanelPrevText = localStorage.getItem("infoPanelPrevText") || "";
     const $menuButton = $(".js-menu-btn");
     const $headerItemWithChildren = $(".js-header-nav .menu-item-has-children > a");
     const $docEl = $(document.documentElement);
     const $window = $(window);
+    const isDisplayInfoPanel = JSON.parse(localStorage.getItem("isDisplayInfoPanel"));
+
+
+    if ($headerPanel && !isDisplayInfoPanel && headerPanelCurrentText !== headerPanelPrevText) {
+        $headerPanel.toggleClass("d-none");
+    }
 
     $docEl.on("click", (e) => {
         if ($(e.target).hasClass("no-scroll")){
@@ -57,6 +65,7 @@ jQuery(function ($) {
     $window.on("scroll", checkScroll);
 
 
+
     function toggleHeaderActiveClass() {
         $header.toggleClass("open-nav");
         $("body").toggleClass("no-scroll backdrop");
@@ -78,13 +87,14 @@ jQuery(function ($) {
     function closeInfoPanel(e) {
         if ($(e.target).parent().hasClass("js-info-panel-close") || $(e.target).hasClass("js-info-panel-close")) {
             $(this).hide();
+            localStorage.setItem("isDisplayInfoPanel", "false");
+            localStorage.setItem("infoPanelPrevText", $(this).find(".info-panel__text").text().toLowerCase());
             setMobileMenuHeight();
         }
     }
 
     if ($(window).width() < 1110) {
         $headerItemWithChildren.on("click", function () {
-
             $(this).parent().toggleClass("sub-menu-is-open");
             $(this).parent().siblings(".menu-item-has-children").removeClass("sub-menu-is-open");
         });
