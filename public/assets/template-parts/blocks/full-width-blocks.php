@@ -646,7 +646,7 @@
 
                             $title = get_the_title($post->ID);
                             $link = get_the_permalink($post->ID);
-                            $date = get_the_date("d.m.Y, H:i",$post->ID);
+                            $date = get_the_date("d.m.Y",$post->ID);
                             $image_post_tag = get_the_post_thumbnail($post->ID, 'full', array('class' => 'card-img','alt' => 'Heading news' ));
                             ?>
                             <div class="card card-bordered h-100  d-flex flex-column"> <!-- card-bordered h-100  d-flex flex-column добавил эти классы -->
@@ -663,7 +663,7 @@
                                         </div>
                                         <div class="card-date"><?php echo esc_html($date); ?></div>
                                     </div>
-                                    <h5 class="h3 mb-2 pb-xxl-1"><?php echo mb_strimwidth($title, 0, 50, '...'); ?></h5>
+                                    <h5 class="subtitle-2 mb-2 pb-xxl-1"><?php echo mb_strimwidth($title, 0, 80, '...'); ?></h5>
                                     <div class="mt-auto"> <!-- тут див -->
                                         <p class="paragraph mb-2 pb-xxl-1">
                                             <?php the_excerpt_max_charlength(140); ?>

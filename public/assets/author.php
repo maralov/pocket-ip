@@ -8,11 +8,11 @@
                         <?php
                             if ( function_exists('yoast_breadcrumb') ) {
                                 yoast_breadcrumb( '<div class="breadcrumps d-block d-lg-none mb-2 mb-lg-0" id="breadcrumbs">','</div>' );
-                            } 
+                            }
                         ?>
 						<div class="avatar avatar-xl">
                             <?php
-                                $author_id = get_post_field( 'post_author', $post->ID );									
+                                $author_id = get_post_field( 'post_author', $post->ID );
                                 $author_avatar = get_field('user_photo', 'user_'. $author_id );
                             ?>
                             <img src="<?php echo esc_url($author_avatar['url']); ?>" alt="<?php echo esc_attr($author_avatar['alt']); ?>">
@@ -23,17 +23,17 @@
 						<div class="h2 my-2 text-bolder"><?php echo $curauth->display_name; ?></div>
 						<div class="paragraph"><?php echo $curauth->description; ?></div>
 						<div class="d-flex align-items-center gap-2 mt-2 pt-1">
-                            
+
                         <?php if(have_rows('social_media', 'user_'. $author_id) ): while( have_rows('social_media', 'user_'. $author_id) ) : the_row(); ?>
-                            <?php 
+                            <?php
                                 $soc_link = get_sub_field('social_media_link', 'user_'. $author_id);
-                                if( $soc_link ): 
+                                if( $soc_link ):
                                     $soc_link_url = $soc_link['url'];
                                     $soc_link_title = $soc_link['title'];
                                     $soc_link_target = $soc_link['target'] ? $soc_link['target'] : '_self';
                                     ?>
 							        <a href="<?php echo esc_url( $soc_link_url ); ?>" class="d-flex align-items-center gap-1" target="<?php echo esc_attr( $soc_link_target ); ?>">
-                                        <?php 
+                                        <?php
                                         $image = get_sub_field('social_media_icon', 'user_'. $author_id);
                                         if( !empty( $image ) ): ?>
                                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
@@ -49,8 +49,8 @@
 					<div class="col-12 col-lg-8">
                         <?php
                             if ( function_exists('yoast_breadcrumb') ) {
-                                yoast_breadcrumb( '<div class="breadcrumps d-none d-lg-block mb-2 mb-lg-0" id="breadcrumbs">','</div>' );
-                            } 
+                                yoast_breadcrumb( '<div class="breadcrumbs d-none d-lg-block mb-2 mb-lg-0" id="breadcrumbs">','</div>' );
+                            }
                         ?>
 						<h1 class="h2 my-3"><?php pll_e('Last publications'); ?></h1>
 						<div class="row row-cols-1 row-cols-md-2 gy-4">
@@ -70,8 +70,8 @@
                                         <div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
                                             <div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
                                                 <div class="avatar">
-                                                <?php 
-													$author_id = get_post_field( 'post_author', $post->ID );									
+                                                <?php
+													$author_id = get_post_field( 'post_author', $post->ID );
 													$author_avatar = get_field('user_photo', 'user_'. $author_id );
 												?>
 												<?php if( !empty( $author_avatar ) ): ?>
@@ -79,9 +79,9 @@
 												<?php endif; ?>
                                                     <div><span><?php echo $curauth->display_name; ?></span></div>
                                                 </div>
-                                                <div class="card-date"><?php echo get_the_date("d.m.Y, H:i"); ?></div>
+                                                <div class="card-date"><?php echo get_the_date("d.m.Y"); ?></div>
                                             </div>
-                                            <h5 class="h3 mb-2 pb-xxl-1"><?php the_title(); ?></h5>
+                                            <h5 class="subtitle-2 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 80, '...'); ?></h5>
                                             <p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(140); ?></p>
                                             <a href="<?php the_permalink(); ?>" class="link link-icon">
                                                 <span><?php pll_e('Read more'); ?></span>

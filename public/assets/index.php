@@ -35,9 +35,9 @@
 												<?php endif; ?>
 												<div><?php if(get_the_author_posts_link()):  echo esc_html(the_author_posts_link()); endif; ?></div>
 											</div>
-											<div class="card-date"><?php echo get_the_date("d.m.Y, H:i"); ?></div>
+											<div class="card-date"><?php echo get_the_date("d.m.Y"); ?></div>
 										</div>
-										<h5 class="h3 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 50, '...'); ?></h5>
+										<h5 class="subtitle-2 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 80, '...'); ?></h5>
                                         <div class="mt-auto">
                                             <p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(150); ?></p>
                                             <a href="<?php the_permalink(); ?>" class="link link-icon">

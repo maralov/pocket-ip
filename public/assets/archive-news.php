@@ -36,20 +36,10 @@
 										<?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
 									</a>
 									<div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
-										<div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
-											<div class="avatar">
-												<?php
-													$author_id = get_post_field( 'post_author', $post->ID );
-													$author_avatar = get_field('user_photo', 'user_'. $author_id );
-												?>
-												<?php if( !empty( $author_avatar ) ): ?>
-													<img src="<?php echo esc_url($author_avatar['url']); ?>" alt="<?php echo esc_attr($author_avatar['alt']); ?>">
-												<?php endif; ?>
-												<div><?php if(get_the_author_posts_link()):  echo esc_html(the_author_posts_link()); endif; ?></div>
-											</div>
-											<div class="card-date"><?php echo get_the_date("d.m.Y, H:i"); ?></div>
+										<div class="d-flex justify-content-end align-items-center mb-2 pb-xxl-1">
+											<div class="card-date"><?php echo get_the_date("d.m.Y"); ?></div>
 										</div>
-										<h5 class="h3 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 45, '...'); ?></h5>
+										<h5 class="subtitle-2 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 80, '...'); ?></h5>
 										<p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(150); ?></p>
 										<a href="<?php the_permalink(); ?>" class="link link-icon mt-auto">
 											<span><?php pll_e('Read more'); ?></span>

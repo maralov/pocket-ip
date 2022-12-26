@@ -8,14 +8,14 @@
                         <?php
                             if ( function_exists('yoast_breadcrumb') ) {
                                 yoast_breadcrumb( '<div class="breadcrumbs" id="breadcrumbs">','</div>' );
-                            } 
+                            }
                         ?>
 						<h1 class="h1 my-3"><?php the_title(); ?></h1>
 						<div class="paragraph"><?php the_excerpt_max_charlength(140); ?></div>
 						<div class="d-flex justify-content-between align-items-center my-3 my-xxl-4">
                             <div class="avatar">
-                                <?php 
-                                    $author_id = get_post_field( 'post_author', $post->ID );									
+                                <?php
+                                    $author_id = get_post_field( 'post_author', $post->ID );
                                     $author_avatar = get_field('user_photo', 'user_'. $author_id );
                                 ?>
                                 <?php if( !empty( $author_avatar ) ): ?>
@@ -23,19 +23,19 @@
                                 <?php endif; ?>
                                 <div><?php if(get_the_author_posts_link()):  echo esc_html(the_author_posts_link()); endif; ?></div>
 							</div>
-							<div class="card-date"><?php echo get_the_date("d.m.Y, H:i"); ?></div>
+							<div class="card-date"><?php echo get_the_date("d.m.Y"); ?></div>
 						</div>
 						<article class="content">
 							<?php the_content(); ?>
 						</article>
 					</div>
 					<div class="d-none d-lg-block col-12 col-lg-4 ps-4">
-                        <?php 
+                        <?php
                             $the_query = new WP_Query( array(
                                 'post_type' => 'news',
                                 'posts_per_page' => 2,
                                 'post__not_in'   => array( get_the_ID() )
-                            )); 
+                            ));
 
                             $i = 0;
                         ?>
@@ -47,8 +47,8 @@
                                     <div class="p-3 p-xxl-4">
                                         <div class="d-flex justify-content-between align-items-center mb-2 pb-xxl-1">
                                             <div class="avatar">
-                                                <?php 
-													$author_id = get_post_field( 'post_author', $post->ID );									
+                                                <?php
+													$author_id = get_post_field( 'post_author', $post->ID );
 													$author_avatar = get_field('user_photo', 'user_'. $author_id );
 												?>
 												<?php if( !empty( $author_avatar ) ): ?>
@@ -56,9 +56,9 @@
 												<?php endif; ?>
 												<div><?php if(get_the_author_posts_link()):  echo esc_html(the_author_posts_link()); endif; ?></div>
                                             </div>
-                                            <div class="card-date"><?php echo get_the_date("d.m.Y, H:i"); ?></div>
+                                            <div class="card-date"><?php echo get_the_date("d.m.Y"); ?></div>
                                         </div>
-                                        <h5 class="h3 mb-2 pb-xxl-1"><?php the_title(); ?></h5>
+                                        <h5 class="subtitle-2 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 80, '...'); ?></h5>
                                         <p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(150); ?></p>
                                         <a href="<?php the_permalink(); ?>" class="link link-icon">
                                             <span><?php pll_e('Read more'); ?></span>
