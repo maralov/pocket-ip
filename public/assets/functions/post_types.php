@@ -310,7 +310,7 @@
 			'show_in_nav_menus' 	=> true,
 			'exclude_from_search' 	=> true,
 			'publicly_queryable' 	=> true,
-			'has_archive'         	=> 'faq',
+			'has_archive'         	=> false,
 			'query_var'           	=> true,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields' )
 		) );
