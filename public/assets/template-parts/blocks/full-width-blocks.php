@@ -381,7 +381,11 @@
     <section class="page-section page-section--bg-grey">
         <div class="container-lg">
             <?php if(get_sub_field('faq_block_title')): ?>
-                <h2 class="h2 section-h2 mb-3 mb-xl-4  text-center"><?php the_sub_field('faq_block_title'); ?></h2>
+                <h2 class="h2 section-h2 mb-3 mb-xl-4  text-center">
+                    <a href="/faq">
+                        <?php the_sub_field('faq_block_title'); ?>
+                    </a>
+                </h2>
             <?php endif;?>
             <div class="row justify-content-center">
                 <div class="col col-md-10 col-xl-8">
