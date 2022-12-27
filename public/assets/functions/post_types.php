@@ -282,8 +282,7 @@
 			'capability_type'     => 'post',
 			'map_meta_cap'        => true,
 			'hierarchical'        => false,
-			'rewrite'             => array( 'slug'=>'news', 'with_front'=>false, 'pages'=>true, 'feeds'=>false, 'feed'=>false ),
-			'has_archive'         => 'news',
+			'has_archive'         => false,
 			'query_var'           => true,
 			'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes','post-formats', 'excerpt' ),
 		) );
