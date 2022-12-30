@@ -36,7 +36,7 @@
 										<?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
 									</a>
 									<div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
-										<div class="d-flex justify-content-end align-items-center mb-2 pb-xxl-1">
+										<div class="mb-2 pb-xxl-1">
 											<div class="card-date"><?php echo get_the_date("d.m.Y"); ?></div>
 										</div>
 										<h5 class="subtitle-2 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 80, '...'); ?></h5>

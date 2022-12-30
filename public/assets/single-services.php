@@ -1,5 +1,5 @@
-<?php get_header(); ?>    
-    
+<?php get_header(); ?>
+
     <main>
 		<section class="container-lg pt-3 pt-xl-3 mt-2 mt-lg-3"> <!-- container-lg переместил сюда -->
             <div class="row">
@@ -31,7 +31,7 @@
                         ));
 
                         ?>
-                        <?php if($cir_cat->count != 0) : ?>
+                        <?php if(count($cir_cat) > 0) : ?>
                             <div class="col-12 col-lg-4">
                                 <div class="subtitle-1 mb-2"><?php pll_e('Other countries'); ?></div>
                                 <div class="d-flex flex-wrap gap-1">

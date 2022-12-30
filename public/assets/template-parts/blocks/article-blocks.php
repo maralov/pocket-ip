@@ -19,12 +19,12 @@
                 <?php while ( have_rows('why_trademark_block_box',$term) ): the_row();?>
                     <div class="col">
                         <div class="d-flex align-items-center gap-1 gap-xl-2 mb-2 mb-xl-3 ">
+                         <?php $box_icon = get_sub_field('why_trademark_block_box_icon',$term);
+                            if(!empty($box_icon)): ?>
                             <div class="box box--sm box--radius-sm box--red w-auto d-inline-flex justify-content-center ">
-                                <?php $box_icon = get_sub_field('why_trademark_block_box_icon',$term);
-                                if(!empty($box_icon)): ?>
-                                    <img src="<?php echo esc_url($box_icon['url']); ?>" alt="<?php echo esc_url($box_icon['alt']); ?>">
-                                <?php endif; ?>
+                                <img src="<?php echo esc_url($box_icon['url']); ?>" alt="<?php echo esc_url($box_icon['alt']); ?>">
                             </div>
+                           <?php endif; ?>
                             <?php if(get_sub_field('why_trademark_block_box_title',$term)):?>
                                 <div class="subtitle-2"><?php the_sub_field('why_trademark_block_box_title',$term); ?></div>
                             <?php endif; ?>

@@ -31,7 +31,7 @@
 						$info_link_title = $info_link['title'];
 						$info_link_target = $info_link['target'] ? $info_link['target'] : '_self';
 						?>
-						<span class="d-none d-lg-inline-block pe-1"> - </span>
+						<span class="d-none d-lg-inline-block px-1"> - </span>
 						<a class="info-panel__link" href="<?php echo esc_url( $info_link_url ); ?>" target="<?php echo esc_attr( $info_link_target ); ?>"><?php echo esc_html( $info_link_title ); ?></a>
 				<?php endif; ?>
 				<button type="button" aria-label="close"

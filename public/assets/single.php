@@ -11,7 +11,7 @@
                             }
                         ?>
 						<h1 class="h1 my-3"><?php the_title(); ?></h1>
-						<div class="paragraph"><?php the_excerpt_max_charlength(140); ?></div>
+
 						<div class="d-flex justify-content-between align-items-center my-3 my-xxl-4">
                             <div class="avatar">
                                 <?php
