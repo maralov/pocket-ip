@@ -41,21 +41,21 @@
 
 <?php if( get_row_layout() == 'advantages_block' ): ?>
     <div class="mb-80">
-        <?php if(get_sub_field('advantages_block_title',$term)):?>
-            <div class="h2 mb-4"><?php the_sub_field('advantages_block_title',$term); ?></div>
+        <?php if(get_sub_field('advantages_block_title')):?>
+            <div class="h2 mb-4"><?php the_sub_field('advantages_block_title'); ?></div>
         <?php endif; ?>
         <div class="row row-cols-1 row-cols-md-2 gy-3">
 
-            <?php if( have_rows('advantages_block_item',$term) ): ?>
-                <?php while ( have_rows('advantages_block_item',$term) ): the_row();?>
+            <?php if( have_rows('advantages_block_item') ):  ?>
+                <?php while ( have_rows('advantages_block_item') ): the_row();?>
                     <div class="col">
                         <div class="d-flex align-items-center gap-1 gap-xl-2 mb-2 mb-xl-3 ">
-                            <?php $item_icon = get_sub_field('advantages_block_item_icon',$term);
+                            <?php $item_icon = get_sub_field('advantages_block_item_icon');
                             if(!empty($item_icon)): ?>
                                 <img src="<?php echo esc_url($item_icon['url']); ?>" class="icon-lg" alt="<?php echo esc_url($item_icon['alt']); ?>">
                             <?php endif;?>
                             <div class="paragraph">
-                                <?php the_sub_field('advantages_block_item_text',$term); ?>
+                                <?php the_sub_field('advantages_block_item_text'); ?>
                             </div>
                         </div>
                     </div>

@@ -24,30 +24,26 @@ Template Name: FAQ
                 <div class="col-12 col-lg-10 col-xxl-8">
                     <div class="accordion" id="faq-according">
                         <?php
-                        $args = array(
-                            'posts_per_page' => -1,
-                            'post_type' => 'faq',
-                            'orderby' => 'date',
-                            'order' => 'DESC',
-                        );
-
-                        $loop = new WP_Query( $args );
-                        $num = 0;
-
-                        if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
-                            <div class="accordion-item">
-                                <button class="btn accordion-button <?php if($num!=0):?>collapsed<?php endif;?>" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapse-<?=$num?>" aria-expanded="true" aria-controls="collapse-<?=$num?>">
-                                    <?php the_title(); ?>
-                                </button>
-                                <div id="collapse-<?=$num?>" class="accordion-collapse collapse <?php if($num == 0): echo 'show'; endif;?>" aria-labelledby="headingOne"
-                                     data-bs-parent="#faq-according">
-                                    <div class="accordion-body paragraph">
-                                        <?php the_content(); ?>
+                            $faqs = get_field('faq_display');
+                            if( $faqs ):  $num = 0; ?>
+                                <?php foreach( $faqs as $post ):
+                                    $title = get_the_title( $post->ID );
+                                    $content = $post->post_content;
+                                ?>
+                                <?php setup_postdata($post); ?>
+                                    <div class="accordion-item">
+                                        <button class="btn accordion-button <?php if($num!=0):?>collapsed<?php endif;?>" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse-<?=$num?>" aria-expanded="true" aria-controls="collapse-<?=$num?>">
+                                            <?php echo $title; ?>
+                                        </button>
+                                        <div id="collapse-<?=$num?>" class="accordion-collapse collapse <?php if($num == 0): echo 'show'; endif;?>" aria-labelledby="headingOne"
+                                             data-bs-parent="#faq-according">
+                                            <div class="accordion-body paragraph">
+                                                <?php echo $content; ?>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <?php $num++; endwhile; endif; ?>
+                            <?php $num++; endforeach; wp_reset_postdata(); endif; ?>
                     </div>
 
                 </div>

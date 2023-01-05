@@ -15,22 +15,4 @@
 			'parent_slug'	=> 'theme-general-settings',
 		));
 
-		acf_add_options_sub_page( array(
-			'page_title'  => 'News settings',
-			'menu_title'  => 'News settings',
-			'parent_slug' => 'edit.php?post_type=news'
-		) );
-
-		acf_add_options_sub_page( array(
-			'page_title'  => 'Partners settings',
-			'menu_title'  => 'Partners settings',
-			'parent_slug' => 'edit.php?post_type=partners'
-		) );
-
-		acf_add_options_sub_page( array(
-			'page_title'  => 'FAQ settings',
-			'menu_title'  => 'FAQ settings',
-			'parent_slug' => 'edit.php?post_type=faq'
-		) );
-
 	}

@@ -30,6 +30,7 @@
                             'taxonomy'    => 'solution_country',
                         ));
                     ?>
+                <?php if(is_array($cir_cat)) : ?>
                     <?php if(count($cir_cat) > 0) : ?>
                         <div class="col-12 col-lg-4">
                             <div class="subtitle-1 mb-2"><?php pll_e('Other countries'); ?></div>
@@ -75,6 +76,7 @@
                             </div>
                         </div>
                     <?php endif; ?>
+                <?php endif; ?>
             </div>
 
                 <div <?php if(have_rows('custom_blocks', $customTerm)) : ?> class="mb-80" <?php endif; ?>>

@@ -366,3 +366,13 @@
 
         return $url;
     }
+
+    function change_post_types_slug( $args, $post_type ) {
+
+        if ( 'post' === $post_type ) {
+            $args['rewrite']['slug'] = 'blogs';
+        }
+
+        return $args;
+    }
+    add_filter( 'register_post_type_args', 'change_post_types_slug', 10, 2 );

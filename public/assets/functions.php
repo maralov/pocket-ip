@@ -28,4 +28,6 @@
 	require_once('functions/polylang_strings.php');
 
 	require_once('functions/custom_excerpt.php');
+
+    require_once('functions/yoast_sittings.php');
 	
