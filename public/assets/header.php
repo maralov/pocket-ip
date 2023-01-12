@@ -151,7 +151,7 @@
 							<?php pll_the_languages( array( 'show_flags' => 0, 'show_names' => 0, 'hide_current' => false,'dropdown' => 1,'display_names_as'=>'slug' ) ); ?>
 						</div>
 					</div>
-					<button type="button" class="btn btn-nav-search d-none d-lg-inline-flex js-btn-search">Search</button>
+                    <button type="button" class="btn btn-nav-search d-none d-lg-inline-flex js-btn-search">Search</button>
 					<?php
 						$login_link = get_field('main_btn_login', 'option');
 						if( $login_link ):
