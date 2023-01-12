@@ -174,6 +174,24 @@
             </div>
         </div>
     </div>
+    <div class="modal modal-search js-modal-search">
+    	<div class="position-relative modal-search__content box box--white box--radius-lg text-center">
+    		<button type="button" class="btn modal__btn-close js-modal-btn-close">
+    			<img src="<?php echo POCKET_IMG_DIR?>/icons/ic-close-modal.svg" alt="close-modal">
+    		</button>
+    		<div class="h2  mb-3">Search</div>
+    		<div class="form form-search">
+    			<form class="modal-search-form">
+    				<div class="form-search__container">
+    					<input type="text" placeholder="Search"/>
+    					<input type="submit" value="Search">
+    				</div>
+    			</form>
+    		</div>
+    		<div class="modal-search__result">
+    		</div>
+    	</div>
+    </div>
 	<?php wp_footer(); ?>
 </body>
 

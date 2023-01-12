@@ -48,6 +48,12 @@ body {
     }
   }
 
+  &.backdrop-full {
+    &:before {
+      z-index: 101;
+    }
+  }
+
   &.no-scroll {
     overflow: hidden;
   }

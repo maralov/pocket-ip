@@ -1,10 +1,12 @@
 import jQuery from "jquery";
 jQuery(function ($) {
+	const wpcf7Elm = document.querySelector(".wpcf7");
     const $header = $(".js-header");
     const $headerPanel = $(".js-info-panel");
     const headerPanelCurrentText = $headerPanel.find(".info-panel__text").text().toLowerCase();
     const headerPanelPrevText = localStorage.getItem("infoPanelPrevText") || "";
     const $menuButton = $(".js-menu-btn");
+	const $img = $menuButton.find("img");
     const $headerItemWithChildren = $(".js-header-nav .menu-item-has-children > a");
     const $docEl = $(document.documentElement);
     const $window = $(window);
@@ -15,12 +17,21 @@ jQuery(function ($) {
         $headerPanel.toggleClass("d-none");
     }
 
+    function closeModal() {
+        $("body").removeClass("no-scroll backdrop backdrop-full");
+        $(".modal").hide().find("iframe").attr("src", "");
+		$img.removeClass("is-active");
+		$header.removeClass("open-nav");
+    }
+
     $docEl.on("click", (e) => {
-        if ($(e.target).hasClass("no-scroll")){
-            toggleHeaderActiveClass();
-            toggleMenuBtn();
+        if ($(e.target).hasClass("backdrop")){
+			closeModal();
+			toggleMenuBtn();
         }
     });
+
+    $(".js-modal-btn-close").on("click", closeModal);
 
     let prevScroll = $window.scrollTop() || $docEl.scrollTop();
     let curScroll;
@@ -64,11 +75,10 @@ jQuery(function ($) {
 
     $window.on("scroll", checkScroll);
 
-
-
     function toggleHeaderActiveClass() {
         $header.toggleClass("open-nav");
-        $("body").toggleClass("no-scroll backdrop");
+		$img.toggleClass("is-active");
+		$("body").toggleClass("no-scroll backdrop");
     }
 
     function setMobileMenuHeight() {
@@ -101,8 +111,6 @@ jQuery(function ($) {
     }
 
     function toggleMenuBtn() {
-        const $img = $menuButton.find("img");
-        $img.toggleClass("is-active");
         if ($img.hasClass("is-active")) {
             const imgSrc = $img.attr("src").replace("ic-menu", "ic-close-primary");
             $img.attr("src", imgSrc);
@@ -117,6 +125,38 @@ jQuery(function ($) {
         toggleHeaderActiveClass();
         toggleMenuBtn();
     });
+
+    function openModal({event, type}) {
+        const modalVideo = $(`.js-modal-${type}`);
+		$("body").addClass("no-scroll backdrop");
+		modalVideo.css("display", "flex").hide().fadeIn();
+        if (event && event.currentTarget && $(event.currentTarget).hasClass("js-btn-video")) {
+            const videoSrc = $(event.currentTarget).data("video");
+			modalVideo.find("iframe").attr("src", `${videoSrc}?rel=0&autoplay=1&mute=1`);
+        }
+
+        if (event && event.currentTarget && $(event.currentTarget).hasClass("header__nav-search")) {
+			$header.removeClass("open-nav");
+			$("body").addClass("backdrop-full");
+			$img.removeClass("is-active");
+			toggleMenuBtn();
+        }
+    }
+
+    $(".js-btn-video").on("click", function (e) {
+        e.preventDefault();
+        openModal({event: e, type: "video"});
+    });
+
+    $(".js-btn-search").on("click", function (e) {
+        e.preventDefault();
+        openModal({event: e, type: "search"});
+    });
+
+
+    wpcf7Elm?.addEventListener("wpcf7submit", function () {
+        openModal({type: "submit"});
+    }, false);
 
     $($headerPanel).click(closeInfoPanel);
 });

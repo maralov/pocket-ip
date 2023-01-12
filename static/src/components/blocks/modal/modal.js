@@ -1,34 +1,28 @@
 import jQuery from "jquery";
-jQuery(function ($) {
-    function closeModal() {
-        $("body").removeClass("no-scroll backdrop");
-        $(".modal").hide().find("iframe").attr("src", "");
-    }
-    function openModal({event, type}) {
-        const modalVideo = $(`.js-modal-${type}`);
-
-
-        if(event && event.currentTarget && $(event.currentTarget).hasClass("js-btn-video")) {
-            const videoSrc = $(event.currentTarget).data("video");
-            modalVideo.find("iframe").attr("src", `${videoSrc}?rel=0&autoplay=1&mute=1`);
+jQuery(document).on("submit", ".modal-search-form", function (e) {
+	e.preventDefault();
+    var $form = jQuery(this);
+    var $input = $form.find("input[type=\"text\"]");
+    var query = $input.val();
+    var $content = jQuery(".modal-search__result");
+	console.log('submit', $form, query);
+    jQuery.ajax({
+        type: "post",
+        url: myAjax.ajaxurl,
+        data: {
+            action: "load_search_results",
+            query: query
+        },
+        beforeSend: function () {
+            $input.prop("disabled", true);
+            $form.addClass("submitting");
+        },
+        success: function (response) {
+            $input.prop("disabled", false);
+            $form.removeClass("submitting");
+            // $content.html(response);
+            console.log(response);
         }
-
-        $("body").addClass("no-scroll backdrop");
-        modalVideo.css("display", "flex").hide().fadeIn();
-    }
-
-    $(".js-btn-video").on("click", function (e) {
-        e.preventDefault();
-        openModal({event:e, type:"video"});
     });
-
-    $(".modal").on("click", closeModal);
-
-    const wpcf7Elm = document.querySelector(".wpcf7");
-
-    wpcf7Elm?.addEventListener("wpcf7submit", function () {
-        openModal({type: "submit"});
-    }, false);
-
+    return false;
 });
-

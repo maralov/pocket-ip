@@ -59,7 +59,7 @@
 				<?php endif; ?>
 
 				<nav class="header__nav js-header-nav">
-					<button type="button" class="btn btn-nav-search header__nav-search ">Search</button>
+					<button type="button" class="btn btn-nav-search header__nav-search js-btn-search">Search</button>
 					<ul>
 					<?php
 						$menu_name = 'Header menu ' . pll_current_language( 'name' );
@@ -151,8 +151,7 @@
 							<?php pll_the_languages( array( 'show_flags' => 0, 'show_names' => 0, 'hide_current' => false,'dropdown' => 1,'display_names_as'=>'slug' ) ); ?>
 						</div>
 					</div>
-					<?php echo do_shortcode('[searchwp_modal_search_form engine="my_searchwp_engine" template="My Custom Template" text="Search" type="button" class="btn btn-nav-search d-none d-lg-inline-flex"]'); ?>
-					<!-- <button type="button" class="btn btn-nav-search d-none d-lg-inline-flex">Search</button> -->
+					<button type="button" class="btn btn-nav-search d-none d-lg-inline-flex js-btn-search">Search</button>
 					<?php
 						$login_link = get_field('main_btn_login', 'option');
 						if( $login_link ):
