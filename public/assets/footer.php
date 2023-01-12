@@ -181,17 +181,15 @@
     		</button>
     		<div class="h2  mb-3">Search</div>
     		<div class="form form-search">
-    			<form action="/" method="get" autocomplete="off" class="modal-search-form">
+    			<form action="/" autocomplete="off" class="modal-search-form" data-url="<?php echo admin_url('admin-ajax.php'); ?>" >
     				<div class="form-search__container">
-    					<input type="text" name="s" id="keyword" onkeyup="fetch()" placeholder="Search"/>
-                        <button>Search</button>
+    					<input type="text" name="s" id="keyword" placeholder="Search"/>
+                        <button type="submit">Search</button>
     				</div>
     			</form>
     		</div>
     		<div class="modal-search__result" id="datafetch">
-                <ul>
-                    <li>Please wait..</li>
-                </ul>
+    		    <span class="modal-search__result-not-found d-none">Nothing not found try change request</span>
     		</div>
     	</div>
     </div>

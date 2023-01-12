@@ -37,26 +37,7 @@
     ======================
     */
     // add the ajax fetch js
-    add_action( 'wp_footer', 'ajax_fetch' );
-    function ajax_fetch() {
-        ?>
-        <script type="text/javascript">
-            function fetch(){
 
-                jQuery.ajax({
-                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
-                    type: 'post',
-                    data: { action: 'data_fetch', keyword: jQuery('#keyword').val() },
-                    success: function(data) {
-                        jQuery('#datafetch').html( data );
-                    }
-                });
-
-            }
-        </script>
-
-        <?php
-    }
 
     // the ajax function
     add_action('wp_ajax_data_fetch' , 'data_fetch');
@@ -68,7 +49,12 @@
             echo '<ul>';
             while( $the_query->have_posts() ): $the_query->the_post(); ?>
 
-                <li><a href="<?php echo esc_url( post_permalink() ); ?>"><?php the_title();?></a></li>
+                <li class="modal-search__result-item">
+                    <a  href="<?php echo esc_url( post_permalink() ); ?>">
+                        <span class="h3 d-block mb-2"><?php the_title();?> </span>
+                        <span><?php the_excerpt_max_charlength(150); ?></span>
+                    </a>
+                </li>
 
             <?php endwhile;
             echo '</ul>';
@@ -77,4 +63,3 @@
 
         die();
     }
-	
