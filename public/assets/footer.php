@@ -181,14 +181,17 @@
     		</button>
     		<div class="h2  mb-3">Search</div>
     		<div class="form form-search">
-    			<form class="modal-search-form">
+    			<form action="/" method="get" autocomplete="off" class="modal-search-form">
     				<div class="form-search__container">
-    					<input type="text" placeholder="Search"/>
-    					<input type="submit" value="Search">
+    					<input type="text" name="s" id="keyword" onkeyup="fetch()" placeholder="Search"/>
+                        <button>Search</button>
     				</div>
     			</form>
     		</div>
-    		<div class="modal-search__result">
+    		<div class="modal-search__result" id="datafetch">
+                <ul>
+                    <li>Please wait..</li>
+                </ul>
     		</div>
     	</div>
     </div>
