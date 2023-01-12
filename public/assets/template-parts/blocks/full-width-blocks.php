@@ -73,7 +73,7 @@
 
 <?php if( get_row_layout() == 'software_block' ): ?>
     <section class="page-section">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <?php if(get_sub_field('software_block_title')) : ?>
                 <div class="row ">
                     <div class="col-12 mb-sm-3 pb-sm-1 mb-lg-4 pb-lg-3 ">
@@ -110,7 +110,7 @@
 
 <?php if( get_row_layout() == 'why-us_block' ): ?>
     <section class="page-section page-section--bg-grey">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <div class="row row-cols-1 row-cols-md-2">
                 <?php if(get_sub_field('why-us_block_title')): ?>
                     <div class="col d-flex mb-4">
@@ -143,7 +143,7 @@
 
 <?php if( get_row_layout() == 'services_block' ): ?>
     <section class="page-section ">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <?php if(get_sub_field('services_block_title')) : ?>
                 <h2 class="h2 section-h2 mb-4 mb-xl-5"><?php the_sub_field('services_block_title'); ?></h2>
             <?php endif; ?>
@@ -199,7 +199,7 @@
 
 <?php if( get_row_layout() == 'rs_image_block' ): ?>
     <section class="page-section">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <div class="row justify-content-between">
                 <div class="col-6  d-none d-lg-block p-xxl-0 pe-xl-5">
                     <?php if(get_sub_field('rs_image_block_image')): ?>
@@ -251,7 +251,7 @@
 
 <?php if( get_row_layout() == 'reviews_block' ): ?>
     <section class="page-section pt-0">
-        <div class="container-lg ">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <div class="row justify-content-center">
                 <?php if(get_sub_field('reviews_block_title')): ?>
                     <div class="col col-xxl-6">
@@ -308,7 +308,7 @@
 <?php if( get_row_layout() == 'roadmap_block' ): ?>
     <section class="page-section pb-0">
         <div class="roadmap">
-            <div class="container-lg">
+            <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
                 <div class="row justify-content-center">
                     <?php if(get_sub_field('roadmap_block_title')): ?>
                         <div class="col col-xxl-6">
@@ -347,7 +347,7 @@
 
 <?php if( get_row_layout() == 'rewards_block' ): ?>
     <section class="page-section ">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <div class="row justify-content-center">
                 <?php if(get_sub_field('rewards_block_title')): ?>
                     <div class="col col-xxl-6">
@@ -379,7 +379,7 @@
 
 <?php if( get_row_layout() == 'faq_block' ): ?>
     <section class="page-section page-section--bg-grey">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <?php if(get_sub_field('faq_block_title')): ?>
                 <h2 class="h2 section-h2 mb-3 mb-xl-4  text-center">
                     <a href="/faq">
@@ -422,7 +422,7 @@
 
 <?php if( get_row_layout() == 'partners_block' ): ?>
     <section class="page-section ">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <div class="row justify-content-center">
                 <?php if(get_sub_field('partners_block_title')):?>
                     <div class="col col-xxl-6">
@@ -455,7 +455,7 @@
 
 <?php if( get_row_layout() == 'cases_block' ): ?>
     <section class="page-section page-section--bg-grey">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <?php if(get_sub_field('cases_block_title')): ?>
                 <h2 class="h2 section-h2"><?php the_sub_field('cases_block_title'); ?></h2>
             <?php endif;?>
@@ -488,7 +488,7 @@
 
 <?php if( get_row_layout() == 'price_block' ): ?>
     <section class="page-section ">
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <?php if(get_sub_field('price_block_title')): ?>
                 <h2 class="h2 section-h2 mb-3 mb-lg-4"><?php the_sub_field('price_block_title'); ?></h2>
             <?php endif;?>
@@ -583,7 +583,7 @@
 
 <?php if( get_row_layout() == 'subscribe_block' ): ?>
     <div>
-        <div class="container-lg">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <div class="cta-block text-center p-md-4 p-lg-5">
                 <div class="row justify-content-center py-xl-4">
                     <div class="col-12 col-md-10 col-lg-8 col-xxl-7 px-xxl-5">
@@ -607,7 +607,7 @@
 
 <?php if( get_row_layout() == 'blog_slider_block' ): ?>
     <section class="page-section pt-0">
-        <div class="container-lg ">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <div class="row align-items-center justify-content-between justify-content-lg-center  mb-2 mb-xxl-2">
                 <?php if(get_sub_field('blog_slider_block_title')): ?>
                     <div class="col-auto">
@@ -696,8 +696,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'gutenberg_content_block' ): ?>
-    <section class="page-section content"> <!-- гутенберг это тот чудоблок? -->
-        <div class="container-lg">
+    <section class="page-section content">
+        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
             <?php the_sub_field('gutenberg_content_block_field'); ?>
         </div>
     </section>
