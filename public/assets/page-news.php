@@ -27,7 +27,7 @@ Template Name: News
                     'post_type' => 'news',
                     'orderby' => 'date',
                     'order' => 'DESC',
-                    'paged' => $paged
+                    'paged' => $_GET['pager'] ?? 1,
                 );
 
                 $query = new WP_Query( $args );
@@ -66,6 +66,8 @@ Template Name: News
                         <?php
                         echo paginate_links(
                             $args = array(
+                                'current'      => $_GET['pager'] ?? 1,
+                                'format'       => '?pager=%#%',
                                 'show_all'     => false,
                                 'mid_size'     => 12,
                                 'prev_next'    => true,

@@ -26,7 +26,7 @@ Template Name: Blog
                     'posts_per_page' => 12,
                     'orderby' => 'date',
                     'order' => 'DESC',
-                    'paged' => get_query_var('paged') ?? 1
+                    'paged' => $_GET['pager'] ?? 1,
                 );
 
                 $loop = new WP_Query( $args );
@@ -78,6 +78,8 @@ Template Name: Blog
                         <?php
                         echo paginate_links(
                             $args = array(
+                                'current'      => $_GET['pager'] ?? 1,
+                                'format'       => '?pager=%#%',
                                 'show_all'     => false,
                                 'mid_size'     => 12,
                                 'prev_next'    => true,
