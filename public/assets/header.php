@@ -147,8 +147,25 @@
 							<div class="lang-switcher-current">
 								<?php echo pll_current_language(); ?>
 							</div>
-							<ul class="lang-switcher-list"></ul>
-							<?php pll_the_languages( array( 'show_flags' => 0, 'show_names' => 0, 'hide_current' => false,'dropdown' => 1,'display_names_as'=>'slug' ) ); ?>
+							<ul class="lang-switcher-list">
+                                <?php
+                                $current_lang = pll_current_language();
+                                $default_lang = pll_default_language();
+
+                                foreach (pll_languages_list() as $lang) {
+                                    global $wp;
+
+                                    if ($lang !== $current_lang) {
+                                        $path = str_replace($current_lang . '/', '', $wp->request);
+                                        $url = $lang === $default_lang
+                                            ? home_url($path)
+                                            : home_url($lang .'/'. $path);
+
+                                        echo '<li><a href="'. $url .'">'. $lang .'</a></li>';
+                                    }
+                                }
+                                ?>
+                            </ul>
 						</div>
 					</div>
                     <button type="button" class="btn btn-nav-search d-none d-lg-inline-flex js-btn-search">Search</button>
