@@ -157,11 +157,12 @@
 
                                     if ($lang !== $current_lang) {
                                         $path = str_replace($current_lang . '/', '', $wp->request);
+
                                         $url = $lang === $default_lang
                                             ? home_url($path)
                                             : home_url($lang .'/'. $path);
 
-                                        echo '<li><a href="'. $url .'">'. $lang .'</a></li>';
+                                        echo '<li><a href="'. str_replace('/' . $current_lang, '', $url) .'">'. $lang .'</a></li>';
                                     }
                                 }
                                 ?>

@@ -14,7 +14,6 @@ h1, .h1 {
     }
     @include media-breakpoint-up(xxl) {
       font-size: rem(50);
-      line-height: 1.4;
     }
     @media (min-width: $media-2xl) {
       font-size: rem(64);
