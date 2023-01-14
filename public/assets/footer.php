@@ -88,7 +88,7 @@
                         <li>All Rights Reserved By PocketIP Ltd</li>
 
                         <?php
-                        $menu_name_single = 'Single line menu ' . pll_current_language( 'name' );
+                        $menu_name_single = 'Footer single line menu ' . pll_current_language( 'name' );
                         $single_menus = wp_get_menu_array($menu_name_single);
 
                         if($single_menus):
