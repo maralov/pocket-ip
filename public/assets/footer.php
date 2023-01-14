@@ -84,8 +84,8 @@
             <div class="col-12">
                 <div class="d-lg-flex justify-content-between footer__copy">
                     <ul>
-                        <li>Copyright <?php echo date('Y'); ?></li>
-                        <li>All Rights Reserved By PocketIP Ltd</li>
+                        <li><?php pll_e('Copyright'); ?> <?php echo date('Y'); ?></li>
+                        <li><?php pll_e('All Rights Reserved By PocketIP Ltd'); ?></li>
 
                         <?php
                         $menu_name_single = 'Footer single line menu ' . pll_current_language( 'name' );
@@ -166,11 +166,9 @@
                 <img src="<?php echo POCKET_IMG_DIR?>/icons/ic-close-modal.svg" alt="close-modal">
             </button>
             <div class="box box--white box--lg box--radius-lg text-center">
-                <div class="h2  mb-3">Thank you </div>
-                <div class="paragraph  mb-4">We have received your message </div>
-                <button type="button" class="btn btn-primary js-modal-btn-close">
-                    Okey
-                </button>
+                <div class="h2  mb-3"><?php pll_e('Thank you'); ?></div>
+                <div class="paragraph  mb-4"><?php pll_e('We have received your message'); ?></div>
+                <button type="button" class="btn btn-primary js-modal-btn-close"><?php pll_e('Okey'); ?></button>
             </div>
         </div>
     </div>

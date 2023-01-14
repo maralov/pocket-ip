@@ -63,3 +63,5 @@
 
         die();
     }
+
+    add_filter( 'bea.aofp.get_default', '__return_false' );
