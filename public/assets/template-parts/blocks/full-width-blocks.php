@@ -308,7 +308,7 @@
 <?php if( get_row_layout() == 'roadmap_block' ): ?>
     <section class="page-section pb-0">
         <div class="roadmap">
-            <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+            <div class="container-lg">
                 <div class="row justify-content-center">
                     <?php if(get_sub_field('roadmap_block_title')): ?>
                         <div class="col col-xxl-6">
@@ -615,7 +615,9 @@
                     </div>
                 <?php endif;?>
                 <div class="col-auto d-block d-lg-none">
-                    <a href="<?php echo site_url('/blog/'); ?>" class="link link-icon">
+                    <?php $blog_link = site_url() . '/' . pll_current_language( 'slug' ) . '/blogs/';
+                    ?>
+                    <a href="<?php echo $blog_link; ?>" class="link link-icon">
                         <span><?php pll_e('Read blog'); ?></span>
                         <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
@@ -688,7 +690,7 @@
             </div>
             <div class="row justify-content-center d-none d-lg-flex mt-3">
                 <div class="col-auto">
-                    <a href="<?php echo site_url('/blog/'); ?>" class="btn btn-primary"><?php pll_e('Read blog'); ?></a>
+                    <a href="<?php echo $blog_link; ?>" class="btn btn-primary"><?php pll_e('Read blog'); ?></a>
                 </div>
             </div>
         </div>
