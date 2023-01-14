@@ -179,17 +179,17 @@
     		<button type="button" class="btn modal__btn-close js-modal-btn-close">
     			<img src="<?php echo POCKET_IMG_DIR?>/icons/ic-close-modal.svg" alt="close-modal">
     		</button>
-    		<div class="h2  mb-3">Search</div>
+    		<div class="h2  mb-3"><?php pll_e('Search'); ?></div>
     		<div class="form form-search">
     			<form action="/" autocomplete="off" class="modal-search-form" data-url="<?php echo admin_url('admin-ajax.php'); ?>" >
     				<div class="form-search__container">
-    					<input type="text" name="s" id="keyword" placeholder="Search"/>
-                        <button type="submit">Search</button>
+    					<input type="text" name="s" id="keyword" placeholder="<?php pll_e('Search'); ?>"/>
+                        <button type="submit"><?php pll_e('Search'); ?></button>
     				</div>
     			</form>
     		</div>
     		<div class="modal-search__result" id="datafetch">
-    		    <span class="modal-search__result-not-found d-none">Nothing not found try change request</span>
+    		    <span class="modal-search__result-not-found d-none"><?php pll_e('Nothing not found try change request'); ?></span>
     		</div>
     	</div>
     </div>

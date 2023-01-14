@@ -59,7 +59,7 @@
 				<?php endif; ?>
 
 				<nav class="header__nav js-header-nav">
-					<button type="button" class="btn btn-nav-search header__nav-search js-btn-search">Search</button>
+					<button type="button" class="btn btn-nav-search header__nav-search js-btn-search"><?php pll_e('Search'); ?></button>
 					<ul>
 					<?php
 						$menu_name = 'Header menu ' . pll_current_language( 'name' );
@@ -108,10 +108,26 @@
 					</ul>
 					<div class="d-flex justify-content-center d-lg-none mt-auto">
 						<div class="px-2">
-							<a href="https://my.pocketip.com/" target="_blank" class="btn btn-primary">Book a demo</a>
+                            <?php
+                                $book_link = get_field('main_btn_book', 'option');
+                                if( $book_link ):
+                                    $book_link_url = $book_link['url'];
+                                    $book_link_title = $book_link['title'];
+                                    $book_link_target = $book_link['target'] ? $book_link['target'] : '_self';
+                                    ?>
+                                    <a href="<?php echo esc_url( $book_link_url ); ?>" target="<?php echo esc_attr( $book_link_target ); ?>" class="btn btn-primary"><?php echo esc_html( $book_link_title ); ?></a>
+                            <?php endif; ?>
 						</div>
 						<div class="px-2">
-							<a href="https://my.pocketip.com/" target="_blank" class="btn btn-primary-outline">Try for free</a>
+                            <?php
+                                $try_link = get_field('main_btn_try', 'option');
+                                if( $try_link ):
+                                    $try_link_url = $try_link['url'];
+                                    $try_link_title = $try_link['title'];
+                                    $try_link_target = $try_link['target'] ? $try_link['target'] : '_self';
+                                    ?>
+                                    <a href="<?php echo esc_url( $try_link_url ); ?>" target="<?php echo esc_attr( $try_link_target ); ?>" class="btn btn-primary-outline"><?php echo esc_html( $try_link_title ); ?></a>
+                            <?php endif; ?>
 						</div>
 					</div>
 				</nav>
@@ -169,7 +185,7 @@
                             </ul>
 						</div>
 					</div>
-                    <button type="button" class="btn btn-nav-search d-none d-lg-inline-flex js-btn-search">Search</button>
+                    <button type="button" class="btn btn-nav-search d-none d-lg-inline-flex js-btn-search"><?php pll_e('Search'); ?></button>
 					<?php
 						$login_link = get_field('main_btn_login', 'option');
 						if( $login_link ):

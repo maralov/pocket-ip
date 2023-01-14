@@ -13,4 +13,6 @@
         pll_register_string('PoketIP', 'Other services');
         pll_register_string('PoketIP', 'The service is available for countries:');
         pll_register_string('PoketIP', 'Other countries');
+        pll_register_string('PoketIP', 'Search');
+        pll_register_string('PoketIP', 'Nothing not found try change request');
     });
