@@ -647,7 +647,11 @@
                             $author_avatar = get_field('user_photo', 'user_'. $author_id );
 
                             $title = get_the_title($post->ID);
-                            $link = get_the_permalink($post->ID);
+                            $link = str_replace(
+                                $post->post_name,
+                                'blogs/' . $post->post_name,
+                                get_permalink($post->ID)
+                            );
                             $date = get_the_date("d.m.Y",$post->ID);
                             $image_post_tag = get_the_post_thumbnail($post->ID, 'full', array('class' => 'card-img','alt' => 'Heading news' ));
                             ?>

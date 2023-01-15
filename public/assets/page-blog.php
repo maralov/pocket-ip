@@ -32,11 +32,17 @@ Template Name: Blog
                 $loop = new WP_Query( $args );
 
 
-                if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
+                    $link = str_replace(
+                        $post->post_name,
+                        'blogs/' . $post->post_name,
+                        get_permalink($post->ID)
+                    );
+                ?>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="px-xl-1 h-100">
                             <div class="card card-bordered h-100  d-flex flex-column">
-                                <a href="<?php the_permalink(); ?>">
+                                <a href="<?php echo $link ?>">
                                     <?php the_post_thumbnail('full', array('class' => 'card-img')); ?>
                                 </a>
                                 <div class="p-3 p-xxl-4 d-flex flex-column flex-grow-1">
@@ -56,7 +62,7 @@ Template Name: Blog
                                     <h5 class="subtitle-2 mb-2 pb-xxl-1"><?php echo mb_strimwidth(get_the_title(), 0, 80, '...'); ?></h5>
                                     <div class="mt-auto">
                                         <p class="paragraph mb-2 pb-xxl-1"><?php the_excerpt_max_charlength(150); ?></p>
-                                        <a href="<?php the_permalink(); ?>" class="link link-icon">
+                                        <a href="<?php echo $link ?>" class="link link-icon">
                                             <span><?php pll_e('Read more'); ?></span>
                                             <svg width="7" height="12" viewBox="0 0 7 12" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
