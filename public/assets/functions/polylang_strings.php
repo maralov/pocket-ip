@@ -15,6 +15,7 @@
         pll_register_string('PoketIP', 'Other countries');
         pll_register_string('PoketIP', 'Search');
         pll_register_string('PoketIP', 'Nothing not found try change request');
+        pll_register_string('PoketIP', 'Please enter at least 3 characters');
         pll_register_string('PoketIP', 'Thank you');
         pll_register_string('PoketIP', 'We have received your message');
         pll_register_string('PoketIP', 'Okey');

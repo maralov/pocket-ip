@@ -187,7 +187,8 @@
     			</form>
     		</div>
     		<div class="modal-search__result" id="datafetch">
-    		    <span class="modal-search__result-not-found d-none"><?php pll_e('Nothing not found try change request'); ?></span>
+    		    <span class="js-modal-search-result-not-found text-error d-none"><?php pll_e('Nothing not found try change request'); ?></span>
+    		    <span class="js-modal-search-result-error text-error d-none"><?php pll_e('Please enter at least 3 characters'); ?></span>
     		</div>
     	</div>
     </div>
