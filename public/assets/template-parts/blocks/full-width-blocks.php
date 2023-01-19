@@ -72,8 +72,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'software_block' ): ?>
-    <section class="page-section">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?>">
+        <div class="container-lg">
             <?php if(get_sub_field('software_block_title')) : ?>
                 <div class="row ">
                     <div class="col-12 mb-sm-3 pb-sm-1 mb-lg-4 pb-lg-3 ">
@@ -110,7 +110,7 @@
 
 <?php if( get_row_layout() == 'why-us_block' ): ?>
     <section class="page-section page-section--bg-grey">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+        <div class="container-lg">
             <div class="row row-cols-1 row-cols-md-2">
                 <?php if(get_sub_field('why-us_block_title')): ?>
                     <div class="col d-flex mb-4">
@@ -142,8 +142,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'services_block' ): ?>
-    <section class="page-section ">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> ">
+        <div class="container-lg">
             <?php if(get_sub_field('services_block_title')) : ?>
                 <h2 class="h2 section-h2 mb-4 mb-xl-5"><?php the_sub_field('services_block_title'); ?></h2>
             <?php endif; ?>
@@ -173,33 +173,35 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'action_block' ): ?>
-    <div <?php if(is_front_page()) : ?> class="container-lg" <?php endif; ?>>
-        <div class="cta-block">
-            <div class="row justify-content-between align-items-center">
-                <?php if(get_sub_field('action_block_text')) : ?>
-                    <div class="col-auto mb-3 mb-md-0 col-md-6">
-                        <p class="m-0 h2"><?php the_sub_field('action_block_text'); ?></p>
-                    </div>
-                <?php endif; ?>
-                <?php
-                $action_link = get_sub_field('action_block_button');
-                if( $action_link ):
-                    $action_link_url = $action_link['url'];
-                    $action_link_title = $action_link['title'];
-                    $action_link_target = $action_link['target'] ? $action_link['target'] : '_self';
-                    ?>
-                    <div class="col-auto">
-                        <a class="btn btn-primary" href="<?php echo esc_url( $action_link_url ); ?>" target="<?php echo esc_attr( $action_link_target ); ?>"><?php echo esc_html( $action_link_title ); ?></a>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </div>
+		<section class="page-section p-0 <?php if(!is_front_page()) : ?> mb-80 <?php endif; ?> ">
+		    <div class="container-lg">
+		        <div class="cta-block">
+		            <div class="row justify-content-between align-items-center">
+		                <?php if(get_sub_field('action_block_text')) : ?>
+		                    <div class="col-auto mb-3 mb-md-0 col-md-6">
+		                        <p class="m-0 h2"><?php the_sub_field('action_block_text'); ?></p>
+		                    </div>
+		                <?php endif; ?>
+		                <?php
+		                $action_link = get_sub_field('action_block_button');
+		                if( $action_link ):
+		                    $action_link_url = $action_link['url'];
+		                    $action_link_title = $action_link['title'];
+		                    $action_link_target = $action_link['target'] ? $action_link['target'] : '_self';
+		                    ?>
+		                    <div class="col-auto">
+		                        <a class="btn btn-primary" href="<?php echo esc_url( $action_link_url ); ?>" target="<?php echo esc_attr( $action_link_target ); ?>"><?php echo esc_html( $action_link_title ); ?></a>
+		                    </div>
+		                <?php endif; ?>
+		            </div>
+		        </div>
+		    </div>
+		</section>
 <?php endif;?>
 
 <?php if( get_row_layout() == 'rs_image_block' ): ?>
-    <section class="page-section">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?>">
+        <div class="container-lg">
             <div class="row justify-content-between">
                 <div class="col-6  d-none d-lg-block p-xxl-0 pe-xl-5">
                     <?php if(get_sub_field('rs_image_block_image')): ?>
@@ -226,32 +228,33 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-2 row-cols-lg-4 mt-xxl-n5">
-
-                <?php if( have_rows('rs_image_block_item') ): while ( have_rows('rs_image_block_item') ): the_row(); ?>
-                    <div class="col mb-3">
-                        <div class="box box--white box--shadow d-flex align-items-center justify-content-center">
-                            <div class="text-center">
-                                <?php if(get_sub_field('rs_image_block_item_number')): ?>
-                                    <div class="h3 text-primary mb-2">
-                                        <?php the_sub_field('rs_image_block_item_number'); ?>
-                                    </div>
-                                <?php endif;?>
-                                <?php if(get_sub_field('rs_image_block_item_text')): ?>
-                                    <div class="paragraph"><?php the_sub_field('rs_image_block_item_text'); ?></div>
-                                <?php endif;?>
-                            </div>
-                        </div>
-                    </div>
-                <?php endwhile; endif; ?>
-            </div>
+            <?php if( have_rows('rs_image_block_item') ): ?>
+	            <div class="row row-cols-2 row-cols-lg-4 mt-xxl-n5">
+	                <?php  while ( have_rows('rs_image_block_item') ): the_row(); ?>
+	                    <div class="col mb-3">
+	                        <div class="box box--white box--shadow d-flex align-items-center justify-content-center">
+	                            <div class="text-center">
+	                                <?php if(get_sub_field('rs_image_block_item_number')): ?>
+	                                    <div class="h3 text-primary mb-2">
+	                                        <?php the_sub_field('rs_image_block_item_number'); ?>
+	                                    </div>
+	                                <?php endif;?>
+	                                <?php if(get_sub_field('rs_image_block_item_text')): ?>
+	                                    <div class="paragraph"><?php the_sub_field('rs_image_block_item_text'); ?></div>
+	                                <?php endif;?>
+	                            </div>
+	                        </div>
+	                    </div>
+	                <?php endwhile;?>
+	            </div>
+            <?php endif; ?>
         </div>
     </section>
 <?php endif;?>
 
 <?php if( get_row_layout() == 'reviews_block' ): ?>
-    <section class="page-section pt-0">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> pt-0">
+        <div class="container-lg">
             <div class="row justify-content-center">
                 <?php if(get_sub_field('reviews_block_title')): ?>
                     <div class="col col-xxl-6">
@@ -306,7 +309,7 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'roadmap_block' ): ?>
-    <section class="page-section pb-0">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> pb-0">
         <div class="roadmap">
             <div class="container-lg">
                 <div class="row justify-content-center">
@@ -346,8 +349,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'rewards_block' ): ?>
-    <section class="page-section ">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> ">
+        <div class="container-lg">
             <div class="row justify-content-center">
                 <?php if(get_sub_field('rewards_block_title')): ?>
                     <div class="col col-xxl-6">
@@ -379,7 +382,7 @@
 
 <?php if( get_row_layout() == 'faq_block' ): ?>
     <section class="page-section page-section--bg-grey">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+        <div class="container-lg">
             <?php if(get_sub_field('faq_block_title')): ?>
                 <h2 class="h2 section-h2 mb-3 mb-xl-4  text-center">
                     <a href="/faq">
@@ -421,8 +424,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'partners_block' ): ?>
-    <section class="page-section ">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> ">
+        <div class="container-lg">
             <div class="row justify-content-center">
                 <?php if(get_sub_field('partners_block_title')):?>
                     <div class="col col-xxl-6">
@@ -455,7 +458,7 @@
 
 <?php if( get_row_layout() == 'cases_block' ): ?>
     <section class="page-section page-section--bg-grey">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+        <div class="container-lg">
             <?php if(get_sub_field('cases_block_title')): ?>
                 <h2 class="h2 section-h2"><?php the_sub_field('cases_block_title'); ?></h2>
             <?php endif;?>
@@ -487,8 +490,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'price_block' ): ?>
-    <section class="page-section ">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> ">
+        <div class="container-lg">
             <?php if(get_sub_field('price_block_title')): ?>
                 <h2 class="h2 section-h2 mb-3 mb-lg-4"><?php the_sub_field('price_block_title'); ?></h2>
             <?php endif;?>
@@ -582,8 +585,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'subscribe_block' ): ?>
-    <div>
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section pb-0 <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> ">
+        <div class="container-lg">
             <div class="cta-block text-center p-md-4 p-lg-5">
                 <div class="row justify-content-center py-xl-4">
                     <div class="col-12 col-md-10 col-lg-8 col-xxl-7 px-xxl-5">
@@ -606,8 +609,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'blog_slider_block' ): ?>
-    <section class="page-section pt-0">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> pt-0">
+        <div class="container-lg">
             <div class="row align-items-center justify-content-between justify-content-lg-center  mb-2 mb-xxl-2">
                 <?php if(get_sub_field('blog_slider_block_title')): ?>
                     <div class="col-auto">
@@ -702,8 +705,8 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'gutenberg_content_block' ): ?>
-    <section class="page-section content">
-        <div class="<?php if(is_front_page()) : ?> container-lg <?php endif; ?>">
+    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> content">
+        <div class="container-lg">
             <?php the_sub_field('gutenberg_content_block_field'); ?>
         </div>
     </section>
