@@ -14,7 +14,7 @@
             <div class="h2 mb-4"><?php the_sub_field('why_trademark_block_title',$term); ?></div>
         <?php endif;?>
 
-        <div class="row row-cols-1 row-cols-md-3 gy-4 gy-md-0">
+        <div class="row row-cols-1 row-cols-md-3 gy-4">
             <?php if( have_rows('why_trademark_block_box',$term) ): ?>
                 <?php while ( have_rows('why_trademark_block_box',$term) ): the_row();?>
                     <div class="col">

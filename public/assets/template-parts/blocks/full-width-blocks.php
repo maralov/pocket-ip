@@ -173,7 +173,7 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'action_block' ): ?>
-		<section class="page-section p-0 <?php if(!is_front_page()) : ?> mb-80 <?php endif; ?> ">
+		<section class="page-section pt-0 <?php if(!is_front_page()) : ?> mb-80 <?php endif; ?> ">
 		    <div class="container-lg">
 		        <div class="cta-block">
 		            <div class="row justify-content-between align-items-center">
@@ -705,7 +705,7 @@
 <?php endif;?>
 
 <?php if( get_row_layout() == 'gutenberg_content_block' ): ?>
-    <section class="page-section <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> content">
+    <section class="page-section pt-0 <?php if(!is_front_page()) : ?>  p-0 mb-80 <?php endif; ?> content">
         <div class="container-lg">
             <?php the_sub_field('gutenberg_content_block_field'); ?>
         </div>
