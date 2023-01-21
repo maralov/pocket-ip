@@ -5,7 +5,11 @@
   background: $white;
   border: 1px solid $white;
   z-index: 100;
-  @include media-breakpoint-up(xxl) {
+  overflow: hidden;
+  @media (min-width: 1110px) {
+    overflow: visible;
+  }
+    @include media-breakpoint-up(xxl) {
     font-size: rem(16);
   }
 
@@ -17,12 +21,11 @@
     @include media-breakpoint-up(lg) {
       flex-wrap: wrap;
     }
-    @media (min-width: 1110px) {
-      overflow: visible;
-    }
+
   } //.header__container
 
   &.open-nav {
+    overflow: visible;
     .header__nav {
       right: 0;
 
