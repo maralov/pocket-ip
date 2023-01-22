@@ -65,3 +65,19 @@
     }
 
     add_filter( 'bea.aofp.get_default', '__return_false' );
+
+    function AS_disable_plugin_updates( $value ) {
+        $pluginsNotUpdatable = [
+            'advanced-custom-fields-pro/acf.php'
+        ];
+
+        if ( isset($value) && is_object($value) ) {
+            foreach ($pluginsNotUpdatable as $plugin) {
+                if ( isset( $value->response[$plugin] ) ) {
+                    unset( $value->response[$plugin] );
+                }
+            }
+        }
+        return $value;
+    }
+    add_filter( 'site_transient_update_plugins', 'AS_disable_plugin_updates' );
