@@ -42,8 +42,7 @@
   align-items: center;
   justify-content: space-between;
   height: rem(48);
-  padding-left: rem(16);
-  padding-right: 0;
+  padding: 0 0 0 rem(16);
   overflow: hidden;
   flex-shrink: 0;
   &:after {
