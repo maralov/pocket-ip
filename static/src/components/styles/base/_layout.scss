@@ -1,5 +1,7 @@
 .page-section {
   padding: rem(40) 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
 
   @include media-breakpoint-up(xl) {
     padding: rem(80) 0;

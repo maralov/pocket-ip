@@ -1,0 +1,42 @@
+.sitemap {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  a {
+    display: block;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  h3, a {
+    margin-bottom: rem(20);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 355px;
+    min-width: 200px;
+  }
+
+  &__item-with-children {
+    a {
+      margin-bottom: rem(10);
+    }
+
+    ul {
+      margin-bottom: rem(20);
+      font-size: rem(14);
+      padding-left: rem(30);
+      li {
+        color: inherit !important;
+        padding: 0!important;
+      }
+      a {
+        font-size: rem(14);
+      }
+    }
+  }
+}

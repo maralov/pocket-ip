@@ -5,25 +5,25 @@ jQuery(function ($) {
     const $countryTagsList = $(".js-country-tags .country-tag");
 
     function addCollapsedBtnToCroppedList() {
-        if ($countryTagsList.length < 5) return;
+        if ($countryTagsList.length <= 4) return;
         $countryTagsWrapper.append(
-            "<button type='button' class='btn country-tag-button'><span>+</span> See more</button>"
+            "<button type='button' class='btn country-tag-button' ><span>+</span> See more</button>"
         );
         $(".country-tag-button").on("click", displayAllList);
     }
     function displayAllList() {
-        if ($countryTagsList.length < 5) return;
-        const isBtnCollapsed = !$(this).attr("collapsed");
+        const isBtnCollapsed = !Number($(this).attr("data-collapsed"));
+
         if(isBtnCollapsed) {
-            $(this).attr("collapsed", 1);
+            $(this).attr("data-collapsed", 1);
             $(this).html("<span>-</span> Hide info");
         } else {
-            $(this).attr("collapsed", 0);
+            $(this).attr("data-collapsed", 0);
             $(this).html("<span>+</span> See more");
         }
 
         $countryTagsList.each(function (index) {
-            if (index > 4) {
+            if (index >= 4) {
                 $(this).toggleClass("country-tag--visible");
             }
         });

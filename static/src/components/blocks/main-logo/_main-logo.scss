@@ -1,7 +1,7 @@
 .main-logo {
   width: rem(120);
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xxl) {
     width: rem(150);
   }
 }

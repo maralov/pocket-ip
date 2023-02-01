@@ -16,3 +16,10 @@ _config.yml
 node_modules
 dist
 package-lock.json
+
+deployment.xml
+misc.xml
+php.xml
+vcs.xml
+webServers.xml
+

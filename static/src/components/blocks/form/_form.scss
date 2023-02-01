@@ -1,4 +1,9 @@
 .form {
+  br {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+  }
   form {
     input:-webkit-autofill {
       box-shadow: inset 0 0 0 50px #fff !important;
@@ -34,6 +39,7 @@
       background-color: transparent;
       outline: #fff;
       width: 100%;
+      display: block;
     }
 
     input:not([type="submit"]), textarea {
@@ -56,14 +62,72 @@
       }
     }
 
-    input[type="submit"] {
+    input[type="submit"], button[type="submit"] {
       @extend .btn;
       @extend .btn-primary;
     }
+
+    button[type="submit"] {
+      &:before {
+        content: '';
+        display: none;
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        background-image: url('../img/icons/ic-loading.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 16px;
+        animation: spin 2s linear infinite;
+      }
+    }
+
+    &.submitting {
+      button[type="submit"] {
+        &:before {
+          display: block;
+        }
+      }
+    }
+    .wpcf7-response-output {
+      margin: 0;
+      width: 100%;
+    }
+
+    .wpcf7-spinner {
+      display: none;
+      position: absolute;
+      left: -9999px;
+      width: 0;
+      height: 0;
+      visibility: hidden;
+    }
+
+    &.sent {
+        .wpcf7-response-output {
+          display: none;
+          position: absolute;
+          visibility: hidden;
+          left: 9999px;
+        }
+    }
+  }
+
+  .wpcf7-not-valid-tip {
+    color: $red;
+    font-size: rem(12);
   }
 }
 
 .form-row {
+  margin-top: rem(40);
+
+  @include media-breakpoint-up(xl) {
+    margin-top: rem(60);
+  }
+  @media (min-width: $media-2xl) {
+    margin-top: rem(80);
+  }
   form {
     display: flex;
     align-items: center;
@@ -76,12 +140,13 @@
 
     @include media-breakpoint-up(lg) {
       flex-direction: row;
+      flex: 1;
       textarea {
         height: 54px;
       }
     }
 
-    input[type="submit"] {
+    input[type="submit"], button[type="submit"] {
       @include media-breakpoint-down(md) {
         width: 100%;
       }
@@ -90,16 +155,25 @@
       }
     }
 
-
     .form-title {
       @extend .subtitle-1;
       flex-shrink: 0;
+    }
+
+    p {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex: 1;
+      @include media-breakpoint-up(lg) {
+        flex-direction: row;
+      }
     }
   }
 }
 
 .form-column {
-  input[type="submit"] {
+  input[type="submit"], button[type="submit"] {
     width: 100%;
   }
 
@@ -113,20 +187,42 @@
     }
   }
 
+  .wpcf7-not-valid-tip {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: -8px;
+    margin-bottom: 8px;
+  }
+
+  .wpcf7-response-output {
+    margin-top: 16px!important;
+  }
 }
 
 .form-search {
-  form {
-    position: relative;
 
-    input:not([type="submit"]){
+  &__container{
+    position: relative;
+  }
+
+  form {
+    input:not([type="submit"], button[type="submit"]){
       padding-right: 120px;
     }
-    input[type="submit"] {
+    input[type="submit"], button[type="submit"] {
       position: absolute;
       right: 0;
       top: 0;
-      height: 100%;
+      height: 55px;
     }
+  }
+}
+
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
