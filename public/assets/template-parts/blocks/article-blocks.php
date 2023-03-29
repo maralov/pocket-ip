@@ -2,7 +2,7 @@
     <div class="mb-80">
         <?php if(get_sub_field('article_block_content',$term)):?>
             <article class="col-12 content">
-                <?php the_sub_field('article_block_content',$term);  ?>
+                <?php echo wpautop(get_sub_field('article_block_content',$term));  ?>
             </article>
         <?php endif;?>
     </div>
@@ -10,17 +10,22 @@
 
 <?php if( get_row_layout() == 'why_trademark_block' ): ?>
     <div class="mb-80">
-        <?php if(get_sub_field('why_trademark_block_title',$term)):?>
-            <div class="h2 mb-4"><?php the_sub_field('why_trademark_block_title',$term); ?></div>
+        <?php if(get_sub_field('why_trademark_block_title', $term)):?>
+            <div class="h2 mb-4"><?php the_sub_field('why_trademark_block_title', $term); ?></div>
         <?php endif;?>
 
         <div class="row row-cols-1 row-cols-md-3 gy-4">
-            <?php if( have_rows('why_trademark_block_box',$term) ): ?>
-                <?php while ( have_rows('why_trademark_block_box',$term) ): the_row();?>
+            <?php if( have_rows('why_trademark_block_box', $term) ): ?>
+                <?php while ( have_rows('why_trademark_block_box', $term) ): the_row(); ?>
                     <div class="col">
                         <div class="d-flex align-items-center gap-1 gap-xl-2 mb-2 mb-xl-3 ">
-                         <?php $box_icon = get_sub_field('why_trademark_block_box_icon',$term);
-                            if(!empty($box_icon)): ?>
+                         <?php
+                            if(is_tax()):
+                                $box_icon = get_sub_field('why_trademark_block_box_icon', $term);
+                            else:
+                                $box_icon = get_sub_field('why_trademark_block_box_icon', get_the_id());
+                            endif;
+                            if(is_array($box_icon) && !empty($box_icon)): ?>
                             <div class="box box--sm box--radius-sm box--red w-auto d-inline-flex justify-content-center ">
                                 <img src="<?php echo esc_url($box_icon['url']); ?>" alt="<?php echo esc_url($box_icon['alt']); ?>">
                             </div>
@@ -59,7 +64,8 @@
                             </div>
                         </div>
                     </div>
-                <?php endwhile; endif;?>
+                <?php endwhile;
+            endif;?>
         </div>
     </div>
 <?php endif;?>
@@ -70,7 +76,7 @@
             <div class="h2 mb-4"><?php the_sub_field('tools_block_title',$term); ?></div><!-- or tag H2 -->
         <?php endif;?>
 
-        <?php the_sub_field('tools_block_contnent',$term); ?>
+        <?php echo wpautop(get_sub_field('tools_block_contnent',$term)); ?>
 
         <?php
         $image_tools = get_sub_field('tools_block_image');

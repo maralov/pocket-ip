@@ -794,7 +794,7 @@
 <?php endif; ?>
 
 <?php if(get_row_layout() == 'contact_form') : ?>
-    <div class="mb-80">
+    <div class="container-lg mb-80">
         <div class="form form-row">
             <?php the_sub_field('contact_form_name'); ?>
         </div>
