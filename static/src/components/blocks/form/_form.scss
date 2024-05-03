@@ -217,6 +217,26 @@
       height: 55px;
     }
   }
+
+  &__icon {
+    width: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-iconed {
+    form {
+      input:not([type="submit"], button[type="submit"]) {
+        padding-left: 40px;
+      }
+    }
+  }
+
 }
 
 

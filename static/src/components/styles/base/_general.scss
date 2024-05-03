@@ -97,6 +97,13 @@ body {
 .gap-2 {
   gap: rem(16);
 }
+.gap-y-1 {
+  gap: rem(8) 0;
+}
+
+.gap-y-2 {
+  gap: rem(16) 0;
+}
 
 .gap-xl-2 {
   @include media-breakpoint-up(xl) {

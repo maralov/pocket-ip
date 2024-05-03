@@ -1,0 +1,47 @@
+.tab-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+
+  li {
+    @extend .text-muted;
+    color: $gray-500;
+    border-bottom: 2px solid $gray-500;
+    text-align: center;
+    @include media-breakpoint-up(md) {
+      flex: 1;
+    }
+  }
+
+  a {
+    display: block;
+    text-transform: uppercase;
+    padding: 16px 0;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+
+  [aria-hidden="true"] {
+    display: none;
+  }
+
+  li.active {
+    color: $primary;
+    border-bottom-color: $primary;
+    border-width: 2px;
+  }
+
+}
+
+.tab-content {
+  padding-top: rem(12);
+
+  @include media-breakpoint-up(md) {
+    padding-top: rem(32);
+  }
+}
