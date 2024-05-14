@@ -36,19 +36,20 @@
   border: 1px solid $grey-100;
   border-radius: 12px;
   @extend .p-3;
+}
 
-  &__info {
-    position: relative;
-  }
+//TODO: separate to block  country-info
+.country-info {
+  position: relative;
 
-  &__info:hover {
-    .country-card__info-tooltip {
+  &:hover {
+    .country-info__tooltip {
       visibility: visible;
       opacity: 1;
     }
   }
 
-  &__info-tooltip {
+  &__tooltip {
     transition: all .2s ease;
     position: absolute;
     width: max-content;
@@ -70,7 +71,16 @@
       right: 13px;
       border-width: 12px;
       border-style: solid;
-      border-color: transparent  transparent #101828 transparent ;
+      border-color: transparent transparent #101828 transparent;
+    }
+
+    &-right {
+      right: auto;
+      left: -11px;
+
+      &:before {
+        right: auto;
+      }
     }
   }
 }

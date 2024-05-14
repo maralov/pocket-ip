@@ -1,0 +1,44 @@
+.price-card {
+  @extend .box;
+  @extend .box--sm;
+  @extend .box--bordered;
+  @extend .box--radius-sm;
+  @extend .box--shadow;
+  @extend .box--white;
+
+  &__header {
+    @extend .d-flex;
+    @extend .justify-content-between;
+    padding-bottom: 12px;
+  }
+
+  &__row {
+    border-top: 1px solid $grey-100;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &-item:last-child {
+      .price-card__value {
+        @extend .text-bold;
+      }
+    }
+  }
+
+  &__value {
+    @extend .paragraph;
+  }
+
+  &__description {
+    font-size: rem(12);
+
+    @include media-breakpoint-up(xl) {
+      font-size: rem(14);
+    }
+  }
+}

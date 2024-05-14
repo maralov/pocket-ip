@@ -309,7 +309,216 @@
 			</ul>
 
 			<div id="tab-1" class="tab-content" role="tabpanel" aria-labelledby="tab-1" aria-hidden="false">
-				<!-- CTA BLOCK -->
+				<!-- CALC BLOCK -->
+				<div class="mb-80">
+
+					<section>
+						<h2 class="h2 text-center mb-2 mb-lg-3">Calculator</h2>
+
+						<div class="calc-form js-calc-form">
+							<div class="row justify-content-center align-items-center">
+								<div class="col-12 col-sm-7 col-xl-5 mb-3 mb-sm-0">
+									<div class="d-flex flex-column flex-sm-row align-items-center gap-1 gap-sm-2">
+										<div class="paragraph text-bold">Countries:</div>
+										<div class="custom-select">
+											<button class="selected-values">
+												<span class="selected-values__text"> Choose country... </span>
+												<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24"
+													 viewBox="0 0 25 24" fill="none">
+													<path d="M7.5 10L12.5 15L17.5 10H7.5Z" fill="#999999"/>
+												</svg>
+											</button>
+											<div class="select-dropdown">
+												<label class="checkbox-container">
+													<input type="checkbox" name="countries" value="ua">
+													Ukraine
+												</label>
+												<label class="checkbox-container">
+													<input type="checkbox" name="countries" value="de">
+													Germany
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-4">
+									<div class="d-flex flex-column flex-sm-row align-items-center gap-1 gap-sm-2">
+										<div class="paragraph text-bold">
+											Number of Classes:
+										</div>
+										<div class="counter">
+											<button type="button" disabled class="btn counter-btn js-counter-decrement">
+												<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
+													 viewBox="0 0 21 20"
+													 fill="none">
+													<path d="M15.5 10.8327H5.49996C5.04163 10.8327 4.66663 10.4577 4.66663 9.99935C4.66663 9.54102 5.04163 9.16602 5.49996 9.16602H15.5C15.9583 9.16602 16.3333 9.54102 16.3333 9.99935C16.3333 10.4577 15.9583 10.8327 15.5 10.8327Z"
+														  fill="white"/>
+												</svg>
+											</button>
+											<input class="js-counter-value" type="number" value="1" min="1">
+											<button type="button" class="btn counter-btn js-counter-increment">
+												<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
+													 viewBox="0 0 21 20"
+													 fill="none">
+													<path d="M16.3333 10.8327H11.3333V15.8327H9.66663V10.8327H4.66663V9.16602H9.66663V4.16602H11.3333V9.16602H16.3333V10.8327Z"
+														  fill="white"/>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 js-price-cards">
+
+								<div class="col pt-3 pt-xl-4 js-price-card" style="display: none"
+									 data-country-code="ua">
+									<div class="price-card">
+										<div class="price-card__header">
+											<a href="services-application-ukraine.html" class="d-flex gap-1">
+												<img src="../img/icons/ic-ua.svg" alt="" width="20" height="20">
+												<span class="text-bold">Ukraine</span>
+											</a>
+											<span class="text-bold" data-price-total><span>400</span>$</span>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 100$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="50"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="50">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>200</span>$</div>
+											</div>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 235$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="55"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="55">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>200</span>$</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="col pt-3 pt-xl-4 js-price-card" style="display: none"
+									 data-country-code="de">
+									<div class="price-card">
+										<div class="price-card__header">
+											<a href="services-application-ukraine.html" class="d-flex gap-1">
+												<img src="../img/icons/ic-de.svg" alt="" width="20" height="20">
+												<span class="text-bold">Germany</span>
+											</a>
+											<span class="text-bold" data-price-total><span>550</span>$</span>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 235$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="20"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>150</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="20">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>150</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>300</span>$</div>
+											</div>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 235$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="25"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>120</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="45">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>130</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>250</span>$</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+				<!-- CALC BLOCK END -->
 				<div class="mb-80">
 					<div class="cta-block">
 						<div class="row justify-content-between align-items-center">
@@ -349,9 +558,9 @@
 									</div>
 									<div class="col-auto d-flex gap-1">
 										<span class="text-bold">$480</span>
-										<div class="country-card__info">
+										<div class="country-info">
 											<img src="../img/icons/ic-info.svg" alt="" width="24" height="24">
-											<div class="country-card__info-tooltip">
+											<div class="country-info__tooltip">
 												Includes 1 class, each additional class costs €235.
 											</div>
 										</div>
@@ -359,6 +568,7 @@
 								</div>
 								<div class="row justify-content-between">
 									<div class="col-auto">
+<!--										 важо имень коды страны-->
 										<a href="#ua" class="js-price-modal link"><span>Details</span></a>
 									</div>
 									<div class="col-auto">
@@ -378,9 +588,9 @@
 									</div>
 									<div class="col-auto d-flex gap-1">
 										<span class="text-bold">$480</span>
-										<div class="country-card__info">
+										<div class="country-info">
 											<img src="../img/icons/ic-info.svg" alt="" width="24" height="24">
-											<div class="country-card__info-tooltip">
+											<div class="country-info__tooltip">
 												Includes 1 class, each additional class costs €235.
 											</div>
 										</div>
@@ -407,9 +617,9 @@
 									</div>
 									<div class="col-auto d-flex gap-1">
 										<span class="text-bold">$280</span>
-										<div class="country-card__info">
+										<div class="country-info">
 											<img src="../img/icons/ic-info.svg" alt="" width="24" height="24">
-											<div class="country-card__info-tooltip">
+											<div class="country-info__tooltip">
 												Includes 1 class, each additional class costs €235.
 											</div>
 										</div>
@@ -436,9 +646,9 @@
 									</div>
 									<div class="col-auto d-flex gap-1">
 										<span class="text-bold">$280</span>
-										<div class="country-card__info">
+										<div class="country-info">
 											<img src="../img/icons/ic-info.svg" alt="" width="24" height="24">
-											<div class="country-card__info-tooltip">
+											<div class="country-info__tooltip">
 												Includes 1 class, each additional class costs €235.
 											</div>
 										</div>
@@ -475,6 +685,216 @@
 
 			</div>
 			<div id="tab-2" class="tab-content" role="tabpanel" aria-labelledby="tab-2" aria-hidden="true" style="display: none;">
+				<!-- CALC BLOCK -->
+				<div class="mb-80">
+
+					<section>
+						<h2 class="h2 text-center mb-2 mb-lg-3">Calculator</h2>
+
+						<div class="calc-form js-calc-form">
+							<div class="row justify-content-center align-items-center">
+								<div class="col-12 col-sm-7 col-xl-5 mb-3 mb-sm-0">
+									<div class="d-flex flex-column flex-sm-row align-items-center gap-1 gap-sm-2">
+										<div class="paragraph text-bold">Countries:</div>
+										<div class="custom-select">
+											<button class="selected-values">
+												<span class="selected-values__text"> Choose country... </span>
+												<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24"
+													 viewBox="0 0 25 24" fill="none">
+													<path d="M7.5 10L12.5 15L17.5 10H7.5Z" fill="#999999"/>
+												</svg>
+											</button>
+											<div class="select-dropdown">
+												<label class="checkbox-container">
+													<input type="checkbox" name="countries" value="ua">
+													Ukraine
+												</label>
+												<label class="checkbox-container">
+													<input type="checkbox" name="countries" value="de">
+													Germany
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-sm-4">
+									<div class="d-flex flex-column flex-sm-row align-items-center gap-1 gap-sm-2">
+										<div class="paragraph text-bold">
+											Number of Classes:
+										</div>
+										<div class="counter">
+											<button type="button" disabled class="btn counter-btn js-counter-decrement">
+												<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
+													 viewBox="0 0 21 20"
+													 fill="none">
+													<path d="M15.5 10.8327H5.49996C5.04163 10.8327 4.66663 10.4577 4.66663 9.99935C4.66663 9.54102 5.04163 9.16602 5.49996 9.16602H15.5C15.9583 9.16602 16.3333 9.54102 16.3333 9.99935C16.3333 10.4577 15.9583 10.8327 15.5 10.8327Z"
+														  fill="white"/>
+												</svg>
+											</button>
+											<input class="js-counter-value" type="number" value="1" min="1">
+											<button type="button" class="btn counter-btn js-counter-increment">
+												<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
+													 viewBox="0 0 21 20"
+													 fill="none">
+													<path d="M16.3333 10.8327H11.3333V15.8327H9.66663V10.8327H4.66663V9.16602H9.66663V4.16602H11.3333V9.16602H16.3333V10.8327Z"
+														  fill="white"/>
+												</svg>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 js-price-cards">
+
+								<div class="col pt-3 pt-xl-4 js-price-card" style="display: none"
+									 data-country-code="ua">
+									<div class="price-card">
+										<div class="price-card__header">
+											<a href="services-application-ukraine.html" class="d-flex gap-1">
+												<img src="../img/icons/ic-ua.svg" alt="" width="20" height="20">
+												<span class="text-bold">Ukraine</span>
+											</a>
+											<span class="text-bold" data-price-total><span>400</span>$</span>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 235$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="50"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="50">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>200</span>$</div>
+											</div>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 235$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="55"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="55">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>200</span>$</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="col pt-3 pt-xl-4 js-price-card" style="display: none"
+									 data-country-code="de">
+									<div class="price-card">
+										<div class="price-card__header">
+											<a href="services-application-ukraine.html" class="d-flex gap-1">
+												<img src="../img/icons/ic-de.svg" alt="" width="20" height="20">
+												<span class="text-bold">Germany</span>
+											</a>
+											<span class="text-bold" data-price-total><span>400</span>$</span>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 235$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="50"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="50">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>200</span>$</div>
+											</div>
+										</div>
+										<div class="price-card__row">
+											<div class="d-flex text-bold paragraph price-card__row-item">
+												Подача заявки
+												<div class="country-info ms-1">
+													<img src="../img/icons/ic-info.svg" alt="" width="22" height="22">
+													<div class="country-info__tooltip country-info__tooltip-right">
+														Includes 1 class, each additional class costs 235$.
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="55"
+											>
+												<div class="price-card__description">Государственная пошлина (USD/EUR)
+												</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item"
+												 data-price="100"
+												 data-add-price="55">
+												<div class="price-card__description">Гонорар юриста (USD/EUR)</div>
+												<div class="price-card__value" data-price-value><span>100</span>$</div>
+											</div>
+											<div class="d-flex justify-content-between price-card__row-item">
+												<div class="price-card__description">Итого</div>
+												<div class="price-card__value" data-price-summ><span>200</span>$</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+				<!-- CALC BLOCK END -->
 				<!-- CTA BLOCK -->
 				<div class="mb-80">
 					<div class="cta-block">
@@ -515,9 +935,9 @@
 									</div>
 									<div class="col-auto d-flex gap-1">
 										<span class="text-bold">$480</span>
-										<div class="country-card__info">
+										<div class="country-info">
 											<img src="../img/icons/ic-info.svg" alt="" width="24" height="24">
-											<div class="country-card__info-tooltip">
+											<div class="country-info__tooltip">
 												Includes 1 class, each additional class costs €235.
 											</div>
 										</div>
@@ -544,9 +964,9 @@
 									</div>
 									<div class="col-auto d-flex gap-1">
 										<span class="text-bold">$480</span>
-										<div class="country-card__info">
+										<div class="country-info">
 											<img src="../img/icons/ic-info.svg" alt="" width="24" height="24">
-											<div class="country-card__info-tooltip">
+											<div class="country-info__tooltip">
 												Includes 1 class, each additional class costs €235.
 											</div>
 										</div>
@@ -573,9 +993,9 @@
 									</div>
 									<div class="col-auto d-flex gap-1">
 										<span class="text-bold">$280</span>
-										<div class="country-card__info">
+										<div class="country-info">
 											<img src="../img/icons/ic-info.svg" alt="" width="24" height="24">
-											<div class="country-card__info-tooltip">
+											<div class="country-info__tooltip">
 												Includes 1 class, each additional class costs €235.
 											</div>
 										</div>

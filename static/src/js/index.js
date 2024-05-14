@@ -4,7 +4,9 @@ import "%components%/slider/slider";
 import "%components%/faq/faq";
 import "%components%/country-tag/country-tags";
 import "%components%/modal/modal";
+import "%components%/calculator/calculator";
 import "%components%/tabs/tabs";
+import "%modules%/home-page/prices/pricesTabs";
 import "%modules%/home-page/prices/pricesTabs";
 
 
