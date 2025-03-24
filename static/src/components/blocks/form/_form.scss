@@ -15,14 +15,14 @@
     input,
     textarea {
       &::placeholder {
-        font-family: 'HelveticaNow', sans-serif;;
+        font-family: 'HelveticaNow', sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: rem(16);
         color: $grey-500;
         text-overflow: ellipsis;
         opacity: 1;
-        line-height: calc(20/16);
+        line-height: calc(20 / 16);
         transition: all 0.3s ease;
       }
 
@@ -42,7 +42,8 @@
       display: block;
     }
 
-    input:not([type="submit"]), textarea {
+    input:not([type='submit']),
+    textarea {
       background-color: #fff;
       border: 1px solid $grey-100;
       border-radius: 12px;
@@ -62,12 +63,13 @@
       }
     }
 
-    input[type="submit"], button[type="submit"] {
+    input[type='submit'],
+    button[type='submit'] {
       @extend .btn;
       @extend .btn-primary;
     }
 
-    button[type="submit"] {
+    button[type='submit'] {
       &:before {
         content: '';
         display: none;
@@ -83,7 +85,7 @@
     }
 
     &.submitting {
-      button[type="submit"] {
+      button[type='submit'] {
         &:before {
           display: block;
         }
@@ -104,12 +106,12 @@
     }
 
     &.sent {
-        .wpcf7-response-output {
-          display: none;
-          position: absolute;
-          visibility: hidden;
-          left: 9999px;
-        }
+      .wpcf7-response-output {
+        display: none;
+        position: absolute;
+        visibility: hidden;
+        left: 9999px;
+      }
     }
   }
 
@@ -146,7 +148,8 @@
       }
     }
 
-    input[type="submit"], button[type="submit"] {
+    input[type='submit'],
+    button[type='submit'] {
       @include media-breakpoint-down(md) {
         width: 100%;
       }
@@ -173,7 +176,8 @@
 }
 
 .form-column {
-  input[type="submit"], button[type="submit"] {
+  input[type='submit'],
+  button[type='submit'] {
     width: 100%;
   }
 
@@ -182,8 +186,9 @@
   }
 
   form {
-    input:not([type="submit"]), textarea {
-        margin-bottom: 16px;
+    input:not([type='submit']),
+    textarea {
+      margin-bottom: 16px;
     }
   }
 
@@ -196,21 +201,21 @@
   }
 
   .wpcf7-response-output {
-    margin-top: 16px!important;
+    margin-top: 16px !important;
   }
 }
 
 .form-search {
-
-  &__container{
+  &__container {
     position: relative;
   }
 
   form {
-    input:not([type="submit"], button[type="submit"]){
+    input:not([type='submit'], button[type='submit']) {
       padding-right: 120px;
     }
-    input[type="submit"], button[type="submit"] {
+    input[type='submit'],
+    button[type='submit'] {
       position: absolute;
       right: 0;
       top: 0;
@@ -231,18 +236,58 @@
 
   &-iconed {
     form {
-      input:not([type="submit"], button[type="submit"]) {
+      input:not([type='submit'], button[type='submit']) {
         padding-left: 40px;
       }
     }
   }
-
 }
-
 
 @keyframes spin {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+.input {
+  background-color: #fff;
+  border: 1px solid $grey-100;
+  border-radius: 12px;
+  outline: $white;
+  padding: rem(16) rem(20);
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  line-height: 1.3;
+  color: $black;
+
+  &::placeholder {
+    font-family: 'HelveticaNow', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: rem(16);
+    color: $grey-500;
+    text-overflow: ellipsis;
+    opacity: 1;
+    line-height: calc(20 / 16);
+    transition: all 0.3s ease;
+  }
+
+  &:focus {
+    &::placeholder {
+      opacity: 0;
+      border-color: $primary;
+    }
+  }
+}
+
+.search-block {
+  .custom-select {
+    .search-parameter {
+      height: rem(54);
+      padding: rem(16) rem(20);
+      border-radius: rem(12);
+    }
   }
 }

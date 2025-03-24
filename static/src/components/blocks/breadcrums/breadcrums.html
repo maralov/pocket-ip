@@ -7,3 +7,76 @@
 	<!-- /.breadcrumps__item -->
 </div>
 <!-- /.breadcrumps -->
+<div class="modal details-modal js-modal-<?php echo esc_attr($slug); ?>">
+	<div class="position-relative modal-submit__content">
+		<button type="button" class="btn modal__btn-close js-modal-btn-close">
+			<img src="<?php echo POCKET_IMG_DIR; ?>/icons/ic-close-modal.svg" alt="menu" />
+		</button>
+		<div class="box box--white box--lg box--radius-lg">
+			<div class="price-card">
+				<div class="price-card__header">
+					<a href="<?php echo esc_url($service_link); ?>" target="_blank" class="d-flex gap-1">
+						<?php if ($category_icon) : ?>
+							<img src="<?php echo esc_url($category_icon['url']); ?>" alt="<?php echo esc_attr($term->name); ?>" width="20" height="20" />
+						<?php endif; ?>
+						<span class="text-bold"><?php echo esc_html($term->name); ?></span>
+					</a>
+					<span class="text-bold" data-price-total><span><?php echo esc_html($total_sum_all_items); ?></span>$</span>
+				</div>
+				<?php if ($price_items) {
+					foreach ($price_items as $price_item) {
+						$price_item_services = $price_item['price_ren_item_services'];
+						$item_sum = 0;
+						$total_add_class = 0;
+						if ($price_item_services) {
+							foreach ($price_item_services as $service) {
+								$item_sum += (float) $service['price_ren_item_service_price'];
+								$total_add_class += (float) $service['price_ren_item_add_class'];
+							}
+						}
+						?>
+						<div class="price-card__row">
+							<div class="d-flex text-bold paragraph price-card__row-item">
+								<?php echo esc_html($price_item['price_ren_item_title']); ?>
+								<div class="country-info ms-1">
+									<img src="<?php echo POCKET_IMG_DIR; ?>/icons/ic-info.svg" alt="" width="22" height="22" />
+									<div class="country-info__tooltip country-info__tooltip-right">
+										<?php
+											if (!empty($price_item['price_ren_item_txt_tooltip'])) {
+												echo esc_html($price_item['price_ren_item_txt_tooltip']);
+											} else {
+												pll_e('Includes 1 class, each additional class costs');
+											}
+										?>
+										<?php echo esc_html($total_add_class); ?>$.
+									</div>
+								</div>
+							</div>
+							<?php if ($price_item_services) {
+								foreach ($price_item_services as $service) {
+									$price = !empty($service['price_ren_item_service_price']) ? esc_html($service['price_ren_item_service_price']) : 0;
+									$add_price = !empty($service['price_ren_item_add_class']) ? esc_html($service['price_ren_item_add_class']) : 0; ?>
+									<div class="d-flex justify-content-between price-card__row-item" data-price="<?php echo $price; ?>" data-add-price="<?php echo $add_price; ?>">
+										<div class="price-card__description">
+											<?php echo esc_html($service['price_ren_item_service']); ?>
+										</div>
+										<div class="price-card__value" data-price-value>
+											<span><?php echo $price; ?></span>$
+										</div>
+									</div>
+								<?php }
+							} ?>
+
+							<div class="d-flex justify-content-between price-card__row-item">
+								<div class="price-card__description"><?php pll_e('Total'); ?></div>
+								<div class="price-card__value" data-price-summ>
+									<span><?php echo esc_html($item_sum); ?></span>$
+								</div>
+							</div>
+						</div>
+					<?php }
+				} ?>
+			</div>
+		</div>
+	</div>
+</div>

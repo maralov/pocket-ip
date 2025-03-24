@@ -36,6 +36,10 @@
   border: 1px solid $grey-100;
   border-radius: 12px;
   @extend .p-3;
+
+  &__country-link:hover {
+    text-decoration: underline;
+  }
 }
 
 //TODO: separate to block  country-info

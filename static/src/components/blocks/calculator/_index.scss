@@ -1,7 +1,7 @@
 .custom-select {
   position: relative;
   width: 100%;
-
+  color: $black;
   .selected-values {
     @extend .btn;
     padding: 16px;
@@ -12,8 +12,10 @@
     justify-content: space-between;
     width: 100%;
     font-size: 16px;
-
-    &:focus, &[aria-expanded="true"] {
+    background-color: $white;
+    color: $black;
+    &:focus,
+    &[aria-expanded='true'] {
       border-color: $primary;
     }
   }
@@ -24,9 +26,12 @@
     width: 100%;
     border: 1px solid $grey-100;
     border-radius: 4px;
-    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
     display: none;
     z-index: 15;
+    max-height: 60vh;
+    overflow: auto;
 
     label {
       display: block;
@@ -36,7 +41,7 @@
 
       &:hover {
         color: $primary;
-        background-color: #F5F5FF;
+        background-color: #f5f5ff;
       }
     }
   }
@@ -45,12 +50,32 @@
     display: flex;
     align-items: center;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       margin-right: 8px;
     }
   }
-}
 
+  .currency-option {
+    padding: 8px 10px;
+    cursor: pointer;
+    display: block;
+
+    &.selected {
+      color: $primary;
+    }
+  }
+
+  .currency-option:hover {
+    color: $primary;
+    background-color: #f5f5ff;
+  }
+
+  .form-search-iconed {
+    .form-search__container input {
+      padding-right: 40px;
+    }
+  }
+}
 
 .counter {
   display: flex;
@@ -78,7 +103,7 @@
   cursor: default;
 }
 
-.counter input[type="number"] {
+.counter input[type='number'] {
   font-size: 16px;
   width: 64px;
   flex-grow: 1;
@@ -98,8 +123,8 @@
   }
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

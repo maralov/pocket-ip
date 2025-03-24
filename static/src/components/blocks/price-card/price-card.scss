@@ -10,6 +10,10 @@
     @extend .d-flex;
     @extend .justify-content-between;
     padding-bottom: 12px;
+
+    a:hover {
+      text-decoration: underline;
+    }
   }
 
   &__row {
@@ -39,6 +43,26 @@
 
     @include media-breakpoint-up(xl) {
       font-size: rem(14);
+    }
+  }
+}
+
+.is-loading {
+  .price-card {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.7);
+      background-repeat: no-repeat;
+      background-size: 30%;
+      background-position: 50%;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="%23504EF3" stroke="%23504EF3" stroke-width="2" r="15" cx="40" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="%23504EF3" stroke="%23504EF3" stroke-width="2" r="15" cx="100" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="%23504EF3" stroke="%23504EF3" stroke-width="2" r="15" cx="160" cy="100"><animate attributeName="opacity" calcMode="spline" dur="2" values="1;0;1;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>');
     }
   }
 }

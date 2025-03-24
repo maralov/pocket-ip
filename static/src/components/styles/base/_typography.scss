@@ -196,13 +196,13 @@ p, .paragraph {
   text-align: center;
 }
 
-.text-md-center, {
+.text-md-center {
   @include media-breakpoint-up(md) {
     text-align: center;
   }
 }
 
-.text-xxl-center, {
+.text-xxl-center {
   @include media-breakpoint-up(xxl) {
     text-align: center;
   }

@@ -1,22 +1,24 @@
 {
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-
-    "extends": "eslint:recommended",
-    "parser": "@babel/eslint-parser",
-    "parserOptions": {
-        "ecmaVersion": 6,
-        "sourceType": "module"
-    },
-
-    "rules": {
-        "indent": ["error", 4],
-        "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "double"],
-        "semi": ["error", "always"]
-    }
+	"env": {
+		"browser": true,
+		"commonjs": true,
+		"es6": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:prettier/recommended" // Додаємо Prettier для інтеграції
+	],
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
+	},
+	"rules": {
+		"indent": ["error", 4], // Це правило для відступів, Prettier також його може контролювати
+		"linebreak-style": ["error", "unix"],
+		"quotes": ["error", "double"], // Дотримання подвійних лапок
+		"semi": ["error", "always"], // Завжди використовуємо крапку з комою
+		"prettier/prettier": ["error"] // Правило для Prettier
+	}
 }
