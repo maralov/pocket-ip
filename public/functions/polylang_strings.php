@@ -43,4 +43,5 @@
         pll_register_string('PoketIP', 'Applicant name');
         pll_register_string('PoketIP', 'Enter search term...');
         pll_register_string('PoketIP', 'Search term');
+        pll_register_string('PoketIP', 'Search parameter');
     });
