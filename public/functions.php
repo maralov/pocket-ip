@@ -13,6 +13,18 @@
 
 		wp_enqueue_script( 'vendor', POCKET_JS_DIR . '/vendor.min.js', null, null, true);
         wp_enqueue_script( 'myjs', POCKET_JS_DIR . '/main.min.js', null, time());
+
+        $current_country = '';
+		$country_terms = get_the_terms(get_the_ID(), 'service_country');
+		if ($country_terms && !is_wp_error($country_terms)) {
+			$country = array_shift($country_terms);
+			$current_country = $country->slug ?? '';
+		}
+
+		wp_localize_script('myjs', 'siteData', [
+			'countryCode' => $current_country,
+		]);
+
 	}
 
     add_theme_support( 'post-thumbnails' );
