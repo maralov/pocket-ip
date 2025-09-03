@@ -1,14 +1,14 @@
 "use strict";
 
-import { paths } from "../gulpfile.babel";
+import {paths} from "../gulpfile.babel";
 import gulp from "gulp";
 import browsersync from "browser-sync";
 
 gulp.task("serve", () => {
     browsersync.init({
-        server: "./dist/",
+        proxy: "http://localhost:8888", // твій WP-сервер
         port: 4000,
-        notify: true
+        notify: false
     });
 
     gulp.watch(paths.views.watch, gulp.parallel("views"));

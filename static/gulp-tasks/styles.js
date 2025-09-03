@@ -9,7 +9,6 @@ import gulpsass from "gulp-sass";
 import mincss from "gulp-clean-css";
 import groupmedia from "gulp-group-css-media-queries";
 import autoprefixer from "gulp-autoprefixer";
-import sourcemaps from "gulp-sourcemaps";
 import plumber from "gulp-plumber";
 import browsersync from "browser-sync";
 import debug from "gulp-debug";
@@ -21,7 +20,6 @@ const argv = yargs.argv,
 
 gulp.task("styles", () => {
     return gulp.src(paths.styles.src)
-        .pipe(gulpif(!production, sourcemaps.init()))
         .pipe(plumber({
             errorHandler: function (err) {
                 console.log(err);
@@ -30,11 +28,11 @@ gulp.task("styles", () => {
         }))
         .pipe(sass())
         .pipe(groupmedia())
-        .pipe(gulpif(production, autoprefixer({
+        .pipe( autoprefixer({
             cascade: false,
             grid: true
-        })))
-        .pipe(gulpif(production, mincss({
+        }))
+        .pipe(mincss({
             compatibility: "ie8", level: {
                 1: {
                     specialComments: 0,
@@ -50,14 +48,12 @@ gulp.task("styles", () => {
                     removeUnusedAtRules: false
                 }
             }
-        })))
-        .pipe(gulpif(production, rename({
+        }))
+        .pipe(rename({
             suffix: ".min"
-        })))
+        }))
         .pipe(plumber.stop())
-        .pipe(gulpif(!production, sourcemaps.write("./maps/")))
-        .pipe(gulp.dest(paths.styles.dist))
-        .pipe(gulpif(production, gulp.dest(paths.styles.public)))
+        .pipe(gulp.dest(paths.styles.public))
         .pipe(debug({
             "title": "CSS files"
         }))

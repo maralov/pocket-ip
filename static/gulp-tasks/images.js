@@ -18,8 +18,7 @@ const argv = yargs.argv,
 
 gulp.task("images", () => {
     return gulp.src(paths.images.src)
-        // .pipe(newer(paths.images.dist))
-        .pipe(newer(production ? paths.images.public : paths.images.dist))
+        .pipe(newer(paths.images.public))
         .pipe(gulpif(production, imagemin([
             imageminGiflossy({
                 optimizationLevel: 3,
@@ -50,8 +49,7 @@ gulp.task("images", () => {
                 ]
             })
         ])))
-        .pipe(gulp.dest(production ? paths.images.public : paths.images.dist ))
-        // .pipe(gulpif(production, gulp.dest(paths.images.public)))
+        .pipe(gulp.dest(paths.images.public))
         .pipe(debug({
             "title": "Images"
         }))

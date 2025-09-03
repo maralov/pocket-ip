@@ -1,0 +1,47 @@
+<?php
+
+    add_action('init', function() {
+        pll_register_string('PoketIP', 'Our blog');
+        pll_register_string('PoketIP', 'Other posts');
+        pll_register_string('PoketIP', 'Read blog');
+        pll_register_string('PoketIP', 'Other news');
+        pll_register_string('PoketIP', 'Read news');
+        pll_register_string('PoketIP', 'Last publications');
+        pll_register_string('PoketIP', 'Read more');
+        pll_register_string('PoketIP', 'Other solutions');
+        pll_register_string('PoketIP', 'The solution is available for countries:');
+        pll_register_string('PoketIP', 'Other services');
+        pll_register_string('PoketIP', 'The service is available for countries:');
+        pll_register_string('PoketIP', 'Other countries');
+        pll_register_string('PoketIP', 'Search');
+        pll_register_string('PoketIP', 'Nothing not found try change request');
+        pll_register_string('PoketIP', 'Please enter at least 3 characters');
+        pll_register_string('PoketIP', 'Thank you');
+        pll_register_string('PoketIP', 'We have received your message');
+        pll_register_string('PoketIP', 'Okey');
+        pll_register_string('PoketIP', 'Copyright');
+        pll_register_string('PoketIP', 'All Rights Reserved By PocketIP Ltd');
+        pll_register_string('PoketIP', 'Trademark registration');
+        pll_register_string('PoketIP', 'Trademark renewal');
+        pll_register_string('PoketIP', 'Subscription services');
+        pll_register_string('PoketIP', 'Countries');
+        pll_register_string('PoketIP', 'Choose country..');
+        pll_register_string('PoketIP', 'Number of Classes:');
+        pll_register_string('PoketIP', 'Includes 1 class, each additional class costs');
+        pll_register_string('PoketIP', 'Total');
+        pll_register_string('PoketIP', 'Service fee');
+        pll_register_string('PoketIP', 'Official fee');
+        pll_register_string('PoketIP', 'Details');
+        pll_register_string('PoketIP', 'File application');
+        pll_register_string('PoketIP', 'Application filing stage');
+        pll_register_string('PoketIP', 'Registration stage (after examination decision)');
+        pll_register_string('PoketIP', 'Oops...Error fetch currency or price data try later');
+        pll_register_string('PoketIP', 'Name');
+        pll_register_string('PoketIP', 'Application number');
+        pll_register_string('PoketIP', 'Registration number');
+        pll_register_string('PoketIP', 'Holder name');
+        pll_register_string('PoketIP', 'Applicant name');
+        pll_register_string('PoketIP', 'Enter search term...');
+        pll_register_string('PoketIP', 'Search term');
+        pll_register_string('PoketIP', 'Search parameter');
+    });

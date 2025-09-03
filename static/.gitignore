@@ -15,3 +15,12 @@ _config.yml
 node_modules
 dist
 package-lock.json
+
+# Ignore everything
+public/**
+
+# But NOT the pocketip theme
+!public/wp-content/
+!public/wp-content/themes/
+!public/wp-content/themes/pocketip/
+!public/wp-content/themes/pocketip/**

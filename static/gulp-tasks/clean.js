@@ -8,5 +8,7 @@ const argv = yargs.argv;
 const production = !!argv.production;
 
 gulp.task("clean", () => {
-    return production ? del(["../public/assets/*"], {force: true}) : del(["./dist/*"]);
+    return production
+        ? del(["../public/wp-content/themes/pocketip/{css,js,img}/**"], {force: true})
+        : Promise.resolve();
 });

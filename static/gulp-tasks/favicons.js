@@ -9,7 +9,6 @@ import gulpif from "gulp-if";
 import yargs from "yargs";
 
 const argv = yargs.argv;
-const production = !!argv.production;
 
 gulp.task("favicons", () => {
     return gulp.src(paths.favicons.src)
@@ -26,8 +25,7 @@ gulp.task("favicons", () => {
                 coast: false
             }
         }))
-        .pipe(gulp.dest(paths.favicons.dist))
-        .pipe(gulpif(production, gulp.dest(paths.favicons.public)))
+        .pipe(gulp.dest(paths.favicons.public))
         .pipe(debug({
             "title": "Favicons"
         }));
